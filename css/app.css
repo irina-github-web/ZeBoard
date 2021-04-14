@@ -326,7 +326,7 @@ h2 {
 
 .modal .author .users-select::after {
   content: "";
-  background: url(/img/arr-down.svg) no-repeat right;
+  background: url(../img/arr-down.svg) no-repeat right;
   position: absolute;
   top: 14px;
   right: 11px;
