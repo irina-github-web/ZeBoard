@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.svg" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="/css/mfp.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/css/app.css" />
+    <title>TheBoard</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="./img/zeboard.svg" alt="logo" />
+        </div>
+        <div class="buttons">
+          <a href="#create-column-modal" class="create-column-link btn blue"
+            >Create column</a
+          >
+          <a href="#create-task-modal" class="create-task-link btn red"
+            >Create task</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="tasks" class="tasks">
+        <ul class="sortable-ul container">
+          <li id="todo" class="col">
+            <div class="col-title">TO DO<span></span></div>
+            <ul>
+              <li>
+                <!-- Task 1-->
+                <div class="col-card">
+                  <div class="card-title">AMP Project X</div>
+                  <div class="card-about">
+                    <p class="until">Until 17.05.2021</p>
+                    <p class="time">10 hours</p>
+                  </div>
+                  <div class="card-project pr-x">Project X</div>
+                  <div class="description"><span>Description</span><p>12.05.Rosemary Fell was not exactly beautiful. She was young, brilliant, extremely modern, well dressed and amazingly well read in the newest of the new books.</p></div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-675</div>
+                    <div class="ava">
+                      <span>Anna</span>
+                      <img src="./img/ava-1.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <!-- Task 2-->
+                <div class="col-card">
+                  <div class="card-title">
+                    Create 90 plans for all department
+                  </div>
+                  <div class="card-about">
+                    <p class="until">Until 12.05.2021</p>
+                    <p class="time">12 hours</p>
+                  </div>
+                  <div class="card-project pr-y">Project Y</div>
+                  <div class="description"><span>Description</span><p>Rosemary had been married two years, and her husband was very fond of her.  They were rich, really rich, not just comfortably well-off, so if Rosemary wanted to shop, she would go to Paris as you and I would go to Bond Street.</p></div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-681</div>
+                    <div class="ava">
+                      <span>John</span>
+                      <img src="./img/ava-2.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <!-- Task 3-->
+                <div class="col-card">
+                  <div class="card-title">
+                    Establish a catering vendor to privide meal service
+                  </div>
+                  <div class="card-about">
+                    <p class="until">Until 20.05.2021</p>
+                    <p class="time">12 hours</p>
+                  </div>
+                  <div class="card-project pr-z">Project Z</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-691</div>
+                    <div class="ava">
+                      <img src="./img/ava-3.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="col">
+            <div class="col-title">IN PROGRESS<span></span></div>
+            <ul>
+              <li>
+                <!-- Task 1-->
+                <div class="col-card">
+                  <div class="card-title">
+                    Homepage footer uses am infine stule-should use a class
+                  </div>
+                  <div class="card-about">
+                    <p class="until">Until 17.05.2021</p>
+                    <p class="time">10 hours</p>
+                  </div>
+                  <div class="card-project pr-y">Project Y</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-675</div>
+                    <div class="ava">
+                      <img src="./img/ava-4.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <!-- Task 2-->
+                <div class="col-card">
+                  <div class="card-title">AMP Project Y</div>
+                  <div class="card-about">
+                    <p class="until">Until 14.05.2021</p>
+                    <p class="time">12 hours</p>
+                  </div>
+                  <div class="card-project pr-y">Project Y</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-633</div>
+                    <div class="ava">
+                      <img src="./img/ava-5.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <!-- Task 3-->
+                <div class="col-card">
+                  <div class="card-title">
+                    Homepage footer uses am infine stule-should use a class
+                  </div>
+                  <div class="card-about">
+                    <p class="until">Until 13.05.2021</p>
+                    <p class="time">24 hours</p>
+                  </div>
+                  <div class="card-project pr-x">Project X</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-619</div>
+                    <div class="ava">
+                      <img src="./img/ava-6.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <!-- Task 4-->
+                <div class="col-card">
+                  <div class="card-title">
+                    Homepage footer uses am infine stule-should use a class
+                  </div>
+                  <div class="card-about">
+                    <p class="until">Until 13.05.2021</p>
+                    <p class="time">24 hours</p>
+                  </div>
+                  <div class="card-project pr-x">Project X</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-619</div>
+                    <div class="ava">
+                      <img src="./img/ava-6.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li id="last-col" class="col not-move">
+            <div class="col-title">DONE<span></span></div>
+            <ul id="done">
+              <li>
+                <!-- Task 1-->
+                <div class="col-card">
+                  <div class="card-title">
+                    Establish JetShuttleSpaceWays for travel
+                  </div>
+                  <div class="card-about">
+                    <p class="until">Until 05.04.2021</p>
+                    <p class="time">36 hours</p>
+                  </div>
+                  <div class="card-project pr-z">Project Z</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-673</div>
+                    <div class="ava">
+                      <img src="./img/ava-7.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <!-- Task 2-->
+                <div class="col-card">
+                  <div class="card-title">AMP Project Z</div>
+                  <div class="card-about">
+                    <p class="until">Until 14.05.2021</p>
+                    <p class="time">12 hours</p>
+                  </div>
+                  <div class="card-project pr-z">Project Z</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-654</div>
+                    <div class="ava">
+                      <img src="./img/ava-8.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <!-- Task 3-->
+                <div class="col-card">
+                  <div class="card-title">
+                    Create 30 plans for all department
+                  </div>
+                  <div class="card-about">
+                    <p class="until">Until 03.05.2021</p>
+                    <p class="time">4 hours</p>
+                  </div>
+                  <div class="card-project pr-x">Project X</div>
+                  <div class="card-bottom">
+                    <div class="bm">BM-611</div>
+                    <div class="ava">
+                      <img src="./img/ava-9.png" alt="avatar" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Create task -->
+    <div id="create-task-modal" class="modal mfp-hide">
+      <h2 class="modal-title">Create task</h2>
+      <form id="add-new-task" class="new-task">
+        <label for="name">Name</label>
+        <input class="task-title" type="text" id="name" />
+        <label for="descr">Discription</label>
+        <textarea id="descr" name="content" cols="30" rows="10"></textarea>
+        <div class="date-time">
+          <div class="date">
+            <label for="date">Until</label>
+            <input type="text" id="date" />
+            <img src="/img/calendar.svg" alt="calendar-icon">
+          </div>
+          <div class="time">
+            <label for="time">Estimation time</label>
+            <input type="text" id="time" />
+            <img src="/img/clock.svg" alt="clock-icon">
+          </div>
+        </div>
+        <div class="author">
+          <label for="author">Author</label>
+          <select id="author">
+            <option data-thumbnail="./img/user.svg">Аutomatically</option>
+            <option data-thumbnail="./img/ava-9.png">David</option>
+            <option data-thumbnail="./img/ava-1.png">Anna</option>
+            <option data-thumbnail="./img/ava-4.png">John</option>
+          </select>
+          <div class="users-select">
+            <button class="btn-select" value=""></button>
+            <div class="users-lay">
+            <ul id="users-list" class="select-options"></ul>
+            </div>
+            </div>
+        </div>
+        <div class="buttons">
+          <button class="btn add-task" type="submit" form="add-new-task">
+            Create task
+          </button>
+          <button class="btn modal-close" href="#">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Create column -->
+    <div id="create-column-modal" class="modal mfp-hide">
+      <h2>Create column</h2>
+      <form id="add-new-col" class="new-column">
+        <label for="col-name">Name</label>
+        <input id="col-name" type="text" required />
+        <div class="buttons">
+          <button class="btn add-col" type="submit" form="add-new-col">
+            Add
+          </button>
+          <button class="btn modal-close" href="#">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Info card -->
+    <div id="info-modal" class="modal mfp-hide">
+      <div class="bm"></div>
+      <div class="info-head">
+        <div class="card-title"></div>
+        <div class="ava"></div>
+      </div>
+      <div class="description"></div>
+      <div class="info-bottom">
+        <p class="until"></p>
+        <p class="time"></p>
+      </div>
+    </div>
+    <a href="#info-modal" class="info-link"></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
