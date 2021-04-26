@@ -1,4 +1,7 @@
 console.log("test my here!");
+$(".demo1").addClass("slider-nav");
+
+
 /* СТАРТ */
 /* Управление */
 var vebinar1_name = [
