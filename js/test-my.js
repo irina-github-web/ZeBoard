@@ -3,7 +3,7 @@ $(function() {
 $(".demo1").addClass("slider-nav");
 });
 
-$(".block_video").addClass("slider-for");
+$(".section_vebirars").addClass("slider-for");
 
 
 /* СТАРТ */
