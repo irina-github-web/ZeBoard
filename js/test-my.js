@@ -1,8 +1,9 @@
 console.log("test my here!");
 $(function() {
 $(".demo1").addClass("slider-nav");
-$(".section_vebirars").addClass("slider-for");
 });
+
+$(".section_vebirars").addClass("slider-for");
 
 
 /* СТАРТ */
