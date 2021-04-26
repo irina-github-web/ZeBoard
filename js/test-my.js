@@ -1,5 +1,7 @@
 console.log("test my here!");
+$(function() {
 $(".demo1").addClass("slider-nav");
+});
 
 
 /* СТАРТ */
