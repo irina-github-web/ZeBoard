@@ -1,3 +1,4 @@
+console.log("test my here!");
 /* СТАРТ */
 /* Управление */
 var vebinar1_name = [
