@@ -4,7 +4,7 @@ $(function () {
   
   $(".section_vebirars").addClass("slider-for");
   $("#vebirars").css("display", "block");
-  
+
 //Слайдер навигации (вебинары)
 $(".slider-nav").slick({
   slidesToShow: 3,
@@ -78,7 +78,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (item) {
     //Верстка для навигации
-    $(".slider-nav").slickAdd(
+    $(".slider-nav").slick('slickAdd',
       '<div class="chapter_card chapter1">' +
         '<a href="#vebirars">' +
         `<div class="chapter1_img"><img src=${item.video_type_pic_url}</div>` +
@@ -92,7 +92,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
 
     //Верстка для контента
-    $(".slider-for").slickAdd(
+    $(".slider-for").slick('slickAdd',
       '<div class="container-upr">' +
         `<h1 class="header_std">${item.video_type_name}</h1>` +
         '<div class="razdelit_upravl" id="vebirars_view">'`<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
