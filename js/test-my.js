@@ -68,6 +68,7 @@ $(".slider-nav").slick({
 $(".slider-for").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
+  centerMode: true,
   arrows: false,
   dots: true,
   fade: true,
