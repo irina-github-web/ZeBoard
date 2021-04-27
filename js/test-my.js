@@ -77,7 +77,7 @@ $(".slider-for").slick({
 //Получение данных
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
-  data.forEach((item) => {
+  $.each(data, function (item) {
       console.log(data);
     //Верстка для навигации
     $(".slider-nav").slick('slickAdd',
