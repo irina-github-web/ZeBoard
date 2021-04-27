@@ -109,7 +109,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="pl_blue"></div></div></a>' +
         '<div id="video_description" class="video_description">' +
         `<h2 class="heading_middle heading_video">${item.videos.video_name}</h2>` +
-        '<div class="razdelit_mid"></div>'`<div class="txt_author">${item.videos.video_author}</div>` +
+        '<div class="razdelit_mid"></div>' +
+        `<div class="txt_author">${item.videos.video_author}</div>` +
         `<p class="txt_std txt_video_desc">${item.videos.video_text}</p></div>` +
         `<div class="block_video_preview">` +
         ' <div class="video_show_all liteTooltip">' +
