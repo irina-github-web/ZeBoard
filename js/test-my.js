@@ -11,7 +11,6 @@ $(".slider-nav").slick({
   slidesToScroll: 1,
   focusOnSelect: true,
   infinite: true,
-  centerMode: true,
   asNavFor: ".slider-for",
   dots: false,
   focusOnSelect: true,
@@ -68,7 +67,6 @@ $(".slider-nav").slick({
 $(".slider-for").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
-  centerMode: true,
   arrows: false,
   dots: true,
   fade: true,
