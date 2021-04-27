@@ -76,6 +76,7 @@ $(".slider-for").slick({
 
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   for (var i = 0; i < data.length; i++) {
+      console.log(data[i]);
     $(".slider-nav").slick(
         "slickAdd",
         '<div class="chapter_card chapter1">' +
