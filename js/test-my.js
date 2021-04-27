@@ -68,8 +68,7 @@ $(".slider-nav").slick({
 $(".slider-for").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: true,
-  dots: true,
+  arrows: false,
   fade: true,
   asNavFor: ".slider-nav",
 });
@@ -79,12 +78,12 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (item) {
       console.log(data);
-      console.log(item.videos.video_name);
+      console.log(data.item.video_type_name);
     //Верстка для навигации
     $(".slider-nav").slick('slickAdd',
       '<div class="chapter_card chapter1">' +
         '<a href="#vebirars">' +
-        `<div class="chapter1_img"><img src=${item.video_type_pic_url}</div>` +
+        `<div class="chapter1_img" style="background-image: url(${item.video_type_pic_url});"></div>` +
         '<div class="chapter_txt">' +
         `<h3 class="heading_small">${item.video_type_name}</h3>` +
         '<div class="razdelit_small"></div>' +
