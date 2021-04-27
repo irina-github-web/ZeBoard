@@ -84,9 +84,9 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       "slickAdd",
       '<div class="chapter_card chapter1">' +
         '<a href="#vebirars">' +
-        `<div class="chapter1_img" style="background-image: url(${item.video_type_pic_url});"></div>` +
+        `<div class="chapter1_img" style="background-image: url(${item[i].video_type_pic_url});"></div>` +
         '<div class="chapter_txt">' +
-        `<h3 class="heading_small">${item.video_type_name}</h3>` +
+        `<h3 class="heading_small">${item[i].video_type_name}</h3>` +
         '<div class="razdelit_small"></div>' +
         '<a href="#" class="link_look1 w-inline-block">' +
         '<div class="txt_link_look">смотреть</div></a>' +
