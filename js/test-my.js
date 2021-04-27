@@ -12,7 +12,7 @@ $(".slider-nav").slick({
   focusOnSelect: true,
   infinite: true,
   asNavFor: ".slider-for",
-  dots: false,
+  dots: true,
   focusOnSelect: true,
   appendArrows: $(".slick-arrow-4"),
   prevArrow:
