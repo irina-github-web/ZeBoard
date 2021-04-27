@@ -77,7 +77,7 @@ $(".slider-for").slick({
 //Получение данных
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
-  $.each(data, function (item) {
+  data.forEach((item) => {
       console.log(data);
     //Верстка для навигации
     $(".slider-nav").slick('slickAdd',
@@ -96,7 +96,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     //Верстка для контента
     $(".slider-for").slick('slickAdd',
       '<div class="container-upr">' +
-        `<h1 class="header_std">test</h1>` +
+        `<h1 class="header_std">${item.video_type_name}</h1>` +
         '<div class="razdelit_upravl" id="vebirars_view">' +
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
