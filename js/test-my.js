@@ -79,6 +79,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (item) {
       console.log(data);
+      console.log(data.item.video_type_name);
     //Верстка для навигации
     $(".slider-nav").slick('slickAdd',
       '<div class="chapter_card chapter1">' +
@@ -97,7 +98,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $(".slider-for").slick('slickAdd',
       '<div class="container-upr">' +
         `<h1 class="header_std">test</h1>` +
-        '<div class="razdelit_upravl" id="vebirars_view">'`<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
+        '<div class="razdelit_upravl" id="vebirars_view">' +
+        `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
         '<div class="block_video">' +
