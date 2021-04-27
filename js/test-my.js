@@ -77,7 +77,7 @@ $(".slider-for").slick({
 fetch("https://video.gd.ru/event-type-2")
   .then((response) => response.json())
   .then((json) => {
-    json.forEach((item) => {
+    $.forEach((item) => {
       $(".slider-nav").slick(
         "slickAdd",
         '<div class="chapter_card chapter1">' +
