@@ -74,8 +74,12 @@ $(".slider-for").slick({
   asNavFor: ".slider-nav",
 });
 
+fetch('https://video.gd.ru/event-type-2')
+  .then(response => response.json())
+  .then(json => console.log(json))
+
 //Получение данных
-$.getJSON("https://jsonplaceholder.typicode.com/users", function (data) {
+$.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (item) {
       console.log(data);
@@ -85,7 +89,7 @@ $.getJSON("https://jsonplaceholder.typicode.com/users", function (data) {
         '<a href="#vebirars">' +
         `<div class="chapter1_img" style="background-image: url(${item.video_type_pic_url});"></div>` +
         '<div class="chapter_txt">' +
-        `<h3 class="heading_small">${item.name}</h3>` +
+        `<h3 class="heading_small">${item.video_type_name}</h3>` +
         '<div class="razdelit_small"></div>' +
         '<a href="#" class="link_look1 w-inline-block">' +
         '<div class="txt_link_look">смотреть</div></a>' +
@@ -96,7 +100,7 @@ $.getJSON("https://jsonplaceholder.typicode.com/users", function (data) {
     //Верстка для контента
     $(".slider-for").slick('slickAdd',
       '<div class="container-upr">' +
-        `<h1 class="header_std">${item.address.city}</h1>` +
+        `<h1 class="header_std">${item.video_type_name}</h1>` +
         '<div class="razdelit_upravl" id="vebirars_view">' +
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
