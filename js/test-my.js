@@ -20,49 +20,6 @@ $(".slider-nav").slick({
     '<button class="icn_arrow_left" aria-label="Previous" type="button"></button>',
   nextArrow:
     '<button class="icn_arrow_right" aria-label="Next" type="button"></button>',
-  responsive: [
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "40px",
-        arrows: false,
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: false,
-        centerMode: true,
-        centerPadding: "40px",
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 479,
-      settings: {
-        slidesToShow: 1,
-        arrows: false,
-        centerMode: true,
-        centerPadding: "40px",
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
-      },
-    },
-  ],
 });
 //Слайдер с контентом (видео)
 $(".slider-for").slick({
@@ -77,7 +34,7 @@ $(".slider-for").slick({
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (item) {
-      console.log(item);
+      console.log(item.video_type_name);
     //Верстка для навигации
     $(".slider-nav").slick('slickAdd',
       '<div class="chapter_card chapter1">' +
