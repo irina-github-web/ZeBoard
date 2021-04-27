@@ -105,7 +105,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="content">' +
         '<div class="block_video">' +
         `<a href=${item.videos.video_url} class="fancybox-media w-inline-block">` +
-        '<div class="video"><img src=${images/icn_play_big.png} alt="" class="icn_big_play">' +
+        '<div class="video"><img src="images/icn_play_big.png" alt="" class="icn_big_play">' +
         '<div class="pl_blue"></div></div></a>' +
         '<div id="video_description" class="video_description">' +
         `<h2 class="heading_middle heading_video">${item.videos.video_name}</h2>` +
