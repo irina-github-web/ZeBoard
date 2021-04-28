@@ -19,50 +19,7 @@ $(".slider-nav").slick({
   prevArrow:
     '<button class="icn_arrow_left" aria-label="Previous" type="button"></button>',
   nextArrow:
-    '<button class="icn_arrow_right" aria-label="Next" type="button"></button>',
-  responsive: [
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "40px",
-        arrows: false,
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: false,
-        centerMode: true,
-        centerPadding: "40px",
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 479,
-      settings: {
-        slidesToShow: 1,
-        arrows: false,
-        centerMode: true,
-        centerPadding: "40px",
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
-      },
-    },
-  ],
+    '<button class="icn_arrow_right" aria-label="Next" type="button"></button>'
 });
 //Слайдер с контентом (видео)
 $(".slider-for").slick({
