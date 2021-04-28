@@ -94,9 +94,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="txt_link_look">смотреть</div></a></div></a></div>'
     );
 
-    $.each(item.videos, (video) => {
-      console.log(item.videos);
-    });
     //Верстка для контента
     $(".slider-for").slick(
       "slickAdd",
@@ -120,5 +117,13 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
     );
+
+    $.each(item.videos, (video) => {
+      var videos_preview = [];
+      videos_preview = [
+        ...`<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_name} style="opacity: 0.5;"></div>`,
+      ];
+      console.log(videos_preview);
+    });
   });
 });
