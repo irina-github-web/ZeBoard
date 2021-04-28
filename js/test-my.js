@@ -119,11 +119,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
 
     $.each(item.videos, (video) => {
-      var videos_preview = [];
-      videos_preview = [
-        ...`<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_name} style="opacity: 0.5;"></div>`,
-      ];
-      console.log(videos_preview);
-    });
+        console.log(video);
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_name} style="opacity: 0.5;"></div>`
+      });
   });
 });
