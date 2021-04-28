@@ -119,7 +119,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
 
     $.each(item.videos, (video) => {
-        console.log(video);
+        console.log(video.video_name);
         `<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_name} style="opacity: 0.5;"></div>`
       });
   });
