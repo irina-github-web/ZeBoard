@@ -105,13 +105,13 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
         '<div class="block_video">' +
-        `<a href=${item.videos.video_url} class="fancybox-media w-inline-block">` +
-        `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${item.videos.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+        `<a href=${item.video_url} class="fancybox-media w-inline-block">` +
+        `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${item.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
         '<div class="pl_blue"></div></div></a>' +
         '<div id="video_description" class="video_description">' +
-        `<h2 class="heading_middle heading_video">${item.videos.video_name}</h2>` +
+        `<h2 class="heading_middle heading_video">${item.video_name}</h2>` +
         '<div class="razdelit_mid"></div>' +
-        `<div class="txt_author">${item.videos.video_author}</div>` +
+        `<div class="txt_author">${item.video_author}</div>` +
         `<p class="txt_std txt_video_desc">${videos.video_text}</p></div>` +
         $.each(item.videos, (index, video) => {
           console.log(index, video);
