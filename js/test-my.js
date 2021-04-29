@@ -1,7 +1,8 @@
-$(function () {
-  $(".demo1").addClass("slider-nav");
-});
+// $(function () {
+//   $(".demo1").addClass("slider-nav");
+// });
 
+$(".demo1").addClass("slider-nav");
 $(".section_vebirars").addClass("slider-for");
 $("#vebirars").css("display", "block");
 
@@ -83,6 +84,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $(".slider-nav").slick(
       "slickAdd",
       '<div class="chapter_card chapter1">' +
+        '<a href="#vebirars">' +
         `<div class="chapter1_img" style="background-image: url(${item.video_type_pic_url});"></div>` +
         '<div class="chapter_txt">' +
         `<h3 class="heading_small">${item.video_type_name}</h3>` +
