@@ -112,7 +112,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         `<h2 class="heading_middle heading_video">${item.video_name}</h2>` +
         '<div class="razdelit_mid"></div>' +
         `<div class="txt_author">${item.video_author}</div>` +
-        `<p class="txt_std txt_video_desc">${videos.video_text}</p></div>` +
+        `<p class="txt_std txt_video_desc">${item.video_text}</p></div>` +
         $.each(item.videos, (index, video) => {
           console.log(index, video);
           `<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_name} style="opacity: 0.5;"></div>`
