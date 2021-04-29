@@ -115,7 +115,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         `<p class="txt_std txt_video_desc">${item.video_text}</p></div>` +
         $.each(item.videos, (index, video) => {
           console.log(index, video.video_pic_url);
-          `<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_pic_url} style="opacity: 0.5;"></div>`
+          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${video.video_pic_url});opacity: 0.5;"></div>`
         }) +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
