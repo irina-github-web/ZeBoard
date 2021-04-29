@@ -19,7 +19,50 @@ $(".slider-nav").slick({
   prevArrow:
     '<button class="icn_arrow_left" aria-label="Previous" type="button"></button>',
   nextArrow:
-    '<button class="icn_arrow_right" aria-label="Next" type="button"></button>'
+    '<button class="icn_arrow_right" aria-label="Next" type="button"></button>',
+  responsive: [
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: "40px",
+        arrows: false,
+        infinite: true,
+        dots: true,
+        adaptiveHeight: true,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: true,
+        centerPadding: "40px",
+        infinite: true,
+        dots: true,
+        adaptiveHeight: true,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 479,
+      settings: {
+        slidesToShow: 1,
+        arrows: false,
+        centerMode: true,
+        centerPadding: "40px",
+        infinite: true,
+        dots: true,
+        adaptiveHeight: true,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 });
 //Слайдер с контентом (видео)
 $(".slider-for").slick({
@@ -75,8 +118,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="pl_show"></div></div></div></div>'
     );
 
-    $.each(item, (video) => {
-        console.log(video);
+    $.each(item, (index, video) => {
+        console.log(index - video);
         `<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_name} style="opacity: 0.5;"></div>`
       });
   });
