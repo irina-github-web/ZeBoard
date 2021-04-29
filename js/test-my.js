@@ -106,7 +106,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="content">' +
         '<div class="block_video">' +
         $.each(item.videos, (index, video) => {
-          console.log(index[1], video[1]);
+          console.log(index[1], video[index]);
         `<a href=${video.video_url} class="fancybox-media w-inline-block">` +
         `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${video.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
         '<div class="pl_blue"></div></div></a>' +
