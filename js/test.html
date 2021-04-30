@@ -1,141 +1,128 @@
-<style>
-  #vebirars {
-    width: 100%;
-    max-width: 1140px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-</style>  
-<div class="section_chapters js-prevent-click">
-    <div class="container">
-      <h1 class="header_std">Записи <span class="blue">вебинаров</span></h1>
-      <div class="subheader_std">по темам:</div>
-      <div class="chapters_block">
+// $(function () {
+//   $(".demo1").addClass("slider-nav");
+// });
 
+$(".demo1").addClass("slider-nav");
+$(".section_vebirars").addClass("slider-for");
+$("#vebirars").css("display", "block");
 
-        <div class="demo1">
+//Слайдер навигации (вебинары)
+$(".slider-nav").slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  focusOnSelect: true,
+  centerMode: true,
+  asNavFor: ".slider-for",
+  dots: false,
+  focusOnSelect: true,
+  appendArrows: $(".slick-arrow-4"),
+  prevArrow:
+    '<button class="icn_arrow_left" aria-label="Previous" type="button"></button>',
+  nextArrow:
+    '<button class="icn_arrow_right" aria-label="Next" type="button"></button>',
+  responsive: [
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: "40px",
+        arrows: false,
+        infinite: true,
+        dots: true,
+        adaptiveHeight: true,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: true,
+        centerPadding: "40px",
+        infinite: true,
+        dots: true,
+        adaptiveHeight: true,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 479,
+      settings: {
+        slidesToShow: 1,
+        arrows: false,
+        centerMode: true,
+        centerPadding: "40px",
+        infinite: true,
+        dots: true,
+        adaptiveHeight: true,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+});
+//Слайдер с контентом (видео)
+$(".slider-for").slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: true,
+  fade: false,
+  asNavFor: ".slider-nav",
+});
 
-             </div><div class="slick-arrow-4"></div>
-      </div>
-      <!--
-      <div class="icn_arrow_left"><img src="images/icn_arrow_left.svg" alt="" class="arrow_bottom"></div>
-      <div class="icn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div>-->
-    </div>
-  </div>
-  <div id="vebirars" class="section_vebirars js-prevent-click">
-  </div>
-  <div class="section_vystupl js-prevent-click">
-    <div class="container conf">
-      <h1 class="header_std">Записи <span class="blue">выступлений</span></h1>
-      <div class="subheader_std">с закрытых бизнес-мероприятий, организованных журналом:</div>
-      <div class="chapters_block2">
-        <div class="conf_card conf1_card">
+//Получение данных
+$.getJSON("https://video.gd.ru/event-type-2", function (data) {
+  //Перебираем в цикле
+  $.each(data, function (i, item) {
+    console.log(data);
+    //Верстка для навигации
+    $(".slider-nav").slick(
+      "slickAdd",
+      '<div class="chapter_card chapter1">' +
+        '<a href="#vebirars">' +
+        `<div class="chapter1_img" style="background-image: url(${item.video_type_pic_url});"></div>` +
+        '<div class="chapter_txt">' +
+        `<h3 class="heading_small">${item.video_type_name}</h3>` +
+        '<div class="razdelit_small"></div>' +
+        '<a href="#" class="link_look1 w-inline-block">' +
+        '<div class="txt_link_look">смотреть</div></a>' +
+        '<a href="#" class="link_look1 active w-inline-block">' +
+        '<div class="txt_link_look">смотреть</div></a></div></a></div>'
+    );
 
-          <a href="#conferenses">
-          <div class="conf1_img"></div>
-          <div class="conf1_img active"></div>
-          <div class="chapter_txt">
-            <h3 class="heading_small">День Генерального Директора</h3>
-            <div class="razdelit_small"></div>
-            <a href="#conferenses" class="link_look1 w-inline-block">
-              <div class="txt_link_look">смотреть</div>
-            </a>
-            <a href="#conferenses" class="link_look1 active w-inline-block">
-              <div class="txt_link_look">смотреть</div>
-            </a>
-          </div>
-        </a>
-        </div>
-        <div class="conf_card conf2_card">
+    //Верстка для контента
+    $(".slider-for").slick(
+      "slickAdd",
+      '<div class="container-upr">' +
+        `<h1 class="header_std">${item.video_type_name}</h1>` +
+        '<div class="razdelit_upravl" id="vebirars_view">' +
+        `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
+        '<div class="line_razd blue"></div></div>' +
+        '<div class="content">' +
+        '<div class="block_video">' +
+        `<a href=${item.video_url} class="fancybox-media w-inline-block">` +
+        `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${item.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+        '<div class="pl_blue"></div></div></a>' +
+        '<div id="video_description" class="video_description">' +
+        `<h2 class="heading_middle heading_video">${item.video_name}</h2>` +
+        '<div class="razdelit_mid"></div>' +
+        `<div class="txt_author">${item.video_author}</div>` +
+        `<p class="txt_std txt_video_desc">${item.video_text}</p></div>` +
+        $.each(item.videos, (iVideoId, aVideo) => {
+          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${item["videos"][iVideoId]["video_pic_url"]});opacity: 0.5;"></div>`
+        }) +
+        '<div class="video_show_all liteTooltip">' +
+        '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
+        '<div class="pl_show"></div></div></div></div>'
+    );
 
-          <a href="#conferenses">
-          <div class="conf2_img"></div>
-          <div class="conf2_img active"></div>
-          <div class="chapter_txt">
-            <h3 class="heading_small">Воронка продаж</h3>
-            <div class="razdelit_small"></div>
-            <a href="#conferenses" class="link_look2 w-inline-block">
-              <div class="txt_link_look">смотреть</div>
-            </a>
-            <a href="#conferenses" class="link_look2 active w-inline-block">
-              <div class="txt_link_look">смотреть</div>
-            </a>
-          </div>
-            </a>
-        </div>
-      </div><img src="images/img_ochki.png" alt="" class="img_glasses"><img src="images/img_headphones.png" alt="" class="img_headphones"><img src="images/img_pens.png" alt="" class="img_pens"><img src="images/img_cofe.png" alt="" class="img_cofe"></div>
-  </div>
-  <div id="conferenses" class="section_vebirars js-prevent-click">
-    <div id="vebirars5_view"></div>
-    <div class="container-dgd">
-      <h1 class="header_std">День Генерального Директора</h1>
-      <div class="razdelit_upravl">
-
-        <div class="line_razd blue"></div><img src="images/icn_case.png" width="39" alt="" class="icn_upravl">
-        <div class="line_razd blue"></div>
-      </div>
-      <div class="content">
-        <div class="block_video">
-          <a href="https://youtu.be/7rFG60u1T4g" class="fancybox-media2 w-inline-block">
-            <div class="video2" id="video_conf"><img src="images/icn_play_big.png" alt="" class="icn_big_play">
-              <div class="pl_blue"></div>
-            </div>
-          </a>
-          <div class="video_description conf">
-            <h2 class="heading_middle heading_video2 conf" id="heading_video_conf">Работа с возражением «дорого»: правильные уточняющие вопросы</h2>
-            <div class="razdelit_mid"></div>
-            <div class="txt_author2 conf" id="txt_author_conf">Иван Никитичев, Генеральный Директор<br>«Рога и копыта»</div>
-            <p class="txt_std txt_video_desc2 conf" id="txt_video_desc_conf">Может ли Ваша компания действительно быстро собрать пакет документов для участия в тендере или сдачи в налоговую? Договоры наверняка хранятся у юристов или в бухгалтерии, часть может быть утеряна, не подписана или уже не действительна. Бухгалтерские проводки по документам выполняются в бухгалтерской системе. Учет договоров в лучшем случае ведется в электронной таблице. Счета и акты находятся в финансовом отделе. А текущая переписка по поводу договорных работ - в электронных почтовых ящиках сотрудников. Чтобы собрать все просто в кучу потребуются дни, порой недели. Если Вы хотите сэкономить драгоценное время, чтобы не упустить важный контракт или избежать штрафов со стороны налоговой, то нужно автоматизировать процессы.  Приглашаем Вас на бесплатный вебинар «Как быстро навести порядок в документах и сэкономить компании деньги».</p>
-          </div>
-          <div class="block_video_preview5">
-            <div class="video_show_all5 liteTooltip">
-              <div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div>
-            </div>
-            <div class="pagination"> <!--<div class="year_pagination name">Год конференции:</div>
-
-            <div class="year_pagination active">2019</div><div class="year_pagination">2018</div><div class="year_pagination">2017</div>
-          -->
-        </div>
-
-          </div>
-          <div class="pl_show"></div>
-        </div>
-      </div>
-    </div>
-    <div id="vebirars6_view"></div>
-    <div class="container-vp">
-      <h1 class="header_std">Воронка продаж</h1>
-      <div class="razdelit_upravl">
-        <div class="line_razd blue"></div><img src="images/icn_vp.png" width="37" alt="" class="icn_upravl">
-        <div class="line_razd blue"></div>
-      </div>
-      <div class="content">
-        <div class="block_video">
-          <a href="https://youtu.be/7rFG60u1T4g" class="fancybox-media2 w-inline-block">
-            <div id="video_conf2" class="video2 conf"><img src="images/icn_play_big.png" alt="" class="icn_big_play">
-              <div class="pl_blue"></div>
-            </div>
-          </a>
-          <div  class="video_description">
-            <h2 id="heading_video_conf2" class="heading_middle heading_video2 conf">Работа с возражением «дорого»: правильные уточняющие вопросы</h2>
-            <div class="razdelit_mid"></div>
-            <div id="txt_author_conf2" class="txt_author2 conf">Иван Никитичев, Генеральный Директор<br>«Рога и копыта»</div>
-            <p id="txt_video_desc_conf2" class="txt_std txt_video_desc2 conf">Может ли Ваша компания действительно быстро собрать пакет документов для участия в тендере или сдачи в налоговую? Договоры наверняка хранятся у юристов или в бухгалтерии, часть может быть утеряна, не подписана или уже не действительна. Бухгалтерские проводки по документам выполняются в бухгалтерской системе. Учет договоров в лучшем случае ведется в электронной таблице. Счета и акты находятся в финансовом отделе. А текущая переписка по поводу договорных работ - в электронных почтовых ящиках сотрудников. Чтобы собрать все просто в кучу потребуются дни, порой недели. Если Вы хотите сэкономить драгоценное время, чтобы не упустить важный контракт или избежать штрафов со стороны налоговой, то нужно автоматизировать процессы.  Приглашаем Вас на бесплатный вебинар «Как быстро навести порядок в документах и сэкономить компании деньги».</p>
-          </div>
-          <div class="block_video_preview6">
-            <div class="video_show_all6 liteTooltip">
-              <div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div>
-            </div>
-            <div class="pagination_VP" id="pagination_VP"> <!--<div class="year_pagination name">Год конференции:</div>
-
-            <div class="year_pagination active">2019</div><div class="year_pagination">2018</div><div class="year_pagination">2017</div>
-          -->
-        </div>
-          </div>
-          <div class="pl_show"></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
+    // $.each(item.videos, (index, video) => {
+    //     console.log(index, video);
+    //     `<div class="video_preview preview_vebinar3_1 liteTooltip" data-tooltip-mouseover=${video.video_name} style="opacity: 0.5;"></div>`
+    //   });
+  });
+});
