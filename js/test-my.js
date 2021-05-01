@@ -110,7 +110,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="razdelit_mid"></div>' +
         `<div class="txt_author">${aVideo.video_author}</div>` +
         `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div>`
-    }));
+    )});
 
     //Верстка для контента
     $(".slider-for").slick(
