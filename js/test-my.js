@@ -105,7 +105,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         $.each(item.videos, (iVideoId, aVideo) => {
           if (iVideoIdFirst === "") {
             iVideoIdFirst = iVideoId;
-            console.log(iVideoIdFirst, aVideo);
+            console.log(iVideoIdFirst[aVideo]);
           } else { return false; }
 
           var video_url_val = JSON.stringify([iVideoIdFirst][aVideo.video_url]);
