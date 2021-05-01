@@ -140,14 +140,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="pl_show"></div></div></div></div>'
     );
 
-    $.map(result_preview, function (val, i) {
-      $("." + val).click(function () {
-        console.log("click!");
-      });
-    });
+    // $.map(result_preview, function (val, i) {
+    //   $("." + val).click(function () {
+    //     console.log("click!");
+    //   });
+    // });
   });
 });
-
-// $(document).ready(function () {
-
-// });
