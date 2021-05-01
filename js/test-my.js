@@ -97,7 +97,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirst === "") {
         iVideoIdFirst = iVideoId;
-        console.log(iVideoIdFirst, aVideo);
       } else {
         return false;
       }
@@ -140,5 +139,5 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 });
 
 $(".video_description").on("hover", ()=> {
-  $(this).css("z-index", "10");
+  $(".video_description").css("z-index", "10");
 });
