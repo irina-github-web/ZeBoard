@@ -90,7 +90,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
 
     var iVideoIdFirst = "";
-    var test = JSON.stringify(item.videos);
+    var test = item.videos.toString;
 
     //Верстка для контента
     $(".slider-for").slick(
