@@ -110,10 +110,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
           var video_url_val = aVideo.video_url;
           console.log(video_url_val);
-          var video_pic_url_val = iVideoIdFirst.video_pic_url;
-          var video_name_val = iVideoIdFirst.video_name;
-          var video_author_val = iVideoIdFirst.video_author;
-          var video_text_val = iVideoIdFirst.video_text;
+          var video_pic_url_val = aVideo.video_pic_url;
+          var video_name_val = aVideo.video_name;
+          var video_author_val = aVideo.video_author;
+          var video_text_val = aVideo.video_text;
 
           `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
             `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${video_pic_url_val});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
