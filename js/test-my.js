@@ -138,3 +138,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
   });
 });
+
+$(".video_description").on("hover", ()=> {
+  $(this).css("z-index", "10");
+});
