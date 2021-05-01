@@ -107,7 +107,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
             iVideoIdFirst = iVideoId;
             console.log(iVideoIdFirst);
           }
-          `<a href=${item.videos[iVideoIdFirst]["video_url"]} class="fancybox-media w-inline-block">` +
+          `<a href=${aVideo[iVideoIdFirst]["video_url"]} class="fancybox-media w-inline-block">` +
             `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${item["videos"][iVideoIdFirst]["video_pic_url"]});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
             '<div class="pl_blue"></div></div></a>' +
             '<div id="video_description" class="video_description">' +
@@ -117,7 +117,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
             `<p class="txt_std txt_video_desc">${item["videos"][iVideoIdFirst]["video_text"]}</p></div>`;
         }) +
         $.each(item.videos, (iVideoId, aVideo) => {
-          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${item.videos[iVideoId]["video_pic_url"]});opacity: 0.5;"></div>`;
+          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo[iVideoId]["video_pic_url"]});opacity: 0.5;"></div>`;
         }) +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
