@@ -142,7 +142,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 
   for (var i = 0; i < result_preview.length; i++) {
-    $(ids[i]).click(function () {
+    $(result_preview[i]).click(function () {
       console.log("click!");
     });
   }
