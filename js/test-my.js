@@ -109,9 +109,9 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
           } else { return false; }
 
           var video_url = iVideoIdFirst.video_url;
-          console.log(video_url);
           var video_pic_url = iVideoIdFirst.video_pic_url;
-          var video_name = iVideoIdFirst.video_name;
+          var video_name = aVideo["videos"][iVideoIdFirst]["video_name"];
+          console.log(video_name);
           var video_author = iVideoIdFirst.video_author;
           var video_text = iVideoIdFirst.video_text;
           // Object.keys(obj).forEach(key => {
