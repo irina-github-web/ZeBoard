@@ -90,6 +90,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="txt_link_look">смотреть</div></a></div></a></div>'
     );
 
+    var iVideoIdFirst = "";
+
     //Верстка для контента
     $(".slider-for").slick(
       "slickAdd",
