@@ -91,6 +91,32 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
     var iVideoIdFirst = "";
     // var test = (item.videos).toString();
+    var result = [];
+    result.push(
+    $.each(item.videos, (iVideoId, aVideo) => {
+      if (iVideoIdFirst === "") {
+        iVideoIdFirst = iVideoId;
+        console.log(iVideoIdFirst, aVideo);
+      } else {
+        return false;
+      }
+
+      var video_url_val = aVideo.video_url;
+      var video_pic_url_val = aVideo.video_pic_url;
+      var video_name_val = aVideo.video_name;
+      var video_author_val = aVideo.video_author;
+      var video_text_val = aVideo.video_text;
+      console.log(video_url_val, video_pic_url_val);
+
+      `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
+        `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${video_pic_url_val});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+        '<div class="pl_blue"></div></div></a>' +
+        '<div id="video_description" class="video_description">' +
+        `<h2 class="heading_middle heading_video">${video_name_val}</h2>` +
+        '<div class="razdelit_mid"></div>' +
+        `<div class="txt_author">${video_author_val}</div>` +
+        `<p class="txt_std txt_video_desc">${video_text_val}</p></div>`;
+    }));
 
     //Верстка для контента
     $(".slider-for").slick(
@@ -101,31 +127,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
-        '<div class="block_video">' +
-        $.each(item.videos, (iVideoId, aVideo) => {
-          if (iVideoIdFirst === "") {
-            iVideoIdFirst = iVideoId;
-            console.log(iVideoIdFirst, aVideo);
-          } else {
-            return false;
-          }
-
-          var video_url_val = aVideo.video_url;
-          var video_pic_url_val = aVideo.video_pic_url;
-          var video_name_val = aVideo.video_name;
-          var video_author_val = aVideo.video_author;
-          var video_text_val = aVideo.video_text;
-          console.log(video_url_val, video_pic_url_val);
-
-          `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
-            `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${video_pic_url_val});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
-            '<div class="pl_blue"></div></div></a>' +
-            '<div id="video_description" class="video_description">' +
-            `<h2 class="heading_middle heading_video">${video_name_val}</h2>` +
-            '<div class="razdelit_mid"></div>' +
-            `<div class="txt_author">${video_author_val}</div>` +
-            `<p class="txt_std txt_video_desc">${video_text_val}</p></div>`;
-        }) +
+        '<div class="block_video">' + result +
 
         $.each(item.videos, (iVideoId, aVideo) => {
           var video_pic_url_val = aVideo.video_pic_url;
