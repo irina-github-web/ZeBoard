@@ -110,8 +110,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
           var video_url_val = iVideoIdFirst.video_url;
           var video_pic_url_val = iVideoIdFirst.video_pic_url;
-          var video_name_val = aVideo.iVideoIdFirst.video_name;
-          console.log(video_name);
+          var video_name_val = aVideo[iVideoIdFirst][video_name];
+          console.log(video_name_val);
           var video_author_val = iVideoIdFirst.video_author;
           var video_text_val = iVideoIdFirst.video_text;
           // Object.keys(obj).forEach(key => {
