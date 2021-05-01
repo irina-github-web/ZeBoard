@@ -110,10 +110,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
           }
 
           var video_url_val = JSON.stringify(aVideo.video_url);
-          var video_pic_url_val = aVideo.video_pic_url;
-          var video_name_val = aVideo.video_name;
-          var video_author_val = aVideo.video_author;
-          var video_text_val = aVideo.video_text;
+          var video_pic_url_val = JSON.stringify(aVideo.video_pic_url);
+          var video_name_val = JSON.stringify(aVideo.video_name);
+          var video_author_val = JSON.stringify(aVideo.video_author);
+          var video_text_val = JSON.stringify(aVideo.video_text);
           console.log(video_url_val, video_pic_url_val);
 
           `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
