@@ -141,12 +141,16 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
   });
 
-  $.map(result_preview, function (val, i) {
-    $("." + val).click(function () {
+  for (var i = 0; i < result_preview.length; i++) {
+    $(ids[i]).click(function () {
       console.log("click!");
     });
-  });
-  
+  }
+  // $.map(result_preview, function (val, i) {
+  //   $("." + val).click(function () {
+  //     console.log("click!");
+  //   });
+  // });
 });
 
 // $(document).ready(function () {
