@@ -143,7 +143,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 });
 
 $(document).ready(function () {
-  $(".video_description").on("hover", () => {
-    $(".video_description").css("z-index", "10");
+  $(".video_description").mouseover(function () {
+    $(this).css("z-index", "9");
+  });
+  $(".video_description").mouseout(function () {
+    $(this).css("z-index", "0");
   });
 });
