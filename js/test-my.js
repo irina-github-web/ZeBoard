@@ -91,7 +91,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
     var iVideoIdFirst = "";
     // var test = (item.videos).toString();
-    var result = [];
 
     //Верстка для контента
     $(".slider-for").slick(
@@ -103,7 +102,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
         '<div class="block_video">' +
-        result.push(
         $.each(item.videos, (iVideoId, aVideo) => {
           if (iVideoIdFirst === "") {
             iVideoIdFirst = iVideoId;
@@ -127,7 +125,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
             '<div class="razdelit_mid"></div>' +
             `<div class="txt_author">${video_author_val}</div>` +
             `<p class="txt_std txt_video_desc">${video_text_val}</p></div>`;
-        })) + result +
+        }) +
+
         $.each(item.videos, (iVideoId, aVideo) => {
           var video_pic_url_val = aVideo.video_pic_url;
           `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${video_pic_url_val});opacity: 0.5;"></div>`;
