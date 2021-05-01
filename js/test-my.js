@@ -100,22 +100,17 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       } else {
         return false;
       }
-result.push(
-      var video_url_val = aVideo.video_url;
-      var video_pic_url_val = aVideo.video_pic_url;
-      var video_name_val = aVideo.video_name;
-      var video_author_val = aVideo.video_author;
-      var video_text_val = aVideo.video_text;
-      console.log(video_url_val, video_pic_url_val);
-
-      `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
-        `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${video_pic_url_val});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+      
+      result.push(
+      `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
+        `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
         '<div class="pl_blue"></div></div></a>' +
         '<div id="video_description" class="video_description">' +
-        `<h2 class="heading_middle heading_video">${video_name_val}</h2>` +
+        `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
         '<div class="razdelit_mid"></div>' +
-        `<div class="txt_author">${video_author_val}</div>` +
-        `<p class="txt_std txt_video_desc">${video_text_val}</p></div>`;
+        `<div class="txt_author">${aVideo.video_author}</div>` +
+        `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div>`;
+        console.log(video_url_val, video_pic_url_val);
     }));
 
     //Верстка для контента
