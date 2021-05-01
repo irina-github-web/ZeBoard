@@ -92,7 +92,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     var iVideoIdFirst = "";
     // var test = (item.videos).toString();
     var result = [];
-    result.push(
+    
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirst === "") {
         iVideoIdFirst = iVideoId;
@@ -100,7 +100,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       } else {
         return false;
       }
-
+result.push(
       var video_url_val = aVideo.video_url;
       var video_pic_url_val = aVideo.video_pic_url;
       var video_name_val = aVideo.video_name;
@@ -127,7 +127,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
-        '<div class="block_video">' + result +
+        '<div class="block_video">' + result.toString() +
 
         $.each(item.videos, (iVideoId, aVideo) => {
           var video_pic_url_val = aVideo.video_pic_url;
