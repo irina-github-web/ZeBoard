@@ -101,8 +101,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
         '<div class="block_video">' +
-        $.each(item.videos, (iVideoId, aVideo) => {
-          // var aVideo = jQuery.parseJSON(obj);
+        $.each(item.videos, (iVideoId, bVideo) => {
+          var aVideo = JSON.stringify(bVideo);
           if (iVideoIdFirst === "") {
             iVideoIdFirst = iVideoId;
             console.log(iVideoIdFirst, aVideo);
