@@ -138,6 +138,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
+$(document).ready(function() {
+
 $(".video_description").on("hover", ()=> {
-  $(".video_description").css("z-index", "10");
+  $(this).css("z-index", "10");
 });
+
+)}
