@@ -74,7 +74,7 @@ $(".slider-for").slick({
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
-    console.log(data);
+
     //Верстка для навигации
     $(".slider-nav").slick(
       "slickAdd",
@@ -115,7 +115,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
           var video_text_val = aVideo.video_text;
           console.log(video_url_val, video_pic_url_val);
 
-          '<a href='+ video_url_val +' class="fancybox-media w-inline-block">' +
+          `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
             `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${video_pic_url_val});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
             '<div class="pl_blue"></div></div></a>' +
             '<div id="video_description" class="video_description">' +
@@ -125,7 +125,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
             `<p class="txt_std txt_video_desc">${video_text_val}</p></div>`;
         }) +
         $.each(item.videos, (iVideoId, aVideo) => {
-          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${iVideoId.video_pic_url});opacity: 0.5;"></div>`;
+          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.5;"></div>`;
         }) +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
