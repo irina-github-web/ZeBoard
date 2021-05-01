@@ -114,10 +114,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     )});
 
     $.each(item.videos, (iVideoId, aVideo) => {
-      '<div class="block_video_preview4">'
       result_preview.push(
-      `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.5;"></div>`);
-      '</div>'
+      `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.5;"></div>`)
     });
 
     //Верстка для контента
@@ -131,7 +129,9 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="content">' +
         '<div class="block_video">' + 
         result.toString() +
+        '<div class="block_video_preview">' +
         result_preview.toString() +
+        '</div>' +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
