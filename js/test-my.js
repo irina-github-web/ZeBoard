@@ -94,6 +94,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     var result = [];
     var result_preview = [];
 
+    //Массив для видео + описание
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirst === "") {
         iVideoIdFirst = iVideoId;
@@ -113,6 +114,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       );
     });
 
+    //Массив для превью видео
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
         `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.5;"></div>`
@@ -142,6 +144,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
 $(document).ready(function () {
   $(".video_description").on("hover", () => {
-    $(this).css("z-index", "10");
+    $(".video_description").css("z-index", "10");
   });
 });
