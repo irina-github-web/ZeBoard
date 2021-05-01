@@ -105,10 +105,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         $.each(item.videos, (iVideoId, aVideo) => {
           if (iVideoIdFirst === "") {
             iVideoIdFirst = iVideoId;
-            console.log(iVideoIdFirst[aVideo]);
+            console.log(iVideoIdFirst, aVideo);
           } else { return false; }
 
-          var video_url_val = JSON.stringify([iVideoIdFirst][aVideo.video_url]);
+          var video_url_val = aVideo.video_url;
           console.log(video_url_val);
           var video_pic_url_val = iVideoIdFirst.video_pic_url;
           var video_name_val = iVideoIdFirst.video_name;
