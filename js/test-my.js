@@ -65,7 +65,7 @@ $(".slider-for").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-  dots: true,
+  dots: false,
   fade: false,
   asNavFor: ".slider-nav",
 });
@@ -139,14 +139,15 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
     );
+
+    $.map(result_preview, function (val, i) {
+      $("." + val).click(function () {
+        console.log("click!");
+      });
+    });
   });
 });
 
 // $(document).ready(function () {
-//   $(".video_description").mouseover(function () {
-//     $(this).css("z-index", "9");
-//   });
-//   $(".video_description").mouseout(function () {
-//     $(this).css("z-index", "0");
-//   });
+
 // });
