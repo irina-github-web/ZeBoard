@@ -71,7 +71,7 @@ $(".slider-for").slick({
 });
 
 //Получение данных
-$.getJSON("https://video.gd.ru/event-type-2", function (obj) {
+$.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
     console.log(data);
@@ -113,10 +113,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (obj) {
           var video_name_val = iVideoIdFirst.video_name;
           var video_author_val = iVideoIdFirst.video_author;
           var video_text_val = iVideoIdFirst.video_text;
-          // Object.keys(obj).forEach(key => {
-          //   console.log(key, obj[key]);
-          // });
-          // alert(item["videos"][iVideoIdFirst]["video_name"]); 
 
           `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
             `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${video_pic_url_val});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
