@@ -72,7 +72,6 @@ $(".slider-for").slick({
 
 //Получение данных
 $.getJSON("https://video.gd.ru/event-type-2", function (obj) {
-  var data = JSON.stringify(obj);
   //Перебираем в цикле
   $.each(data, function (i, item) {
     console.log(data);
