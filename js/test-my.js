@@ -109,8 +109,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
         '<div class="razdelit_mid"></div>' +
         `<div class="txt_author">${aVideo.video_author}</div>` +
-        `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div>`;
-        console.log(video_url_val, video_pic_url_val);
+        `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div>`
     }));
 
     //Верстка для контента
