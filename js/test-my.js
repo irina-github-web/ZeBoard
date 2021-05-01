@@ -127,6 +127,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         $.each(item.videos, (iVideoId, aVideo) => {
           var video_pic_url_val = aVideo.video_pic_url;
           `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${video_pic_url_val});opacity: 0.5;"></div>`;
+          console.log(video_pic_url_val);
         }) +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
