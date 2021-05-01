@@ -101,7 +101,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
         '<div class="block_video">' +
-        $.each(item.videos.toString, (iVideoId, aVideo) => {
+        $.each(item.videos, (iVideoId, aVideo) => {
           // var aVideo = jQuery.parseJSON(obj);
           if (iVideoIdFirst === "") {
             iVideoIdFirst = iVideoId;
@@ -110,11 +110,11 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
             return false;
           }
 
-          var video_url_val = aVideo.video_url;
-          var video_pic_url_val = aVideo.video_pic_url;
-          var video_name_val = aVideo.video_name;
-          var video_author_val = aVideo.video_author;
-          var video_text_val = aVideo.video_text;
+          var video_url_val = aVideo.video_url.toString;
+          var video_pic_url_val = aVideo.video_pic_url.toString;
+          var video_name_val = aVideo.video_name.toString;
+          var video_author_val = aVideo.video_author.toString;
+          var video_text_val = aVideo.video_text.toString;
           console.log(video_url_val, video_pic_url_val);
 
           `<a href=${video_url_val} class="fancybox-media w-inline-block">` +
