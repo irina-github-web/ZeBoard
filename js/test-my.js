@@ -93,28 +93,30 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     // var test = (item.videos).toString();
     var result = [];
     var result_preview = [];
-    
+
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirst === "") {
         iVideoIdFirst = iVideoId;
       } else {
         return false;
       }
-      
+
       result.push(
-      `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
-        `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
-        '<div class="pl_blue"></div></div></a>' +
-        '<div id="video_description" class="video_description">' +
-        `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
-        '<div class="razdelit_mid"></div>' +
-        `<div class="txt_author">${aVideo.video_author}</div>` +
-        `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div>`
-    )});
+        `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
+          `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+          '<div class="pl_blue"></div></div></a>' +
+          '<div id="video_description" class="video_description">' +
+          `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
+          '<div class="razdelit_mid"></div>' +
+          `<div class="txt_author">${aVideo.video_author}</div>` +
+          `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div>`
+      );
+    });
 
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
-      `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.5;"></div>`)
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.5;"></div>`
+      );
     });
 
     //Верстка для контента
@@ -126,11 +128,11 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
-        '<div class="block_video">' + 
+        '<div class="block_video">' +
         result.toString() +
         '<div class="block_video_preview">' +
         result_preview.toString() +
-        '</div>' +
+        "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
@@ -138,10 +140,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
-$(document).ready(function() {
-
-$(".video_description").on("hover", ()=> {
-  $(this).css("z-index", "10");
+$(document).ready(function () {
+  $(".video_description").on("hover", () => {
+    $(this).css("z-index", "10");
+  });
 });
-
-)}
