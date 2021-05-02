@@ -101,7 +101,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         return false;
       }
 
-      result.push(
+      result.join(
         '<div class="main-slide-content">' +
           `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
           `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
@@ -116,11 +116,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
     //Массив для превью видео вебинаров
     $.each(item.videos, (iVideoId, aVideo) => {
-      result_preview.push(
+      result_preview.join(
         `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;"></div>`
       );
     });
-    result_preview.map(e => e.replace(/(,\s*)+/, ','));
 
     //Верстка для контента
     $(".slider-for").slick(
