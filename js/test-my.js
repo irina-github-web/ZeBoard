@@ -95,11 +95,11 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
     //Массив для видео вебинара + описание
     $.each(item.videos, (iVideoId, aVideo) => {
-      if (iVideoIdFirst === "") {
-        iVideoIdFirst = iVideoId;
-      } else {
-        return false;
-      }
+      // if (iVideoIdFirst === "") {
+      //   iVideoIdFirst = iVideoId;
+      // } else {
+      //   return false;
+      // }
 
       result.push(
         '<div class="main-slide-content">' +
