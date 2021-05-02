@@ -1,63 +1,60 @@
-$(document).ready(function() {
-  $('.fancybox-media').fancybox({
-    openEffect  : 'none',
-    closeEffect : 'none',
-        maxWidth    : 1280,
-        maxHeight   : 720,  
-        padding     : 0,
-        margin      : 0,           
-    helpers : {
-      media : {
-          youtube : {
-               params : {
-                   theme : 'light',
-                         vq    : 'hd720',
-                         css   : {
-                            'body' : 'color: #fff'
-                         } 
-               }
-          } 
-      }
-    }
+$(document).ready(function () {
+  $(".fancybox-media").fancybox({
+    openEffect: "none",
+    closeEffect: "none",
+    maxWidth: 1280,
+    maxHeight: 720,
+    padding: 0,
+    margin: 0,
+    helpers: {
+      media: {
+        youtube: {
+          params: {
+            theme: "light",
+            vq: "hd720",
+            css: {
+              body: "color: #fff",
+            },
+          },
+        },
+      },
+    },
   });
-    
-    var hash = location.hash; 
-    
-    if(hash == '#autoplay'){
-        $('#tinymce').find('.fancybox-media').trigger('click');
-    }
 
+  var hash = location.hash;
 
+  if (hash == "#autoplay") {
+    $("#tinymce").find(".fancybox-media").trigger("click");
+  }
 
-  $('.fancybox-media2').fancybox({
-    openEffect  : 'none',
-    closeEffect : 'none',
-        maxWidth    : 1280,
-        maxHeight   : 720,  
-        padding     : 0,
-        margin      : 0,           
-    helpers : {
-      media : {
-          youtube : {
-               params : {
-                   theme : 'light',
-                         vq    : 'hd720',
-                         css   : {
-                            'body' : 'color: #fff'
-                         } 
-               }
-          } 
-      }
-    }
+  $(".fancybox-media2").fancybox({
+    openEffect: "none",
+    closeEffect: "none",
+    maxWidth: 1280,
+    maxHeight: 720,
+    padding: 0,
+    margin: 0,
+    helpers: {
+      media: {
+        youtube: {
+          params: {
+            theme: "light",
+            vq: "hd720",
+            css: {
+              body: "color: #fff",
+            },
+          },
+        },
+      },
+    },
   });
-    
-    var hash = location.hash; 
-    
-    if(hash == '#autoplay'){
-        $('#tinymce').find('.fancybox-media').trigger('click');
-    }
+
+  var hash = location.hash;
+
+  if (hash == "#autoplay") {
+    $("#tinymce").find(".fancybox-media").trigger("click");
+  }
 });
-
 
 $(".demo1").addClass("slider-nav");
 $(".section_vebirars").addClass("slider-for");
