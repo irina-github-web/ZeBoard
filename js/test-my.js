@@ -123,7 +123,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     });
 
     function test(e) {
-      console.log(e.target);
+      console.log(e.target.value);
     }
 
     //Массив для видео вебинара после клика на превью
