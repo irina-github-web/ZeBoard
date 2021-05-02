@@ -118,7 +118,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     //Массив для превью видео вебинаров
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
-        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip="${aVideo.video_name}" ${onClick=test(this)}></div>`
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip="${aVideo.video_name}" ${onClick=test()}></div>`
       );
     });
 
