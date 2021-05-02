@@ -140,10 +140,9 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="pl_show"></div></div></div></div>'
     );
 
-    console.log(result_preview);
-    // $(result_preview).each((i, val) => {
-    //     console.log(val[i]);
-    // });
+    $(".video_preview").each((item)=> {
+      console.log(item);
+    })
   });
 
   // //Слайдер для основного контента (вебинары)
