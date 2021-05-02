@@ -131,7 +131,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="line_razd blue"></div></div>' +
         '<div class="content">' +
         '<div class="block_video">' +
-        result.toString() +
+        result.join("") +
         '<div class="block_video_preview">' +
         result_preview.join("") +
         "</div>" +
@@ -140,6 +140,12 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="pl_show"></div></div></div></div>'
     );
   });
+
+  $(".video_preview").each((i, item)=> {
+    $(item).click(()=> {
+      console.log(i, item);
+    })
+  })
 });
 
 // $(document).ready(function () {
