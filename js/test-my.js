@@ -247,21 +247,21 @@ $(".section_vebirars").slick({
 $.getJSON("https://video.gd.ru/event-type-1", function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
+    console.log(data);
     //Верстка для навигации
     $(".chapters_block2").slick(
       "slickAdd",
       '<div class="conf_card conf1_card">' +
-      '<a href="#conferenses">'
-      `<div class=conf1_img" style="background-image: url(${item.video_type_icon_url});"></div></a>` +
-      '<div class="chapter_txt"><a href="#conferenses">' +
+        `<a href="#conferenses"><div class=conf1_img" style="background-image: url(${item.video_type_icon_url});"></div></a>` +
+        '<div class="chapter_txt"><a href="#conferenses">' +
         `<h3 class="heading_small">${item.video_type_name}</h3>` +
         '<div class="razdelit_small"></div></a>' +
         '<a href="#conferenses" class="link_look1 w-inline-block">' +
-          '<div class="txt_link_look">смотреть</div>' +
-        '</a>' +
+        '<div class="txt_link_look">смотреть</div>' +
+        "</a>" +
         `<a href="#conferenses" class="link_look1 active w-inline-block">` +
-          '<div class="txt_link_look">смотреть</div>' +
-        '</a></div></div>'
+        '<div class="txt_link_look">смотреть</div>' +
+        "</a></div></div>"
     );
   });
 });
