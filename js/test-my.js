@@ -248,7 +248,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
     //Верстка для навигации
-    $(".section_vebirars").slick(
+    $(".chapters_block2").slick(
       "slickAdd",
       '<div class="conf_card conf1_card">' +
       '<a href="#conferenses">'
