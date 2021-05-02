@@ -70,27 +70,6 @@ $(".slider-for").slick({
   asNavFor: ".slider-nav",
 });
 
-$(document).ready(function () {
-//Слайдер для основного контента (вебинары)
-$(".main-slide-content").slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  fade: true,
-  dots: false,
-  arrows: false,
-  asNavFor: ".block_video_preview",
-});
-
-//Слайдер для превью основного контента (вебинары)
-$(".block_video_preview").slick({
-  slidesToShow: 10,
-  slidesToScroll: 1,
-  arrows: true,
-  dots: false,
-  asNavFor: ".main-slide-content",
-})
-});
-
 //Получение данных
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
@@ -124,7 +103,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
       result.push(
         '<div class="main-slide-content">' +
-        `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
+          `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
           `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
           '<div class="pl_blue"></div></div></a>' +
           '<div id="video_description" class="video_description">' +
@@ -160,6 +139,25 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
     );
+  });
+
+  //Слайдер для основного контента (вебинары)
+  $(".main-slide-content").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    dots: false,
+    arrows: false,
+    asNavFor: ".block_video_preview",
+  });
+
+  //Слайдер для превью основного контента (вебинары)
+  $(".block_video_preview").slick({
+    slidesToShow: 10,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: false,
+    asNavFor: ".main-slide-content",
   });
 
   // $.map(result_preview, function (val, i) {
