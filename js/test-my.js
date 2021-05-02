@@ -119,7 +119,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       result_preview.push(
         `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;"></div>`
       );
-      result_preview.join("");
     });
 
     //Верстка для контента
@@ -134,7 +133,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="block_video">' +
         result.toString() +
         '<div class="block_video_preview">' +
-        result_preview.toString() +
+        result_preview.toString().join("") +
         "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
