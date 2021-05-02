@@ -145,7 +145,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   var iVideoIdCur = "";
   $.each(data, function (i, item) {
     $.each(item.videos, (iVideoId, aVideo) => {
-      if (aVideo.video_pic_url.click()) {
+      if ((aVideo.video_pic_url).click()) {
         iVideoIdCur = iVideoId;
       } else {
         return false;
