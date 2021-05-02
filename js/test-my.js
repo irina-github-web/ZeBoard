@@ -57,6 +57,7 @@ $(document).ready(function () {
 });
 
 $("#vebirars").css("display", "block");
+$("#conferenses").css("display", "block");
 
 //Слайдер навигации (вебинары)
 $(".slider-nav").slick({
