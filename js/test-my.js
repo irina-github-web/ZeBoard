@@ -141,24 +141,24 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
   });
 
-  //Слайдер для основного контента (вебинары)
-  $(".main-slide-content").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    fade: true,
-    dots: false,
-    arrows: false,
-    asNavFor: ".block_video_preview",
-  });
+  // //Слайдер для основного контента (вебинары)
+  // $(".main-slide-content").slick({
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   fade: true,
+  //   dots: false,
+  //   arrows: false,
+  //   asNavFor: ".block_video_preview",
+  // });
 
-  //Слайдер для превью основного контента (вебинары)
-  $(".block_video_preview").slick({
-    slidesToShow: 10,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: false,
-    asNavFor: ".main-slide-content",
-  });
+  // //Слайдер для превью основного контента (вебинары)
+  // $(".block_video_preview").slick({
+  //   slidesToShow: 10,
+  //   slidesToScroll: 1,
+  //   arrows: true,
+  //   dots: false,
+  //   asNavFor: ".main-slide-content",
+  // });
 
   // $.map(result_preview, function (val, i) {
   //   $("." + val).click(function () {
