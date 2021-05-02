@@ -133,16 +133,18 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="block_video">' +
         result.toString() +
         '<div class="block_video_preview">' +
-        result_preview.toString().replace(',',' ') +
+        result_preview.toString().replace(",", " ") +
         "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
     );
 
-    $(".video_preview").each((i, val)=> {
-      console.log(val);
-    })
+    $(".video_preview").each((i, val) => {
+      $(val).click(() => {
+        console.log(val);
+      });
+    });
   });
 
   // //Слайдер для основного контента (вебинары)
