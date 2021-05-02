@@ -141,8 +141,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
 
     $.each(result_preview, function (val, i) {
-      $("." + val).click(function () {
-        console.log("click!");
+      $(val[i]).click(function () {
+        console.log(val[i]);
       });
     });
 
