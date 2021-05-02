@@ -140,8 +140,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="pl_show"></div></div></div></div>'
     );
 
-    $(".video_preview").each((item)=> {
-      console.log(item);
+    $(".video_preview").each((i, val)=> {
+      console.log(val);
     })
   });
 
