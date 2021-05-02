@@ -60,7 +60,7 @@ $(".slider-nav").slick({
     },
   ],
 });
-//Слайдер с контентом (видео)
+//Слайдер с контентом (вебинары)
 $(".slider-for").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -70,7 +70,8 @@ $(".slider-for").slick({
   asNavFor: ".slider-nav",
 });
 
-//Слайдер для основного контента (видео)
+$(document).ready(function () {
+//Слайдер для основного контента (вебинары)
 $(".main-slide-content").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -80,7 +81,7 @@ $(".main-slide-content").slick({
   asNavFor: ".block_video_preview",
 });
 
-//Слайдер для превью основного контента (видео)
+//Слайдер для превью основного контента (вебинары)
 $(".block_video_preview").slick({
   slidesToShow: 10,
   slidesToScroll: 1,
@@ -88,6 +89,7 @@ $(".block_video_preview").slick({
   dots: false,
   asNavFor: ".main-slide-content",
 })
+});
 
 //Получение данных
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
@@ -109,11 +111,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
 
     var iVideoIdFirst = "";
-    // var test = (item.videos).toString();
     var result = [];
     var result_preview = [];
 
-    //Массив для видео + описание
+    //Массив для видео вебинара + описание
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirst === "") {
         iVideoIdFirst = iVideoId;
@@ -134,7 +135,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       );
     });
 
-    //Массив для превью видео
+    //Массив для превью видео вебинаров
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
         `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;"></div>`
