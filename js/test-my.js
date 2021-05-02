@@ -1,3 +1,64 @@
+$(document).ready(function() {
+  $('.fancybox-media').fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none',
+        maxWidth    : 1280,
+        maxHeight   : 720,  
+        padding     : 0,
+        margin      : 0,           
+    helpers : {
+      media : {
+          youtube : {
+               params : {
+                   theme : 'light',
+                         vq    : 'hd720',
+                         css   : {
+                            'body' : 'color: #fff'
+                         } 
+               }
+          } 
+      }
+    }
+  });
+    
+    var hash = location.hash; 
+    
+    if(hash == '#autoplay'){
+        $('#tinymce').find('.fancybox-media').trigger('click');
+    }
+
+
+
+  $('.fancybox-media2').fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none',
+        maxWidth    : 1280,
+        maxHeight   : 720,  
+        padding     : 0,
+        margin      : 0,           
+    helpers : {
+      media : {
+          youtube : {
+               params : {
+                   theme : 'light',
+                         vq    : 'hd720',
+                         css   : {
+                            'body' : 'color: #fff'
+                         } 
+               }
+          } 
+      }
+    }
+  });
+    
+    var hash = location.hash; 
+    
+    if(hash == '#autoplay'){
+        $('#tinymce').find('.fancybox-media').trigger('click');
+    }
+});
+
+
 $(".demo1").addClass("slider-nav");
 $(".section_vebirars").addClass("slider-for");
 $("#vebirars").css("display", "block");
@@ -123,23 +184,23 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     });
 
     //Массив для видео вебинара после клика на превью
-    // $.each(item.videos, (iVideoId, aVideo) => {
-    //   $(aVideo.video_name).click(() => {
-    //     iVideoIdCur = iVideoId;
+    $.each(item.videos, (iVideoId, aVideo) => {
+      $(aVideo.video_name).click(() => {
+        iVideoIdCur = iVideoId;
 
-    //     result.push(
-    //       '<div class="main-slide-content">' +
-    //         `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
-    //         `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
-    //         '<div class="pl_blue"></div></div></a>' +
-    //         '<div id="video_description" class="video_description">' +
-    //         `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
-    //         '<div class="razdelit_mid"></div>' +
-    //         `<div class="txt_author">${aVideo.video_author}</div>` +
-    //         `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
-    //     );
-    //   });
-    // });
+        result.push(
+          '<div class="main-slide-content">' +
+            `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
+            `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+            '<div class="pl_blue"></div></div></a>' +
+            '<div id="video_description" class="video_description">' +
+            `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
+            '<div class="razdelit_mid"></div>' +
+            `<div class="txt_author">${aVideo.video_author}</div>` +
+            `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
+        );
+      });
+    });
 
     //Верстка для контента
     $(".slider-for").slick(
