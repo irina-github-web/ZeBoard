@@ -140,12 +140,11 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="pl_show"></div></div></div></div>'
     );
 
-    $.each(result_preview, function (val, i) {
-      $(val[i]).click(function () {
+    $(result_preview).each((i, val) => {
+      $(val).click(() => {
         console.log(val[i]);
       });
     });
-
   });
 
   // //Слайдер для основного контента (вебинары)
@@ -166,7 +165,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //   dots: false,
   //   asNavFor: ".main-slide-content",
   // });
-
 });
 
 // $(document).ready(function () {
