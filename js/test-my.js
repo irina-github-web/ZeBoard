@@ -244,7 +244,7 @@ $(".section_vebirars").slick({
 });
 
 //Получение данных
-$.getJSON("https://video.gd.ru/event-type-1", function (data2) {
+$.getJSON("https://video.gd.ru/event-type-2", function (data2) {
   //Перебираем в цикле
   $.each(data2, function (i, item2) {
     console.log(item2);
