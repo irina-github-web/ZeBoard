@@ -119,6 +119,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       result_preview.push(
         `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;"></div>`
       );
+      result_preview.join("");
     });
 
     //Верстка для контента
