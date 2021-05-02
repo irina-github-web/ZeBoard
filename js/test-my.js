@@ -56,8 +56,6 @@ $(document).ready(function () {
   }
 });
 
-$(".demo1").addClass("slider-nav");
-$(".section_vebirars").addClass("slider-for");
 $("#vebirars").css("display", "block");
 
 //Слайдер навигации (вебинары)
