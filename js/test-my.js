@@ -70,6 +70,25 @@ $(".slider-for").slick({
   asNavFor: ".slider-nav",
 });
 
+//Слайдер для основного контента (видео)
+$(".main-slide-content").slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  fade: true,
+  dots: false,
+  arrows: false,
+  asNavFor: ".block_video_preview",
+});
+
+//Слайдер для превью основного контента (видео)
+$(".block_video_preview").slick({
+  slidesToShow: 10,
+  slidesToScroll: 1,
+  arrows: true,
+  dots: false,
+  asNavFor: ".main-slide-content",
+})
+
 //Получение данных
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
@@ -118,7 +137,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     //Массив для превью видео
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
-        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 1;"></div>`
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;"></div>`
       );
     });
 
