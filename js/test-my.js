@@ -133,7 +133,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="block_video">' +
         result.toString() +
         '<div class="block_video_preview">' +
-        result_preview.toString().join("") +
+        result_preview.join("") +
         "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
