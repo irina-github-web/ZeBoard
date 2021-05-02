@@ -139,6 +139,13 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
     );
+
+    $.map(result_preview, function (val, i) {
+      $("." + val).click(function () {
+        console.log("click!");
+      });
+    });
+    
   });
 
   // //Слайдер для основного контента (вебинары)
@@ -160,11 +167,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //   asNavFor: ".main-slide-content",
   // });
 
-  // $.map(result_preview, function (val, i) {
-  //   $("." + val).click(function () {
-  //     console.log("click!");
-  //   });
-  // });
 });
 
 // $(document).ready(function () {
