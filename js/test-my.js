@@ -206,13 +206,11 @@ $(".section_vebirars").on("click", ".video_preview", function () {
   console.log(previewVal);
   // $("#vebinars .slick-current .heading_video").append(previewVal);
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
-    console.log(data.videos);
-    var videosArr = [];
-    videosArr = data.videos;
-    videosArr.filter((i)=>{
-      i.video_name == previewVal;
-    });
-    console.log(data.videos);
+    console.log(data["videos"]);
+    // data.videos.filter((i)=>{
+    //   i.video_name == previewVal;
+    // });
+    // console.log(data.videos);
   });
 });
 
