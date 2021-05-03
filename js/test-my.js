@@ -200,8 +200,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
-
-$(".video_preview").live("click", function () {
+$(".section_vebirars").on("click", ".video_preview", function () {
   console.log("click");
   var elPreview = $(".video_preview");
   var previewVal = elPreview.attr("data-tooltip");
