@@ -212,46 +212,46 @@ $(document).ready(function () {
 //-------------------------------
 
 //Слайдер навигации (выступления)
-$(".chapters_block2").slick({
-  slidesToShow: 2,
-  slidesToScroll: 2,
-  infinite: false,
-  focusOnSelect: true,
-  centerMode: true,
-  dots: false,
-  arrows: false,
-  asNavFor: ".section_vebirars",
-});
+// $(".chapters_block2").slick({
+//   slidesToShow: 2,
+//   slidesToScroll: 2,
+//   infinite: false,
+//   focusOnSelect: true,
+//   centerMode: true,
+//   dots: false,
+//   arrows: false,
+//   asNavFor: ".section_vebirars",
+// });
 
-//Слайдер для контента (выступления)
-$(".section_vebirars").slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  dots: false,
-  fade: false,
-  asNavFor: ".chapters_block2",
-});
+// //Слайдер для контента (выступления)
+// $(".section_vebirars").slick({
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   arrows: false,
+//   dots: false,
+//   fade: false,
+//   asNavFor: ".chapters_block2",
+// });
 
 //Получение данных
-$.getJSON("https://video.gd.ru/event-type-1", function (data2) {
-  //Перебираем в цикле
-  $.each(data2, function (i, item2) {
-    console.log(item2);
-    //Верстка для навигации
-    $(".chapters_block2").slick(
-      "slickAdd",
-      '<div class="conf_card conf1_card">' +
-        `<a href="#conferenses"><div class=conf1_img" style="background-image: url(${item2.video_type_pic_url});"></div></a>` +
-        '<div class="chapter_txt"><a href="#conferenses">' +
-        `<h3 class="heading_small">${item2.video_type_name}</h3>` +
-        '<div class="razdelit_small"></div></a>' +
-        '<a href="#conferenses" class="link_look1 w-inline-block">' +
-        '<div class="txt_link_look">смотреть</div>' +
-        "</a>" +
-        `<a href="#conferenses" class="link_look1 active w-inline-block">` +
-        '<div class="txt_link_look">смотреть</div>' +
-        "</a></div></div>"
-    );
-  });
-});
+// $.getJSON("https://video.gd.ru/event-type-1", function (data2) {
+//   //Перебираем в цикле
+//   $.each(data2, function (i, item2) {
+//     console.log(item2);
+//     //Верстка для навигации
+//     $(".chapters_block2").slick(
+//       "slickAdd",
+//       '<div class="conf_card conf1_card">' +
+//         `<a href="#conferenses"><div class=conf1_img" style="background-image: url(${item2.video_type_pic_url});"></div></a>` +
+//         '<div class="chapter_txt"><a href="#conferenses">' +
+//         `<h3 class="heading_small">${item2.video_type_name}</h3>` +
+//         '<div class="razdelit_small"></div></a>' +
+//         '<a href="#conferenses" class="link_look1 w-inline-block">' +
+//         '<div class="txt_link_look">смотреть</div>' +
+//         "</a>" +
+//         `<a href="#conferenses" class="link_look1 active w-inline-block">` +
+//         '<div class="txt_link_look">смотреть</div>' +
+//         "</a></div></div>"
+//     );
+//   });
+// });
