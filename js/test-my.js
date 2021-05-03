@@ -210,6 +210,7 @@ $(".section_vebirars").on("click", ".video_preview", function () {
         var videonameVal = aVideo.video_name;
         if (videonameVal == previewVal) {
           console.log(aVideo);
+          $("#vebinars .slick-current .video_description h2").append(aVideo.video_name);
         }
       });
     });
