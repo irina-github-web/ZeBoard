@@ -205,13 +205,14 @@ $(".section_vebirars").on("click", ".video_preview", function () {
   console.log(previewVal);
   // $("#vebinars .slick-current .heading_video").append(previewVal);
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
-    var testArr = [];
-    testArr = Object.values(data).map((i) => Object.values(i));
-    console.log(testArr);
-    testArr.filter((i)=> {
-      i["videos"]["video_name"] == previewVal;
+    $.each(data, function (i, item) {
+      $.each(item.videos, (iVideoId, aVideo) => {
+        var videonameVal = aVideo.video_name;
+        if (videonameVal == previewVal) {
+          console.log(aVideo);
+        }
+      });
     });
-    console.log(testArr);
   });
 });
 
