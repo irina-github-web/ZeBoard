@@ -200,11 +200,13 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
-$(".video_preview").click(function () {
-  console.log("click");
-  var elPreview = $(".video_preview");
-  var previewVal = elPreview.attr("data-tooltip");
-  console.log(previewVal);
+$(document).ready(function () {
+  $(".video_preview").click(function () {
+    console.log("click");
+    var elPreview = $(".video_preview");
+    var previewVal = elPreview.attr("data-tooltip");
+    console.log(previewVal);
+  });
 });
 
 //-------------------------------
