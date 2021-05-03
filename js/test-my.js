@@ -200,7 +200,20 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
+$(".video_preview").click(function () {
+  var elPreview = $(".video_preview");
 
+  $.ajax({
+    type: "GET",
+    url: "https://video.gd.ru/event-type-2",
+    success: function (result) {
+      console.log(result);
+
+      var previewVal = $(".video_preview").attr("data-tooltip");
+      console.log(previewVal);
+    },
+  });
+});
 
 //-------------------------------
 
