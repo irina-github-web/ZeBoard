@@ -201,13 +201,16 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 });
 
 $(".section_vebirars").on("click", ".video_preview", function () {
-  console.log("click");
   var previewVal = $(this).attr("data-tooltip");
   console.log(previewVal);
   // $("#vebinars .slick-current .heading_video").append(previewVal);
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     var testArr = [];
     testArr = Object.values(data).map((i) => Object.values(i));
+    console.log(testArr);
+    testArr.filter((i)=> {
+      i["videos"]["video_name"] == previewVal;
+    });
     console.log(testArr);
   });
 });
