@@ -206,6 +206,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       iVideoIdCur = iVideoId;
 
       console.log(iVideoIdCur, video_name);
+
+      console.log(aVideo.iVideoIdCur);
       // $(video_name).click(() => {});
 
       // result.push(
