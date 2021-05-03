@@ -204,6 +204,8 @@ $(".section_vebirars").on("click", ".video_preview", function () {
   console.log("click");
   var previewVal = $(this).attr("data-tooltip");
   console.log(previewVal);
+
+  $(".vebinars .slick-slide.slick-current .heading_video").text(previewVal);
 });
 
 //-------------------------------
