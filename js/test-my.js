@@ -206,9 +206,9 @@ $(".section_vebirars").on("click", ".video_preview", function () {
   console.log(previewVal);
   // $("#vebinars .slick-current .heading_video").append(previewVal);
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
-    for (let [key, value] of Object.entries(data)) {
-      console.log(`${key}:${value}`);
-  }
+    var testArr = [];
+    testArr = Object.values(data).map((i) => Object.values(i));
+    console.log(testArr);
   });
 });
 
