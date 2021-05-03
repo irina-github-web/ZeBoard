@@ -204,14 +204,6 @@ $(".video_preview").click(function () {
   var elPreview = $(".video_preview");
   var previewVal = elPreview.attr("data-tooltip");
   console.log(previewVal);
-
-  $.ajax({
-    type: "GET",
-    url: "https://video.gd.ru/event-type-2",
-    success: function (result) {
-      console.log(result);
-    },
-  });
 });
 
 //-------------------------------
