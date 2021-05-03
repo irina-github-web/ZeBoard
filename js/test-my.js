@@ -205,12 +205,11 @@ $(".section_vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip");
   console.log(previewVal);
   // $("#vebinars .slick-current .heading_video").append(previewVal);
-  $.getJSON("https://video.gd.ru/event-type-2", function (key, data) {
-    console.log(key, data);
-    // data.videos.filter((i)=>{
-    //   i.video_name == previewVal;
-    // });
-    // console.log(data.videos);
+  $.getJSON("https://video.gd.ru/event-type-2", function (data) {
+    data.filter((i)=>{
+      var test = i.videos;
+      console.log(test);
+    });
   });
 });
 
