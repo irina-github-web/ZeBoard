@@ -209,7 +209,7 @@ $(".video_preview").click(function () {
     success: function (result) {
       console.log(result);
 
-      var previewVal = $(".video_preview").attr("data-tooltip");
+      var previewVal = elPreview.attr("data-tooltip");
       console.log(previewVal);
     },
   });
