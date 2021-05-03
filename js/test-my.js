@@ -202,8 +202,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
 $(".section_vebirars").on("click", ".video_preview", function () {
   console.log("click");
-  var elPreview = $(".video_preview");
-  var previewVal = elPreview.attr("data-tooltip");
+  var previewVal = $(this).attr("data-tooltip");
   console.log(previewVal);
 });
 
