@@ -207,9 +207,14 @@ $(".section_vebirars").on("click", ".video_preview", function () {
 
   // $("#vebinars .slick-current .heading_video").append(previewVal);
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
-    $(this).filter((i)=> {
-      i.videos.video_name == previewVal;
+    $.each(data, function (i, item) {
+      $.each(item.videos, (aVideo) => {
+        $(this).filter((i) => {
+          i.video_name == previewVal;
+        });
+      });
     });
+
     console.log(data);
   });
 });
