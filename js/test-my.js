@@ -207,7 +207,7 @@ $(".section_vebirars").on("click", ".video_preview", function () {
 
   // $("#vebinars .slick-current .heading_video").append(previewVal);
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
-    data.filter((i)=> {
+    $(this).filter((i)=> {
       i.videos.video_name == previewVal;
     });
     console.log(data);
