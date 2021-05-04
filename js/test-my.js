@@ -310,7 +310,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Массив для превью видео выступлений
     $.each(item.videos, (iVideoId, aVideo) => {
       result_previewVy.push(
-        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip="${aVideo.video_name}"></div>`
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
       );
     });
 
