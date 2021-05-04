@@ -230,7 +230,7 @@ $(".section_vebirars").on("click", ".video_preview", function () {
   });
 });
 
-var previewItems = $(".slick-current .block_video .block_video_preview .video_preview")
+var previewItems = $(".slick-current .video_preview")
   .length;
 console.log(previewItems);
 // if (previewItems > 9) {
@@ -270,7 +270,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     $(".chapters_block2").slick(
       "slickAdd",
       '<div class="conf_card conf1_card">' +
-        `<a href="#conferenses"><div class=conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>` +
+        `<a href="#conferenses"><div class="conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>` +
         '<div class="chapter_txt"><a href="#conferenses">' +
         `<h3 class="heading_small">${item.video_type_name}</h3>` +
         '<div class="razdelit_small"></div></a>' +
