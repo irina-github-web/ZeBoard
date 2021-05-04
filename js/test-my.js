@@ -307,11 +307,11 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     });
 
     //Массив для превью видео выступлений
-    $.each(item.videos, (iVideoId, aVideo) => {
-      result_previewVy.push(
-        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
-      );
-    });
+    // $.each(item.videos, (iVideoId, aVideo) => {
+    //   result_previewVy.push(
+    //     `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
+    //   );
+    // });
 
     //Верстка для контента
     $("#conferenses").slick(
@@ -324,9 +324,9 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         '<div class="content">' +
         '<div class="block_video">' +
         resultVy.join("") +
-        '<div class="block_video_preview">' +
-        result_previewVy.slice(15) +
-        "</div>" +
+        // '<div class="block_video_preview">' +
+        // result_previewVy.join("") +
+        // "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
