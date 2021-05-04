@@ -265,7 +265,6 @@ $("#conferenses").slick({
 $.getJSON("https://video.gd.ru/event-type-1", function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
-    console.log(item);
     //Верстка для навигации
     $(".chapters_block2").slick(
       "slickAdd",
@@ -287,7 +286,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     var result_previewVy = [];
 
     //Массив для видео выступление + описание
-    $.each(item.videos["2020"], (iVideoId, aVideo) => {
+    $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirstVy === "") {
         iVideoIdFirstVy = iVideoId;
       } else {
@@ -326,7 +325,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         '<div class="block_video">' +
         resultVy.join("") +
         '<div class="block_video_preview">' +
-        result_previewVy.join("") +
+        result_previewVy.slice(15) +
         "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
