@@ -209,9 +209,9 @@ $(".section_vebirars").on("click", ".video_preview", function () {
         if (videonameVal == previewVal) {
           console.log(aVideo.video_name);
           console.log(
-            $("#vebirars")
-              .child(".slick-current .main-slide-content .video_description h2")
-              .text(aVideo.video_name)
+            $(
+              "#vebirars .slick-current .main-slide-content .video_description h2"
+            ).text(aVideo.video_name)
           );
         }
       });
