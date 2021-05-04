@@ -208,6 +208,8 @@ $(".section_vebirars").on("click", ".video_preview", function () {
         var videonameVal = aVideo.video_name;
         if (videonameVal == previewVal) {
           console.log(aVideo.video_name);
+          $("#vebirars .slick-current .main-slide-content .video").css("background-image", aVideo.video_pic_url);
+          $("#vebirars .slick-current .main-slide-content a.fancybox-media").href(aVideo.video_url);
           $("#vebirars .slick-current .main-slide-content .video_description h2").text(aVideo.video_name);
           $("#vebirars .slick-current .main-slide-content .video_description .txt_author").text(aVideo.video_author);
           $("#vebirars .slick-current .main-slide-content .video_description .txt_video_desc").text(aVideo.video_text);
