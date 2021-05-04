@@ -180,9 +180,9 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
           aVideo.video_name ==
           $(
             "#vebirars .slick-current .main-slide-content .video_description h2"
-          ).val()
-            ? 0.8
-            : 0.5
+          )
+            ? 0.5
+            : 0.8
         };" data-tooltip="${aVideo.video_name}"></div>`
       );
     });
