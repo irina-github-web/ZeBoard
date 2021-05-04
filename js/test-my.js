@@ -203,7 +203,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
 $(".section_vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip");
-  console.log(previewVal);
   // $("#vebinars .slick-current .heading_video").append(previewVal);
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $.each(data, function (i, item) {
@@ -211,7 +210,7 @@ $(".section_vebirars").on("click", ".video_preview", function () {
         var videonameVal = aVideo.video_name;
         if (videonameVal == previewVal) {
           console.log(aVideo);
-          // $("#vebinars .slick-current .video_description h2").text(aVideo.video_name);
+          $("#vebinars").text(aVideo.video_name);
         }
       });
     });
