@@ -287,7 +287,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     var result_previewVy = [];
 
     //Массив для видео выступление + описание
-    $.each(item.videos, (iVideoId, aVideo) => {
+    $.each(item.videos["2020"], (iVideoId, aVideo) => {
       if (iVideoIdFirstVy === "") {
         iVideoIdFirstVy = iVideoId;
       } else {
