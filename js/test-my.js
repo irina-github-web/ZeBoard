@@ -174,7 +174,16 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     //Массив для превью видео вебинаров
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
-        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip="${aVideo.video_name}"></div>`
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
+          aVideo.video_pic_url
+        }); opacity: ${
+          aVideo.video_name ==
+          $(
+            "#vebirars .slick-current .main-slide-content .video_description h2"
+          ).text()
+            ? 0.8
+            : 0.5
+        };" data-tooltip="${aVideo.video_name}"></div>`
       );
     });
 
@@ -202,7 +211,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 //Контент слайдера (вебинары) после клика на превью
 $(".section_vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip");
-  $(this).css("opacity", 0.5);
 
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $.each(data, function (i, item) {
