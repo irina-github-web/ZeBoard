@@ -209,7 +209,7 @@ $(".section_vebirars").on("click", ".video_preview", function () {
       $.each(item.videos, (iVideoId, aVideo) => {
         var videonameVal = aVideo.video_name;
         if (videonameVal == previewVal) {
-          console.log(aVideo);
+          console.log(aVideo.video_name);
           $("#vebinars").text(aVideo.video_name);
         }
       });
