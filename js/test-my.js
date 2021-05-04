@@ -199,15 +199,15 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
+//Контент слайдера (вебинары) после клика на превью
 $(".section_vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip");
-  // $("#vebinars .slick-current .heading_video").append(previewVal);
+
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $.each(data, function (i, item) {
       $.each(item.videos, (iVideoId, aVideo) => {
         var videonameVal = aVideo.video_name;
         if (videonameVal == previewVal) {
-          console.log(aVideo.video_name);
           $("#vebirars .slick-current .main-slide-content a .video").css("background-image", `url(${aVideo.video_pic_url})`);
           $("#vebirars .slick-current .main-slide-content .fancybox-media").attr("href", aVideo.video_url);
           $("#vebirars .slick-current .main-slide-content .video_description h2").text(aVideo.video_name);
@@ -217,6 +217,7 @@ $(".section_vebirars").on("click", ".video_preview", function () {
       });
     });
   });
+
 });
 
 //-------------------------------
