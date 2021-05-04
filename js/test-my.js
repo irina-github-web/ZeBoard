@@ -282,7 +282,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         "</a></div></div>"
     );
 
-    var iVideoIdFirstVy = "";
+    var iVideoIdFirstVy = "2020";
     var resultVy = [];
     var result_previewVy = [];
 
@@ -326,7 +326,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         '<div class="block_video">' +
         resultVy.join("") +
         '<div class="block_video_preview">' +
-        result_previewVy.slice(10) +
+        result_previewVy.join("") +
         "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
