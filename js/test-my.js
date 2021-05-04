@@ -230,7 +230,7 @@ $(".section_vebirars").on("click", ".video_preview", function () {
   });
 });
 
-var previewItems = $(".slick-current .block_video_preview .video_preview")
+var previewItems = $(".slick-current .block_video .block_video_preview .video_preview")
   .length;
 console.log(previewItems);
 // if (previewItems > 9) {
