@@ -54,7 +54,7 @@
   -webkit-justify-content: center;
   justify-content: center;
   position: absolute;
-  bottom: 104%;
+  bottom: 120%;
   left: -60px;
   background: #000;
   padding: 15px;
@@ -62,12 +62,6 @@
   border-radius: 2px;
   color: #fff;
   z-index-9;
-  -webkit-animation-name: slideTooltip;
-  -webkit-animation-duration: .25s;
-  -webkit-animation-timing-function: ease;
-  animation-name: slideTooltip;
-  animation-duration: .25s;
-  animation-timing-function: ease;
 }
 .video_preview:hover:before{
   border: solid;
@@ -77,10 +71,17 @@
   left: 45%;
   top: -23px;
   position: absolute;
-  transform: rotate(
-45deg
-);
+  transform: rotate(45deg);
 }
+  .video_preview:hover:before,
+  .video_preview:hover:after {
+  -webkit-animation-name: slideTooltip;
+  -webkit-animation-duration: .25s;
+  -webkit-animation-timing-function: ease;
+  animation-name: slideTooltip;
+  animation-duration: .25s;
+  animation-timing-function: ease;
+  }
 </style>  
 <div class="section_chapters js-prevent-click">
     <div class="container">
