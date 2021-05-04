@@ -293,7 +293,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
       } else {
         return false;
       }
-
+      console.log(iVideoId);
       resultVy.push(
         '<div class="main-slide-content">' +
           `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
