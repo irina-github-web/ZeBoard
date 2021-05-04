@@ -200,7 +200,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
-
 $(".section_vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip");
   // $("#vebinars .slick-current .heading_video").append(previewVal);
@@ -210,7 +209,8 @@ $(".section_vebirars").on("click", ".video_preview", function () {
         var videonameVal = aVideo.video_name;
         if (videonameVal == previewVal) {
           console.log(aVideo.video_name, aVideo.video_text);
-          $(aVideo.video_name).appendTo($("#vebinars"));
+          // $(aVideo.video_name).appendTo($("#vebinars"));
+          $(document.getElementById("vebinars").textContent(aVideo.video_name));
         }
       });
     });
