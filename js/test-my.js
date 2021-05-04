@@ -147,7 +147,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     );
 
     var iVideoIdFirst = "";
-    var iVideoIdCur = "";
     var result = [];
     var result_preview = [];
 
@@ -208,10 +207,8 @@ $(".section_vebirars").on("click", ".video_preview", function () {
       $.each(item.videos, (iVideoId, aVideo) => {
         var videonameVal = aVideo.video_name;
         if (videonameVal == previewVal) {
-          console.log(aVideo.video_name, aVideo.video_text);
-          // $(aVideo.video_name).appendTo($("#vebinars"));
-          $(document.getElementById("vebinars")).textContent =
-            aVideo.video_name;
+          console.log(aVideo.video_name);
+          console.log($(this).parent(".main-slide-content h2"));
         }
       });
     });
