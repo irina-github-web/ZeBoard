@@ -282,7 +282,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         "</a></div></div>"
     );
 
-    var iVideoIdFirstVy = "2020";
+    var iVideoIdFirstVy = "";
     var resultVy = [];
     var result_previewVy = [];
 
