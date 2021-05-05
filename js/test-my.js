@@ -285,6 +285,9 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     var resultVy = [];
     var result_previewVy = [];
 
+    var test = Object.keys(item.videos);
+    console.log(test);
+
     //Массив для видео выступление + описание
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirstVy === "") {
