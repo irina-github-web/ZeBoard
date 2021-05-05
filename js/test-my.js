@@ -291,27 +291,27 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     $.each(item.videos, (iVideoId, aVideo) => {
       console.log(aVideo.video_year);
 
+      if (iVideoIdFirstVy == "") {
+        iVideoIdFirstVy = iVideoId;
+      } else {
+        return false;
+      }
+
       if (aVideo.video_year == "2020") {
         console.log(aVideo);
 
-        if (iVideoIdFirstVy == "") {
-          iVideoIdFirstVy = iVideoId;
-        } else {
-          return false;
-        }
+        resultVy.push(
+          '<div class="main-slide-content">' +
+            `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
+            `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+            '<div class="pl_blue"></div></div></a>' +
+            '<div id="video_description" class="video_description">' +
+            `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
+            '<div class="razdelit_mid"></div>' +
+            `<div class="txt_author">${aVideo.video_author}</div>` +
+            `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
+        );
       }
-
-      resultVy.push(
-        '<div class="main-slide-content">' +
-          `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
-          `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
-          '<div class="pl_blue"></div></div></a>' +
-          '<div id="video_description" class="video_description">' +
-          `<h2 class="heading_middle heading_video">${aVideo.video_name}</h2>` +
-          '<div class="razdelit_mid"></div>' +
-          `<div class="txt_author">${aVideo.video_author}</div>` +
-          `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
-      );
     });
 
     //Массив для превью видео выступлений
