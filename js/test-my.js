@@ -200,7 +200,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 });
 
 //Контент слайдера (вебинары) после клика на превью
-$(".section_vebirars").on("click", ".video_preview", function () {
+$("#vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip-mouseover");
 
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
@@ -311,6 +311,8 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
             `<div class="txt_author">${aVideo.video_author}</div>` +
             `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
         );
+      } else {
+        return false;
       }
     });
 
@@ -341,5 +343,36 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
         '<div class="pl_show"></div></div></div></div>'
     );
+  });
+});
+
+//Контент слайдера (вебинары) после клика на превью
+$("#conferenses").on("click", ".video_preview", function () {
+  var previewVal = $(this).attr("data-tooltip-mouseover");
+
+  $.getJSON("https://video.gd.ru/event-type-2", function (data) {
+    $.each(data, function (i, item) {
+      $.each(item.videos, (iVideoId, aVideo) => {
+        var videonameVal = aVideo.video_name;
+        if (videonameVal == previewVal) {
+          $("#conferenses .slick-current .main-slide-content a .video").css(
+            "background-image",
+            `url(${aVideo.video_pic_url})`
+          );
+          $(
+            "#conferenses .slick-current .main-slide-content .fancybox-media"
+          ).attr("href", aVideo.video_url);
+          $(
+            "#conferenses .slick-current .main-slide-content .video_description h2"
+          ).text(aVideo.video_name);
+          $(
+            "#conferenses .slick-current .main-slide-content .video_description .txt_author"
+          ).text(aVideo.video_author);
+          $(
+            "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
+          ).text(aVideo.video_text);
+        }
+      });
+    });
   });
 });
