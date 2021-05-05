@@ -286,17 +286,11 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     var iVideoIdFirstVy = "";
     var resultVy = [];
     var result_previewVy = [];
+    var resultYears = [];
 
     //Массив для видео выступление + описание
     $.each(item.videos, (iVideoId, aVideo) => {
       console.log(aVideo.video_year);
-
-      //Pagination years
-      resultYears = [];
-      resultYears.push(
-      `<div class="year_pagination">${aVideo.video_year}</div>`
-      );
-      console.log(resultYears);
 
       //По умолчанию выводим 2020 год
       if (aVideo.video_year == "2020") {
@@ -329,6 +323,14 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
           `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
         );
       }
+    });
+
+    //Pagination years
+    $.each(item.videos, (iVideoId, aVideo) => {
+      resultYears.push(
+        `<div class="year_pagination">${aVideo.video_year}</div>`
+      );
+      console.log(resultYears);
     });
 
     //Верстка для контента
