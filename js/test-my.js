@@ -288,7 +288,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
     //Массив для видео выступление + описание
     $.each(item.videos, (iVideoId, aVideo) => {
-      if (aVideo.video_year === "2020") {
+      if (aVideo.video_year == "2020") {
         console.log(aVideo);
 
         if (iVideoIdFirstVy === "") {
@@ -296,7 +296,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         } else {
           return false;
         }
-        
+
         resultVy.push(
           '<div class="main-slide-content">' +
             `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
