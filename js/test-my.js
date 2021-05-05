@@ -314,8 +314,6 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
             `<div class="txt_author">${aVideo.video_author}</div>` +
             `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
         );
-      } else {
-        return false;
       }
     });
 
