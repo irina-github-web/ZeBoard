@@ -117,6 +117,9 @@ $(".slider-nav").slick({
     },
   ],
 });
+
+//---------ЗАПИСИ ВЕБИНАРОВ---------
+
 //Слайдер с контентом (вебинары)
 $(".slider-for").slick({
   slidesToShow: 1,
@@ -236,7 +239,7 @@ console.log(previewItems);
 
 // }
 
-//-------------------------------
+//---------ЗАПИСИ ВЫСТУПЛЕНИЙ---------
 
 //Слайдер навигации (выступления)
 $(".chapters_block2").slick({
@@ -346,11 +349,11 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
   });
 });
 
-//Контент слайдера (вебинары) после клика на превью
+//Контент слайдера (выступления) после клика на превью
 $("#conferenses").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip-mouseover");
 
-  $.getJSON("https://video.gd.ru/event-type-2", function (data) {
+  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     $.each(data, function (i, item) {
       $.each(item.videos, (iVideoId, aVideo) => {
         var videonameVal = aVideo.video_name;
