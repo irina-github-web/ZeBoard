@@ -327,11 +327,9 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
     //Pagination years
     $.each(item.videos, (iVideoId, aVideo) => {
-
       resultYears.push(
         `<div class="year_pagination">${aVideo.video_year}</div>`
       );
-      const sortYearsArr = resultYears.filter((it, index) => index === resultYears.indexOf(it = it.trim()));
       console.log(resultYears);
     });
 
@@ -355,7 +353,11 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     );
 
     //Вывод pagination years
-    $(".pagination").append(sortYearsArr.join(""));
+    $(".pagination").append(
+      resultYears.filter(
+        (it, index) => index === resultYears.indexOf((it = it.trim()))
+      )
+    );
   });
 });
 
