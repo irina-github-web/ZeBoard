@@ -351,13 +351,13 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
 //Контент слайдера (выступления) после клика на превью
 $("#conferenses").on("click", ".video_preview", function () {
-  var previewVal = $(this).attr("data-tooltip-mouseover");
+  var previewValС = $(this).attr("data-tooltip-mouseover");
 
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     $.each(data, function (i, item) {
       $.each(item.videos, (iVideoId, aVideo) => {
-        var videonameVal = aVideo.video_name;
-        if (videonameVal == previewVal) {
+        var videonameValС = aVideo.video_name;
+        if (videonameValС == previewValС) {
           $("#conferenses .slick-current .main-slide-content a .video").css(
             "background-image",
             `url(${aVideo.video_pic_url})`
