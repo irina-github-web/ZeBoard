@@ -293,8 +293,6 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
       if (aVideo.video_year == "2020") {
         console.log(aVideo);
-      } else {
-        return false;
       }
 
       if (iVideoIdFirstVy === "") {
