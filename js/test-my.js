@@ -126,7 +126,7 @@ $(".slider-for").slick({
   slidesToScroll: 1,
   arrows: false,
   dots: false,
-  fade: false,
+  fade: true,
   asNavFor: ".slider-nav",
 });
 
@@ -259,7 +259,7 @@ $("#conferenses").slick({
   slidesToScroll: 1,
   arrows: false,
   dots: false,
-  fade: false,
+  fade: true,
   asNavFor: ".chapters_block2",
 });
 
@@ -326,12 +326,12 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     });
 
     //Pagination years
-    $.each(item.videos, (iVideoId, aVideo) => {
-      resultYears.push(
-        `<div class="year_pagination">${aVideo.video_year}</div>`
-      );
-      console.log(resultYears);
-    });
+    // $.each(item.videos, (iVideoId, aVideo) => {
+    //   resultYears.push(
+    //     `<div class="year_pagination">${aVideo.video_year}</div>`
+    //   );
+    //   console.log(resultYears);
+    // });
 
     //Верстка для контента
     $("#conferenses").slick(
@@ -353,11 +353,11 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     );
 
     //Вывод pagination years
-    $(".pagination").append(
-      resultYears.filter(
-        (it, index) => index === resultYears.indexOf((it = it.trim()))
-      )
-    );
+    // $(".pagination").append(
+    //   resultYears.filter(
+    //     (it, index) => index === resultYears.indexOf((it = it.trim()))
+    //   )
+    // );
   });
 });
 
