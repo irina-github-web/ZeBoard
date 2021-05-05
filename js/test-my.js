@@ -356,6 +356,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     yearForTitle = $(
       "#conferenses .slick-current .main-slide-content .video_description h2"
     ).attr("tooltip");
+    yearForTitle.appendTo($("#conferenses .slick-current h1"));
     console.log(yearForTitle);
 
     //Вывод pagination years
