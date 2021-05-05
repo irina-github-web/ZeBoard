@@ -336,13 +336,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     $("#conferenses").slick(
       "slickAdd",
       '<div class="container-upr">' +
-        `<h1 class="header_std">${item.video_type_name}` +
-        $(
-          "#conferenses .slick-current .main-slide-content .video_description h2".attr(
-            "tooltip"
-          )
-        ) +
-        "</h1>" +
+        `<h1 class="header_std">${item.video_type_name}</h1>` +
         '<div class="razdelit_upravl" id="vebirars_view">' +
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
