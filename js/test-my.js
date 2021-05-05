@@ -335,6 +335,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     var yearForTitle = $(
       "#conferenses .slick-current .main-slide-content .video_description h2"
     ).attr("tooltip");
+    console.log(yearForTitle);
 
     //Верстка для контента
     $("#conferenses").slick(
