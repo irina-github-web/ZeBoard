@@ -335,17 +335,19 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Массив для превью видео выступлений
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoId == "2020") {
-        result_previewVy.push(
-          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
-        );
+        $.each(aVideo, (i, item) => {
+          result_previewVy.push(
+            `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${item.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${item.video_name}"></div>`
+          );
+        });
       }
     });
 
     // Pagination years
     $.each(item.videos, (iVideoId, aVideo) => {
-        resultYears.push(
-          `<div class="year_pagination pag_item">${iVideoId}</div>`
-        );
+      resultYears.push(
+        `<div class="year_pagination pag_item">${iVideoId}</div>`
+      );
       console.log(resultYears);
     });
 
