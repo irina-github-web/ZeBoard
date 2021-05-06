@@ -394,6 +394,6 @@ $("#conferenses").on("click", ".video_preview", function () {
 $(".pagination").on("click", ".pag_item", function () {
   console.log("click");
 
-  var yearItem = $(this);
+  var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
 })
