@@ -190,7 +190,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url}); opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
       );
       if (result_preview.length > 9) {
-        $(".video_show_all").next().css("display", "flex");
+        $(".video_show_all").css("display", "flex");
       }
     });
 
