@@ -137,6 +137,7 @@ $(".slider-for").slick({
   arrows: false,
   dots: false,
   fade: true,
+  focusOnSelect: true,
   asNavFor: ".slider-nav",
 });
 
