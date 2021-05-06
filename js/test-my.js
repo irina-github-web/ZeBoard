@@ -56,17 +56,17 @@ $(document).ready(function () {
   }
 });
 
-$("#vebirars").css("display", "none");
-$("#conferenses").css("display", "none");
+$("#vebirars").hide();
+$("#conferenses").hide();
 
 $(".demo1").click(() => {
-  $("#vebirars").css("display", "block");
+  $("#vebirars").show();
   e.preventDefault();
   slideIndex = $(this).index();
   $("#vebirars").slickGoTo(parseInt(slideIndex));
 });
 $(".chapters_block2").click(() => {
-  $("#conferenses").css("display", "block");
+  $("#conferenses").show();
 });
 
 //Слайдер навигации (вебинары)
