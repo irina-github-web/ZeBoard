@@ -63,7 +63,7 @@ $("#conferenses").css("display", "block");
 $(".slider-nav").slick({
   slidesToShow: 3,
   slidesToScroll: 1,
-  focusOnSelect: true,
+  focusOnSelect: false,
   centerMode: true,
   asNavFor: ".slider-for",
   dots: false,
