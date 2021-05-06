@@ -310,9 +310,9 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
       //По умолчанию выводим 2020 год
       if (iVideoId == "2020") {
-        $.each(aVideoList, (aVideoId, aVideo) => {
+        $.each(aVideoList, (videoId, aVideo) => {
           if (iVideoIdFirstVy === "") {
-            iVideoIdFirstVy = aVideoId;
+            iVideoIdFirstVy = videoId;
           } else {
             return false;
           }
@@ -333,11 +333,11 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     });
 
     //Массив для превью видео выступлений
-    $.each(item.videos, (iVideoId, aVideo) => {
+    $.each(item.videos, (iVideoId, aVideoList) => {
       if (iVideoId == "2020") {
-        $.each(aVideo, (i, item) => {
+        $.each(aVideoList, (videoId, aVideo) => {
           result_previewVy.push(
-            `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${item.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${item.video_name}"></div>`
+            `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
           );
         });
       }
@@ -381,26 +381,28 @@ $("#conferenses").on("click", ".video_preview", function () {
 
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     $.each(data, function (i, item) {
-      $.each(item.videos, (iVideoId, aVideo) => {
-        var videonameValС = aVideo.video_name;
-        if (videonameValС == previewValС) {
-          $("#conferenses .slick-current .main-slide-content a .video").css(
-            "background-image",
-            `url(${aVideo.video_pic_url})`
-          );
-          $(
-            "#conferenses .slick-current .main-slide-content .fancybox-media"
-          ).attr("href", aVideo.video_url);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description h2"
-          ).text(aVideo.video_name);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description .txt_author"
-          ).text(aVideo.video_author);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
-          ).text(aVideo.video_text);
-        }
+      $.each(item.videos, (iVideoId, aVideoList) => {
+        $.each(aVideoList, (videoId, aVideo) => {
+          var videonameValС = aVideo.video_name;
+          if (videonameValС == previewValС) {
+            $("#conferenses .slick-current .main-slide-content a .video").css(
+              "background-image",
+              `url(${aVideo.video_pic_url})`
+            );
+            $(
+              "#conferenses .slick-current .main-slide-content .fancybox-media"
+            ).attr("href", aVideo.video_url);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description h2"
+            ).text(aVideo.video_name);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description .txt_author"
+            ).text(aVideo.video_author);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
+            ).text(aVideo.video_text);
+          }
+        });
       });
     });
   });
