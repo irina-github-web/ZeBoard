@@ -59,10 +59,13 @@ $(document).ready(function () {
 $("#vebirars").css("display", "none");
 $("#conferenses").css("display", "none");
 
-$(".demo1").click(()=> {
+$(".demo1").click(() => {
   $("#vebirars").css("display", "block");
+  e.preventDefault();
+  slideIndex = $(this).index();
+  $("#vebirars").slickGoTo(parseInt(slideIndex));
 });
-$(".chapters_block2").click(()=> {
+$(".chapters_block2").click(() => {
   $("#conferenses").css("display", "block");
 });
 
