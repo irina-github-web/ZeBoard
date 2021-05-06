@@ -392,8 +392,31 @@ $("#conferenses").on("click", ".video_preview", function () {
 });
 
 $(".pagination").on("click", ".pag_item", function () {
-  console.log("click");
-
   var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
-})
+
+  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
+    $.each(data, function (i, item) {
+      $.each(item.videos, (iVideoId, aVideo) => {
+        if (aVideo.video_year == yearItem) {
+          $("#conferenses .slick-current .main-slide-content a .video").css(
+            "background-image",
+            `url(${aVideo.video_pic_url})`
+          );
+          $(
+            "#conferenses .slick-current .main-slide-content .fancybox-media"
+          ).attr("href", aVideo.video_url);
+          $(
+            "#conferenses .slick-current .main-slide-content .video_description h2"
+          ).text(aVideo.video_name);
+          $(
+            "#conferenses .slick-current .main-slide-content .video_description .txt_author"
+          ).text(aVideo.video_author);
+          $(
+            "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
+          ).text(aVideo.video_text);
+        }
+      });
+    });
+  });
+});
