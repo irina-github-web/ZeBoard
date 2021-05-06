@@ -390,3 +390,10 @@ $("#conferenses").on("click", ".video_preview", function () {
     });
   });
 });
+
+$(".pagination").on("click", ".pag_item", function () {
+  console.log("click");
+
+  var yearItem = $(this).val();
+  console.log(yearItem);
+})
