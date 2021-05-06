@@ -305,30 +305,30 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     var resultYears = [];
 
     //Массив для видео выступление + описание
-    $.each(item.videos, (iVideoId, aVideo) => {
-      console.log(iVideoId, aVideo);
+    $.each(item.videos, (iVideoId, aVideoList) => {
+      console.log(iVideoId, aVideoList);
 
       //По умолчанию выводим 2020 год
       if (iVideoId == "2020") {
-        // console.log(aVideo);
+        $.each(aVideoList, (aVideoId, aVideo) => {
+          if (iVideoIdFirstVy === "") {
+            iVideoIdFirstVy = aVideoId;
+          } else {
+            return false;
+          }
 
-        if (iVideoIdFirstVy === "") {
-          iVideoIdFirstVy = iVideoId;
-        } else {
-          return false;
-        }
-
-        resultVy.push(
-          '<div class="main-slide-content">' +
-            `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
-            `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
-            '<div class="pl_blue"></div></div></a>' +
-            '<div id="video_description" class="video_description">' +
-            `<h2 class="heading_middle heading_video" tooltip=${aVideo.video_year}>${aVideo.video_name}</h2>` +
-            '<div class="razdelit_mid"></div>' +
-            `<div class="txt_author">${aVideo.video_author}</div>` +
-            `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
-        );
+          resultVy.push(
+            '<div class="main-slide-content">' +
+              `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
+              `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
+              '<div class="pl_blue"></div></div></a>' +
+              '<div id="video_description" class="video_description">' +
+              `<h2 class="heading_middle heading_video" tooltip=${aVideo.video_year}>${aVideo.video_name}</h2>` +
+              '<div class="razdelit_mid"></div>' +
+              `<div class="txt_author">${aVideo.video_author}</div>` +
+              `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
+          );
+        });
       }
     });
 
@@ -346,9 +346,8 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     // Pagination years
     $.each(item.videos, (iVideoId, aVideo) => {
       resultYears.push(
-        `<div class="year_pagination pag_item">${iVideoId}</div>`
+        `<div class="year_pagination pag_item" year-tooltip="${iVideoId}">${iVideoId}</div>`
       );
-      console.log(resultYears);
     });
 
     //Верстка для контента
