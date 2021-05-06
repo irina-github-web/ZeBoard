@@ -247,11 +247,6 @@ $("#vebirars").on("click", ".video_preview", function () {
   });
 });
 
-var previewItems = $(".slick-current .video_preview").length;
-console.log(previewItems);
-// if (previewItems > 9) {
-
-// }
 
 //---------ЗАПИСИ ВЫСТУПЛЕНИЙ---------
 
@@ -408,6 +403,7 @@ $("#conferenses").on("click", ".video_preview", function () {
   });
 });
 
+//Контент слайда после клика на год pagination
 $(".pagination").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
 
