@@ -346,7 +346,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     // Pagination years
     $.each(item.videos, (iVideoId, aVideo) => {
       resultYears.push(
-        `<div class="year_pagination pag_item" year-tooltip="${iVideoId}">${iVideoId}</div>`
+        `<div class="year_pagination pag_item" data-tooltip-year="${iVideoId}">${iVideoId}</div>`
       );
     });
 
@@ -413,24 +413,34 @@ $(".pagination").on("click", ".pag_item", function () {
 
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     $.each(data, function (i, item) {
-      $.each(item.videos, (iVideoId, aVideo) => {
-        if (aVideo.video_year == yearItem) {
-          $("#conferenses .slick-current .main-slide-content a .video").css(
-            "background-image",
-            `url(${aVideo.video_pic_url})`
-          );
-          $(
-            "#conferenses .slick-current .main-slide-content .fancybox-media"
-          ).attr("href", aVideo.video_url);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description h2"
-          ).text(aVideo.video_name);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description .txt_author"
-          ).text(aVideo.video_author);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
-          ).text(aVideo.video_text);
+      var iVideoIdFirstYear = "";
+
+      $.each(item.videos, (iVideoId, aVideoList) => {
+        if (iVideoId == yearItem) {
+          $.each(aVideoList, (videoId, aVideo) => {
+            if (iVideoIdFirstYear === "") {
+              iVideoIdFirstYear = videoId;
+            } else {
+              return false;
+            }
+
+            $("#conferenses .slick-current .main-slide-content a .video").css(
+              "background-image",
+              `url(${aVideo.video_pic_url})`
+            );
+            $(
+              "#conferenses .slick-current .main-slide-content .fancybox-media"
+            ).attr("href", aVideo.video_url);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description h2"
+            ).text(aVideo.video_name);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description .txt_author"
+            ).text(aVideo.video_author);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
+            ).text(aVideo.video_text);
+          });
         }
       });
     });
