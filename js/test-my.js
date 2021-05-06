@@ -433,8 +433,7 @@ $(".pagination").on("click", ".pag_item", function () {
 });
 
 //Show more
-var prevArr = [];
-prevArr = $("#vebirars .slick-current .block_video_preview .video_preview");
+var prevArr = $(".slick-current .block_video_preview .video_preview");
 console.log(prevArr);
 if (prevArr.length > 9) {
   $(".video_show_all").css("display", "flex");
