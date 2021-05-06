@@ -56,14 +56,21 @@ $(document).ready(function () {
   }
 });
 
-$("#vebirars").css("display", "block");
-$("#conferenses").css("display", "block");
+$("#vebirars").css("display", "none");
+$("#conferenses").css("display", "none");
+
+$(".demo1").click(()=> {
+  $("#vebirars").css("display", "block");
+});
+$(".chapters_block2").click(()=> {
+  $("#conferenses").css("display", "block");
+});
 
 //Слайдер навигации (вебинары)
 $(".slider-nav").slick({
   slidesToShow: 3,
   slidesToScroll: 1,
-  focusOnSelect: false,
+  focusOnSelect: true,
   centerMode: true,
   asNavFor: ".slider-for",
   dots: false,
