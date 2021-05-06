@@ -432,17 +432,19 @@ $(".pagination").on("click", ".pag_item", function () {
   });
 });
 
-//Show more
-var prevArr = $(".video_preview");
-console.log(prevArr);
-if (prevArr.length > 9) {
-  $(".video_show_all").css("display", "flex");
-  $(prevArr).slice(0, 9);
-  $(".video_show_all").on("click", function (e) {
-    e.preventDefault();
-    $(prevArr).slice(0, 9).slideDown();
-    if ($(prevArr).length == 0) {
-      $(".video_show_all").fadeOut("slow");
-    }
-  });
-}
+$(document).ready(function () {
+  //Show more
+  var prevArr = $(".video_preview");
+  console.log(prevArr);
+  if (prevArr.length > 9) {
+    $(".video_show_all").css("display", "flex");
+    $(prevArr).slice(0, 9);
+    $(".video_show_all").on("click", function (e) {
+      e.preventDefault();
+      $(prevArr).slice(0, 9).slideDown();
+      if ($(prevArr).length == 0) {
+        $(".video_show_all").fadeOut("slow");
+      }
+    });
+  }
+});
