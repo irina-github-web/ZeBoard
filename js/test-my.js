@@ -191,6 +191,22 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       );
     });
 
+    //Show more
+    $(result_preview).slice(0, 9);
+    $(".video_show_all").on("click", function (e) {
+      e.preventDefault();
+      $(result_preview).slice(0, 9).slideDown();
+      if ($(result_preview).length == 0) {
+        $(".video_show_all").fadeOut("slow");
+      }
+      $("html,body").animate(
+        {
+          scrollTop: $(this).offset().top,
+        },
+        1500
+      );
+    });
+
     //Верстка для контента
     $(".slider-for").slick(
       "slickAdd",
