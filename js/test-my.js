@@ -343,11 +343,9 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
     // Pagination years
     $.each(item.videos, (iVideoId, aVideo) => {
-      if (iVideoId == "2020") {
         resultYears.push(
-          `<div class="year_pagination pag_item">${aVideo.video_year}</div>`
+          `<div class="year_pagination pag_item">${iVideoId}</div>`
         );
-      }
       console.log(resultYears);
     });
 
