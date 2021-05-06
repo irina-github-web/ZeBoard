@@ -309,7 +309,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
       console.log(iVideoId, aVideo);
 
       //По умолчанию выводим 2020 год
-      if (aVideo.video_year == "2020") {
+      if (iVideoId == "2020") {
         // console.log(aVideo);
 
         if (iVideoIdFirstVy === "") {
@@ -334,20 +334,22 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
     //Массив для превью видео выступлений
     $.each(item.videos, (iVideoId, aVideo) => {
-      if (aVideo.video_year == "2020") {
+      if (iVideoId == "2020") {
         result_previewVy.push(
           `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
         );
       }
     });
 
-    //Pagination years
-    // $.each(item.videos, (iVideoId, aVideo) => {
-    //   resultYears.push(
-    //     `<div class="year_pagination pag_item">${aVideo.video_year}</div>`
-    //   );
-    //   console.log(resultYears);
-    // });
+    // Pagination years
+    $.each(item.videos, (iVideoId, aVideo) => {
+      if (iVideoId == "2020") {
+        resultYears.push(
+          `<div class="year_pagination pag_item">${aVideo.video_year}</div>`
+        );
+      }
+      console.log(resultYears);
+    });
 
     //Верстка для контента
     $("#conferenses").slick(
@@ -365,15 +367,12 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
         "</div>" +
         '<div class="video_show_all liteTooltip">' +
         '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
+        '<div class="pagination">' +
+        '<div class="year_pagination name">Год конференции:</div>' +
+        resultYears.join("") +
+        "</div>" +
         '<div class="pl_show"></div></div></div></div>'
     );
-
-    //Вывод pagination years
-    // $(".pagination").append(
-    //   resultYears.filter(
-    //     (it, index) => index === resultYears.indexOf((it = it.trim()))
-    //   )
-    // );
   });
 });
 
