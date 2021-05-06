@@ -191,19 +191,6 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       );
     });
 
-    //Show more
-    if(result_preview.length > 9) {
-      $(".video_show_all").css("display", "flex");
-      $(result_preview).slice(0, 9);
-      $(".video_show_all").on("click", function (e) {
-        e.preventDefault();
-        $(result_preview).slice(0, 9).slideDown();
-        if ($(result_preview).length == 0) {
-          $(".video_show_all").fadeOut("slow");
-        }
-      });
-    }
-
     //Верстка для контента
     $(".slider-for").slick(
       "slickAdd",
@@ -444,3 +431,19 @@ $(".pagination").on("click", ".pag_item", function () {
     });
   });
 });
+
+//Show more
+var prevArr = [];
+var prevArr = $("#vebirars .slick-current .block_video_preview .video_preview");
+console.log(prevArr);
+if (prevArr.length > 9) {
+  $(".video_show_all").css("display", "flex");
+  $(prevArr).slice(0, 9);
+  $(".video_show_all").on("click", function (e) {
+    e.preventDefault();
+    $(prevArr).slice(0, 9).slideDown();
+    if ($(prevArr).length == 0) {
+      $(".video_show_all").fadeOut("slow");
+    }
+  });
+}
