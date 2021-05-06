@@ -56,18 +56,18 @@ $(document).ready(function () {
   }
 });
 
-$("#vebirars").css("visibility", "hidden");
-$("#conferenses").css("visibility", "hidden");
+$("#vebirars").css("display", "block");
+$("#conferenses").css("display", "block");
 
-$(".demo1").click(() => {
-  $("#vebirars").css("visibility", "visible");
-  e.preventDefault();
-  slideIndex = $(this).index();
-  $("#vebirars").slickGoTo(parseInt(slideIndex));
-});
-$(".chapters_block2").click(() => {
-  $("#conferenses").css("visibility", "visible");
-});
+// $(".demo1").click(() => {
+//   $("#vebirars").css("visibility", "visible");
+//   e.preventDefault();
+//   slideIndex = $(this).index();
+//   $("#vebirars").slickGoTo(parseInt(slideIndex));
+// });
+// $(".chapters_block2").click(() => {
+//   $("#conferenses").css("visibility", "visible");
+// });
 
 //Слайдер навигации (вебинары)
 $(".slider-nav").slick({
