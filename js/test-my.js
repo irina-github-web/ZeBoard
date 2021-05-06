@@ -434,7 +434,7 @@ $(".pagination").on("click", ".pag_item", function () {
 
 $(document).ready(function () {
   //Show more
-  const prevArr = $("#vebirars .slick-current .video_preview").val();
+  const prevArr = $("#vebirars .slick-current .video_preview").toArray();
   console.log(prevArr);
   if (prevArr.length > 9) {
     $(".video_show_all").css("display", "flex");
