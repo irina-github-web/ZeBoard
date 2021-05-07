@@ -279,7 +279,6 @@ function GetConferences(year) {
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
-      console.log(item);
       //Верстка для навигации
       $(".chapters_block2").slick(
         "slickAdd",
@@ -406,7 +405,7 @@ $("#conferenses").on("click", ".video_preview", function () {
 });
 
 //Контент слайда после клика на год pagination
-$(".pagination").on("click", ".pag_item", function () {
+$("#conferenses").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
   GetConferences(yearItem);
