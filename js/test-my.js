@@ -404,7 +404,7 @@ $("#conferenses").on("click", ".video_preview", function () {
 });
 
 //Контент слайда после клика на год pagination
-$("#conferenses").on("click", ".pag_item", function () {
+$("#conferenses").on("click", ".pag_item", () => {
   var currYear = $(this).attr("data-tooltip-year");
   console.log(currYear);
   $(".chapters_block2 .conf_card").remove();
@@ -413,17 +413,17 @@ $("#conferenses").on("click", ".pag_item", function () {
 });
 
 //Show more button для видео-превью
-function getMore() {
-  var previewsArr = $(".slick-current .video_preview");
-  console.log(previewsArr);
-  if ($(previewsArr).length > 9) {
-    console.log("arr > 9");
-    $(previewsArr).slice(0, 9);
-    $(".slick-current .video_show_all").css("display", "block");
-  }
-  $("body").on("click", ".video_show_all", function () {
-    console.log("click");
-    $(".slick-current .video_preview:hidden").slice(0, 9).fadeIn();
-  });
-}
-setTimeout(getMore, 5000);
+// function getMore() {
+//   var previewsArr = $(".slick-current .video_preview");
+//   console.log(previewsArr);
+//   if ($(previewsArr).length > 9) {
+//     console.log("arr > 9");
+//     $(previewsArr).slice(0, 9);
+//     $(".slick-current .video_show_all").css("display", "block");
+//   }
+//   $("body").on("click", ".video_show_all", () => {
+//     console.log("click");
+//     $(".slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+//   });
+// }
+// setTimeout(getMore, 5000);
