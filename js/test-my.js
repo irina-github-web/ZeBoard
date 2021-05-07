@@ -356,15 +356,19 @@ function getConferences(year) {
           '<div class="block_video">' +
           resultVy.join("") +
           '<div class="block_video_preview">' +
-          result_previewVy.join("") +
-          "</div>" +
-          '<div class="video_show_all liteTooltip">' +
-          '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
-          '<div class="pagination">' +
-          '<div class="year_pagination name">Год конференции:</div>' +
-          resultYears.join("") +
-          "</div>" +
-          '<div class="pl_show"></div></div></div></div>'
+          (result_previewVy.length > 9)
+          ? result_previewVy.slice(0, 9)
+          : result_previewVy.join("") +
+              "</div>" +
+              `<div class="video_show_all liteTooltip" style="display: ${
+                result_previewVy.length > 9 ? "block" : "none"
+              }">` +
+              '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
+              '<div class="pagination">' +
+              '<div class="year_pagination name">Год конференции:</div>' +
+              resultYears.join("") +
+              "</div>" +
+              '<div class="pl_show"></div></div></div></div>'
       );
     });
   });
@@ -409,25 +413,24 @@ $("#conferenses").on("click", ".pag_item", function () {
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear);
-  loadMoreVideos();
 });
 
 //Show more button для видео-превью
-function loadMoreVideos() {
-  $(window).on("load", function () {
-    var previewsArr = $("#conferenses .slick-current .video_preview");
-    console.log(previewsArr);
-    if ($(previewsArr).length > 9) {
-      console.log("arr > 9");
-      $(previewsArr).slice(0, 9);
-      $("#conferenses .slick-current .video_show_all").css("display", "block");
-    }
-    $("body").on("click", ".video_show_all", () => {
-      console.log("click");
-      $("#conferenses .slick-current .video_preview:hidden")
-        .slice(0, 9)
-        .fadeIn();
-    });
-  });
-}
+// function loadMoreVideos() {
+//   $(window).on("load", function () {
+//     var previewsArr = $("#conferenses .slick-current .video_preview");
+//     console.log(previewsArr);
+//     if ($(previewsArr).length > 9) {
+//       console.log("arr > 9");
+//       $(previewsArr).slice(0, 9);
+//       $("#conferenses .slick-current .video_show_all").css("display", "block");
+//     }
+//     $("body").on("click", ".video_show_all", () => {
+//       console.log("click");
+//       $("#conferenses .slick-current .video_preview:hidden")
+//         .slice(0, 9)
+//         .fadeIn();
+//     });
+//   });
+// }
 // setTimeout(getMore, 5000);
