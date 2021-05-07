@@ -342,16 +342,6 @@ function getConferences(year) {
         resultYears.push(
           `<div class="year_pagination pag_item" data-tooltip-year="${iVideoId}">${iVideoId}</div>`
         );
-
-        if ($(result_previewVy.length > 9)) {
-          $("#conferenses .video_show_all").css("display", "block");
-          result_previewVy.slice(0, 9);
-        }
-        $("#conferenses .video_show_all").click(() => {
-          console.log("click");
-          result_previewVy.slice(0, 9);
-        });
-
       });
 
       //Верстка для контента
@@ -376,6 +366,15 @@ function getConferences(year) {
           "</div>" +
           '<div class="pl_show"></div></div></div></div>'
       );
+
+      if ($(result_previewVy.length > 9)) {
+        $("#conferenses .video_show_all").css("display", "block");
+        result_previewVy.slice(0, 9);
+      }
+      $("#conferenses .video_show_all").click(() => {
+        console.log("click");
+        result_previewVy.slice(0, 9);
+      });
     });
   });
 }
