@@ -360,11 +360,11 @@ function getConferences(year) {
           "</div>" +
           '<div class="video_show_all liteTooltip">' +
           '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
-          '<div class="pl_show"></div></div></div></div>' +
           '<div class="pagination">' +
           '<div class="year_pagination name">Год конференции:</div>' +
           resultYears.join("") +
-          "</div>"
+          "</div>" +
+          '<div class="pl_show"></div></div></div></div>'
       );
     });
   });
