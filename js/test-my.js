@@ -411,3 +411,15 @@ $("#conferenses").on("click", ".pag_item", function () {
   $("#conferenses .container-upr").remove();
   getConferences(currYear);
 });
+
+jQuery(document).ready(function ($) {
+  if ($("#conferenses .slick-current .video_preview").length > 9) {
+    console.log("arr > 9");
+    $("#conferenses .slick-current .video_preview").slice(0, 9);
+    $("#conferenses .slick-current .video_show_all").css("display", "block");
+  }
+  $(".video_show_all").click(function (e) {
+    console.log("click");
+    $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+  });
+});
