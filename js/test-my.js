@@ -413,16 +413,17 @@ $("#conferenses").on("click", ".pag_item", () => {
 });
 
 //Show more button для видео-превью
-  var previewsArr = $("body .slick-current .video_preview");
+$(window).on("load", function () {
+  var previewsArr = $(".slick-current .video_preview");
   console.log(previewsArr);
   if ($(previewsArr).length > 9) {
     console.log("arr > 9");
     $(previewsArr).slice(0, 9);
-    $("body .slick-current .video_show_all").css("display", "block");
+    $(".slick-current .video_show_all").css("display", "block");
   }
   $("body").on("click", ".video_show_all", () => {
     console.log("click");
-    $("body .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+    $(".slick-current .video_preview:hidden").slice(0, 9).fadeIn();
   });
-
+});
 // setTimeout(getMore, 5000);
