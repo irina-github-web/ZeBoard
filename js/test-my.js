@@ -199,7 +199,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $(".slider-for").slick(
       "slickAdd",
       '<div class="container-upr">' +
-        `<h1 class="header_std">${item.video_type_name}</h1>` +
+        `<h1 class="header_std">${item.video_type_name}  ${year}</h1>` +
         '<div class="razdelit_upravl" id="vebirars_view">' +
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
@@ -285,7 +285,7 @@ function getConferences(year) {
         '<div class="conf_card conf1_card">' +
           `<a href="#conferenses"><div class="conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>` +
           '<div class="chapter_txt"><a href="#conferenses">' +
-          `<h3 class="heading_small">${item.video_type_name} ${year}</h3>` +
+          `<h3 class="heading_small">${item.video_type_name}</h3>` +
           '<div class="razdelit_small"></div></a>' +
           '<a href="#conferenses" class="link_look1 w-inline-block">' +
           '<div class="txt_link_look">смотреть</div>' +
@@ -407,9 +407,8 @@ $("#conferenses").on("click", ".video_preview", function () {
 $("#conferenses").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
-  $(".chapters_block2").slick("slickRemove");
-  $("#conferenses").slick("slickRemove");
-
+  $(".chapters_block2").slick("reinit");
+  $("#conferenses").slick("reinit");
   getConferences(yearItem);
 
   // $.getJSON("https://video.gd.ru/event-type-1", function (data) {
