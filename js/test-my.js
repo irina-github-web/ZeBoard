@@ -280,7 +280,7 @@ function getConferences(year) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
       //Верстка для навигации
-      $(".chapters_block2").slick("unslick");
+      // $(".chapters_block2").slick("unslick");
       $(".chapters_block2").slick(
         "slickAdd",
         '<div class="conf_card conf1_card">' +
@@ -347,7 +347,7 @@ function getConferences(year) {
       });
 
       //Верстка для контента
-      $("#conferenses").slick("unslick");
+      // $("#conferenses").slick("unslick");
       $("#conferenses").slick(
         "slickAdd",
         '<div class="container-upr">' +
