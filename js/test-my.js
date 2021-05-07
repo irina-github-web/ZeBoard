@@ -414,16 +414,16 @@ $("#conferenses").on("click", ".pag_item", () => {
 
 //Show more button для видео-превью
 $(window).on("load", function () {
-  var previewsArr = $(".slick-current .video_preview");
+  var previewsArr = $("#conferenses .slick-current .video_preview");
   console.log(previewsArr);
   if ($(previewsArr).length > 9) {
     console.log("arr > 9");
     $(previewsArr).slice(0, 9);
-    $(".slick-current .video_show_all").css("display", "block");
+    $("#conferenses .slick-current .video_show_all").css("display", "block");
   }
   $("body").on("click", ".video_show_all", () => {
     console.log("click");
-    $(".slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+    $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
   });
 });
 // setTimeout(getMore, 5000);
