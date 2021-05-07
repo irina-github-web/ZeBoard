@@ -366,13 +366,15 @@ function getConferences(year) {
           "</div>" +
           '<div class="pl_show"></div></div></div></div>'
       );
+
       if ($(result_previewVy.length > 9)) {
         $(".video_show_all").css("display", "block");
         result_previewVy.slice(0, 9);
       }
-      r$(".video_show_all").click(() => {
+      $(".video_show_all").click(() => {
         result_previewVy.slice(0, 9);
       });
+      
     });
   });
 }
