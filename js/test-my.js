@@ -342,6 +342,16 @@ function getConferences(year) {
         resultYears.push(
           `<div class="year_pagination pag_item" data-tooltip-year="${iVideoId}">${iVideoId}</div>`
         );
+
+        if ($(result_previewVy.length > 9)) {
+          $("#conferenses .video_show_all").css("display", "block");
+          result_previewVy.slice(0, 9);
+        }
+        $("#conferenses .video_show_all").click(() => {
+          console.log("click");
+          result_previewVy.slice(0, 9);
+        });
+
       });
 
       //Верстка для контента
@@ -356,7 +366,7 @@ function getConferences(year) {
           '<div class="block_video">' +
           resultVy.join("") +
           '<div class="block_video_preview">' +
-          result_previewVy.join("") +
+          result_previewVy +
           "</div>" +
           '<div class="video_show_all liteTooltip">' +
           '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
@@ -366,15 +376,6 @@ function getConferences(year) {
           "</div>" +
           '<div class="pl_show"></div></div></div></div>'
       );
-
-      if ($(result_previewVy.length > 9)) {
-        $(".video_show_all").css("display", "block");
-        result_previewVy.slice(0, 9);
-      }
-      $(".video_show_all").click(() => {
-        result_previewVy.slice(0, 9);
-      });
-      
     });
   });
 }
