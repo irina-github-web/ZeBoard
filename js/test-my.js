@@ -332,7 +332,7 @@ function GetConferences(year) {
 
       //Массив для превью видео выступлений
       $.each(item.videos, (iVideoId, aVideoList) => {
-        if (iVideoId == "2020") {
+        if (iVideoId == year) {
           $.each(aVideoList, (videoId, aVideo) => {
             result_previewVy.push(
               `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
