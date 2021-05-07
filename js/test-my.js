@@ -407,42 +407,9 @@ $("#conferenses").on("click", ".video_preview", function () {
 $("#conferenses").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
-  $(".chapters_block2").slick("reinit");
-  $("#conferenses").slick("reinit");
+  // $(".chapters_block2").slick("unslick");
+  // $("#conferenses").slick("unslick");
+  $(".conf_card").remove();
+  $(".container-upr").remove();
   getConferences(yearItem);
-
-  // $.getJSON("https://video.gd.ru/event-type-1", function (data) {
-  //   $.each(data, function (i, item) {
-  //     var iVideoIdFirstYear = "";
-
-  //     $.each(item.videos, (iVideoId, aVideoList) => {
-  //       if (iVideoId == yearItem) {
-  //         $.each(aVideoList, (videoId, aVideo) => {
-  //           if (iVideoIdFirstYear === "") {
-  //             iVideoIdFirstYear = videoId;
-  //           } else {
-  //             return false;
-  //           }
-
-  //           $("#conferenses .slick-current .main-slide-content a .video").css(
-  //             "background-image",
-  //             `url(${aVideo.video_pic_url})`
-  //           );
-  //           $(
-  //             "#conferenses .slick-current .main-slide-content .fancybox-media"
-  //           ).attr("href", aVideo.video_url);
-  //           $(
-  //             "#conferenses .slick-current .main-slide-content .video_description h2"
-  //           ).text(aVideo.video_name);
-  //           $(
-  //             "#conferenses .slick-current .main-slide-content .video_description .txt_author"
-  //           ).text(aVideo.video_author);
-  //           $(
-  //             "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
-  //           ).text(aVideo.video_text);
-  //         });
-  //       }
-  //     });
-  //   });
-  // });
 });
