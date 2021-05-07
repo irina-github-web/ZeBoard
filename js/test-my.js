@@ -274,7 +274,7 @@ $("#conferenses").slick({
 var defYear = "2020";
 getConferences(defYear);
 
-const getConferences = (year) => {
+function getConferences(year) {
   //Получение данных
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
