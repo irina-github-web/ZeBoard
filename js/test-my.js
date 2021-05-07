@@ -366,15 +366,6 @@ function getConferences(year) {
           "</div>" +
           '<div class="pl_show"></div></div></div></div>'
       );
-
-      if ($(result_previewVy.length > 9)) {
-        $("#conferenses .video_show_all").css("display", "block");
-        result_previewVy.slice(0, 9);
-      }
-      $("#conferenses .video_show_all").click(() => {
-        console.log("click");
-        result_previewVy.slice(0, 9);
-      });
     });
   });
 }
@@ -422,17 +413,16 @@ $("#conferenses").on("click", ".pag_item", () => {
 });
 
 //Show more button для видео-превью
-// function getMore() {
-//   var previewsArr = $(".slick-current .video_preview");
-//   console.log(previewsArr);
-//   if ($(previewsArr).length > 9) {
-//     console.log("arr > 9");
-//     $(previewsArr).slice(0, 9);
-//     $(".slick-current .video_show_all").css("display", "block");
-//   }
-//   $("body").on("click", ".video_show_all", () => {
-//     console.log("click");
-//     $(".slick-current .video_preview:hidden").slice(0, 9).fadeIn();
-//   });
-// }
+  var previewsArr = $("body .slick-current .video_preview");
+  console.log(previewsArr);
+  if ($(previewsArr).length > 9) {
+    console.log("arr > 9");
+    $(previewsArr).slice(0, 9);
+    $("body .slick-current .video_show_all").css("display", "block");
+  }
+  $("body").on("click", ".video_show_all", () => {
+    console.log("click");
+    $("body .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+  });
+
 // setTimeout(getMore, 5000);
