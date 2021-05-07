@@ -199,7 +199,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $(".slider-for").slick(
       "slickAdd",
       '<div class="container-upr">' +
-        `<h1 class="header_std">${item.video_type_name}  ${year}</h1>` +
+        `<h1 class="header_std">${item.video_type_name}</h1>` +
         '<div class="razdelit_upravl" id="vebirars_view">' +
         `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
         '<div class="line_razd blue"></div></div>' +
@@ -348,7 +348,7 @@ function getConferences(year) {
       $("#conferenses").slick(
         "slickAdd",
         '<div class="container-upr">' +
-          `<h1 class="header_std">${item.video_type_name}</h1>` +
+          `<h1 class="header_std">${item.video_type_name}  ${year}</h1>` +
           '<div class="razdelit_upravl" id="vebirars_view">' +
           `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
           '<div class="line_razd blue"></div></div>' +
