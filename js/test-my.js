@@ -405,11 +405,9 @@ $("#conferenses").on("click", ".video_preview", function () {
 
 //Контент слайда после клика на год pagination
 $("#conferenses").on("click", ".pag_item", function () {
-  var yearItem = $(this).attr("data-tooltip-year");
-  console.log(yearItem);
-  // $(".chapters_block2").slick("unslick");
-  // $("#conferenses").slick("unslick");
+  var currYear = $(this).attr("data-tooltip-year");
+  console.log(currYear);
   $(".conf_card").remove();
   $(".container-upr").remove();
-  getConferences(yearItem);
+  getConferences(currYear);
 });
