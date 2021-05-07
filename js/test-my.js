@@ -407,8 +407,8 @@ $("#conferenses").on("click", ".video_preview", function () {
 $("#conferenses").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
-  $(".chapters_block2").slick("refresh");
-  $("#conferenses").slick("refresh");
+  $(".chapters_block2").slick("slickRemove");
+  $("#conferenses").slick("slickRemove");
 
   getConferences(yearItem);
 
