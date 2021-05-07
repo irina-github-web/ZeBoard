@@ -356,7 +356,7 @@ function getConferences(year) {
           '<div class="block_video">' +
           resultVy.join("") +
           '<div class="block_video_preview">' +
-          result_previewVy.join("") +
+          result_previewVy.slice(0,9) +
           "</div>" +
           '<div class="video_show_all liteTooltip">' +
           '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
