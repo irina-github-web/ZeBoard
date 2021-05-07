@@ -409,24 +409,23 @@ $("#conferenses").on("click", ".pag_item", function () {
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear);
+  loadMoreVideos();
 });
 
 //Show more button для видео-превью
-// function loadMoreVideos() {
-//   $(window).on("load", function () {
-//     var previewsArr = $("#conferenses .slick-current .video_preview");
-//     console.log(previewsArr);
-//     if ($(previewsArr).length > 9) {
-//       console.log("arr > 9");
-//       $(previewsArr).slice(0, 9);
-//       $("#conferenses .slick-current .video_show_all").css("display", "block");
-//     }
-//     $("body").on("click", ".video_show_all", () => {
-//       console.log("click");
-//       $("#conferenses .slick-current .video_preview:hidden")
-//         .slice(0, 9)
-//         .fadeIn();
-//     });
-//   });
-// }
+function loadMoreVideos() {
+  var previewsArr = $("#conferenses .slick-current .video_preview");
+  console.log(previewsArr);
+  if (previewsArr.length > 9) {
+    console.log("arr > 9");
+    previewsArr.slice(0, 9);
+    $("#conferenses .slick-current .video_show_all").css("display", "block");
+  }
+  $("body").on("click", ".video_show_all", () => {
+    console.log("click");
+    $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+  });
+}
 // setTimeout(getMore, 5000);
+
+$(window).on("load", loadMoreVideos());
