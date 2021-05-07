@@ -413,12 +413,12 @@ $("#conferenses").on("click", ".pag_item", function () {
 });
 
 jQuery(document).ready(function ($) {
-  if ($("#conferenses .slick-current .video_preview").length > 9) {
+  if ($(".slick-current .video_preview").length > 9) {
     console.log("arr > 9");
-    $("#conferenses .slick-current .video_preview").slice(0, 9);
-    $("#conferenses .slick-current .video_show_all").css("display", "block");
+    $(".slick-current .video_preview").slice(0, 9);
+    $(".slick-current .video_show_all").css("display", "block");
   }
-  $(".video_show_all").click(function (e) {
+  $("body").on("click", ".video_show_all", function () {
     console.log("click");
     $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
   });
