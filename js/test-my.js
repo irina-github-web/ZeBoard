@@ -269,14 +269,7 @@ $("#conferenses").slick({
   dots: false,
   fade: true,
   asNavFor: ".chapters_block2",
-  onAfterChange:function(slickSlider,i){
-    //remove all active class
-    $('.chapters_block2 .slick-slide').removeClass('slick-active');
-    //set active class for current slide
-    $('.chapters_block2 .slick-slide').eq(i).addClass('slick-active');         
-}
 });
-$('.chapters_block2 .slick-slide').eq(0).addClass('slick-active');
 
 var defYear = "2020";
 getConferences(defYear);
