@@ -366,6 +366,7 @@ function getConferences(year) {
           "</div>" +
           '<div class="pl_show"></div></div></div></div>'
       );
+      loadMoreVideos();
     });
   });
 }
@@ -409,7 +410,7 @@ $("#conferenses").on("click", ".pag_item", function () {
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear);
-  $(window).on("load", loadMoreVideos());
+  loadMoreVideos();
 });
 
 //Show more button для видео-превью
@@ -428,7 +429,7 @@ $("#conferenses").on("click", ".pag_item", function () {
 // }
 // setTimeout(getMore, 5000);
 
-$(window).on("load", function loadMoreVideos() {
+function loadMoreVideos() {
   var previewsArr = $("#conferenses .slick-current .video_preview");
   console.log(previewsArr);
   if (previewsArr.length > 9) {
@@ -440,4 +441,4 @@ $(window).on("load", function loadMoreVideos() {
     console.log("click");
     $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
   });
-});
+}
