@@ -409,7 +409,7 @@ $("#conferenses").on("click", ".pag_item", function () {
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear);
-  loadMoreVideos();
+  $(window).on("load", loadMoreVideos());
 });
 
 //Show more button для видео-превью
