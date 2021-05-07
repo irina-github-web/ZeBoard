@@ -69,6 +69,8 @@ $("#conferenses").css("display", "block");
 //   $("#conferenses").css("visibility", "visible");
 // });
 
+//---------ЗАПИСИ ВЕБИНАРОВ---------
+
 //Слайдер навигации (вебинары)
 $(".slider-nav").slick({
   slidesToShow: 3,
@@ -128,8 +130,6 @@ $(".slider-nav").slick({
   ],
 });
 
-//---------ЗАПИСИ ВЕБИНАРОВ---------
-
 //Слайдер с контентом (вебинары)
 $(".slider-for").slick({
   slidesToShow: 1,
@@ -144,7 +144,7 @@ $(".slider-for").slick({
 $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
-    //Верстка для навигации
+    //Добавление слайда для навигации (верхний слайдер)
     $(".slider-nav").slick(
       "slickAdd",
       '<div class="chapter_card chapter1">' +
@@ -159,11 +159,11 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         '<div class="txt_link_look">смотреть</div></a></div></a></div>'
     );
 
-    var iVideoIdFirst = "";
-    var result = [];
-    var result_preview = [];
+    var iVideoIdFirst = ""; //для вывода первого объекта в слайд
+    var result = []; //массив для контента видео + описание
+    var result_preview = []; //массив для превью видео вебинаров
 
-    //Массив для видео вебинара + описание
+    //Добавлние в массив видео вебинара + описание (первый объект)
     $.each(item.videos, (iVideoId, aVideo) => {
       if (iVideoIdFirst === "") {
         iVideoIdFirst = iVideoId;
@@ -184,18 +184,14 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       );
     });
 
-    //Массив для превью видео вебинаров
+    //Добавление в массив превью видео вебинаров
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
         `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url}); opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
       );
     });
 
-    // if (result_preview.length > 9) {
-    //   $(".video_show_all").next().css("display", "flex");
-    // }
-
-    //Верстка для контента
+    //Добавление слайда с контентом (нижний слайдер)
     $(".slider-for").slick(
       "slickAdd",
       '<div class="container-upr">' +
@@ -216,7 +212,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
   });
 });
 
-//Контент слайдера (вебинары) после клика на превью
+//Контент слайда (вебинары) после клика на превью
 $("#vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip-mouseover");
 
@@ -272,14 +268,14 @@ $("#conferenses").slick({
 });
 
 var defYear = "2020";
-getConferences(defYear);
+getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
 
 function getConferences(year) {
   //Получение данных
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
-      //Верстка для навигации
+      //Добавление слайда для навигации (верхний слайдер)
       $(".chapters_block2").slick(
         "slickAdd",
         '<div class="conf_card conf1_card">' +
@@ -300,7 +296,7 @@ function getConferences(year) {
       var result_previewVy = []; //превью выступлений
       var resultYears = []; //массив для сортировки по году
 
-      //Массив для видео выступление + описание
+      //Добавление в массив видео выступление + описание (первый объект)
       $.each(item.videos, (iVideoId, aVideoList) => {
         //По умолчанию выводим 2020 год
         if (iVideoId == year) {
@@ -326,7 +322,7 @@ function getConferences(year) {
         }
       });
 
-      //Массив для превью видео выступлений
+      //Добавление в массив превью видео выступлений
       $.each(item.videos, (iVideoId, aVideoList) => {
         if (iVideoId == year) {
           $.each(aVideoList, (videoId, aVideo) => {
@@ -337,14 +333,14 @@ function getConferences(year) {
         }
       });
 
-      // Pagination years
+      //Пагинация по году
       $.each(item.videos, (iVideoId, aVideo) => {
         resultYears.push(
           `<div class="year_pagination pag_item" data-tooltip-year="${iVideoId}">${iVideoId}</div>`
         );
       });
 
-      //Верстка для контента
+      //Добавление слайда с контентом (нижний слайдер)
       $("#conferenses").slick(
         "slickAdd",
         '<div class="container-upr">' +
