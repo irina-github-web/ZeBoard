@@ -430,15 +430,17 @@ $("#conferenses").on("click", ".pag_item", function () {
 // setTimeout(getMore, 5000);
 
 function loadMoreVideos() {
-  var previewsArr = $("#conferenses .slick-current .video_preview");
+  var previewsArr = $("#conferenses .slick-current .video_preview").slice(0, 9);
   console.log(previewsArr);
   if (previewsArr.length > 9) {
     console.log("arr > 9");
-    previewsArr.slice(0, 9);
     $("#conferenses .slick-current .video_show_all").css("display", "block");
   }
   $("body").on("click", ".video_show_all", () => {
     console.log("click");
     $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+    if ($("#conferenses .slick-current .video_preview:hidden").length < 1) {
+      $(this).fadeOut();
+    }
   });
 }
