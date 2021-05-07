@@ -407,7 +407,7 @@ $("#conferenses").on("click", ".video_preview", function () {
 $("#conferenses").on("click", ".pag_item", function () {
   var currYear = $(this).attr("data-tooltip-year");
   console.log(currYear);
-  $("#conferenses .conf_card").remove();
+  $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear);
 });
