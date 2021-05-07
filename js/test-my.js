@@ -409,7 +409,7 @@ $("#conferenses").on("click", ".pag_item", function () {
   console.log(yearItem);
   // $(".chapters_block2").slick("unslick");
   // $("#conferenses").slick("unslick");
-  $(".conf_card.slick-current").remove();
-  $(".container-upr.slick-current").remove();
+  $(".conf_card").remove();
+  $(".container-upr").remove();
   getConferences(yearItem);
 });
