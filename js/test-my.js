@@ -280,7 +280,6 @@ function getConferences(year) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
       //Верстка для навигации
-      $(".chapters_block2").slick("slickRemove");
       $(".chapters_block2").slick(
         "slickAdd",
         '<div class="conf_card conf1_card">' +
@@ -303,7 +302,6 @@ function getConferences(year) {
 
       //Массив для видео выступление + описание
       $.each(item.videos, (iVideoId, aVideoList) => {
-
         //По умолчанию выводим 2020 год
         if (iVideoId == year) {
           $.each(aVideoList, (videoId, aVideo) => {
@@ -347,7 +345,6 @@ function getConferences(year) {
       });
 
       //Верстка для контента
-      $("#conferenses").slick("slickRemove");
       $("#conferenses").slick(
         "slickAdd",
         '<div class="container-upr">' +
@@ -410,6 +407,9 @@ $("#conferenses").on("click", ".video_preview", function () {
 $("#conferenses").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
+  $(".chapters_block2").slick("refresh");
+  $("#conferenses").slick("refresh");
+
   getConferences(yearItem);
 
   // $.getJSON("https://video.gd.ru/event-type-1", function (data) {
