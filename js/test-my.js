@@ -277,7 +277,6 @@ GetConferences(defYear);
 function GetConferences(year) {
   //Получение данных
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
-    console.log(data);
     //Перебираем в цикле
     $.each(data, function (i, item) {
       console.log(item);
@@ -304,7 +303,6 @@ function GetConferences(year) {
 
       //Массив для видео выступление + описание
       $.each(item.videos, (iVideoId, aVideoList) => {
-        console.log(iVideoId, aVideoList);
 
         //По умолчанию выводим 2020 год
         if (iVideoId == year) {
@@ -410,6 +408,7 @@ $("#conferenses").on("click", ".video_preview", function () {
 //Контент слайда после клика на год pagination
 $(".pagination").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
+  console.log(yearItem);
   GetConferences(yearItem);
 
   // $.getJSON("https://video.gd.ru/event-type-1", function (data) {
