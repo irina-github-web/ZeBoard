@@ -430,10 +430,11 @@ $("#conferenses").on("click", ".pag_item", function () {
 // setTimeout(getMore, 5000);
 
 function loadMoreVideos() {
-  var previewsArr = $("#conferenses .slick-current .video_preview").slice(0, 9);
+  var previewsArr = $("#conferenses .slick-current .video_preview");
   console.log(previewsArr);
-  if (previewsArr.length > 9) {
+  if (previewsArr.length > 10) {
     console.log("arr > 9");
+    previewsArr.slice(0, 9);
     $("#conferenses .slick-current .video_show_all").css("display", "block");
   }
   $("body").on("click", ".video_show_all", () => {
