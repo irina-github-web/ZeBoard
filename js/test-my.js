@@ -413,7 +413,22 @@ $("#conferenses").on("click", ".pag_item", function () {
 });
 
 //Show more button для видео-превью
-function loadMoreVideos() {
+// function loadMoreVideos() {
+//   var previewsArr = $("#conferenses .slick-current .video_preview");
+//   console.log(previewsArr);
+//   if (previewsArr.length > 9) {
+//     console.log("arr > 9");
+//     previewsArr.slice(0, 9);
+//     $("#conferenses .slick-current .video_show_all").css("display", "block");
+//   }
+//   $("body").on("click", ".video_show_all", () => {
+//     console.log("click");
+//     $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
+//   });
+// }
+// setTimeout(getMore, 5000);
+
+$(window).on("load", function loadMoreVideos() {
   var previewsArr = $("#conferenses .slick-current .video_preview");
   console.log(previewsArr);
   if (previewsArr.length > 9) {
@@ -425,7 +440,4 @@ function loadMoreVideos() {
     console.log("click");
     $("#conferenses .slick-current .video_preview:hidden").slice(0, 9).fadeIn();
   });
-}
-// setTimeout(getMore, 5000);
-
-$(window).on("load", loadMoreVideos());
+});
