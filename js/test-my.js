@@ -272,20 +272,21 @@ $("#conferenses").slick({
 });
 
 var defYear = "2020";
-GetConferences(defYear);
+getConferences(defYear);
 
-function GetConferences(year) {
+const getConferences = (year) => {
   //Получение данных
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
       //Верстка для навигации
+      $(".chapters_block2").slick("unslick");
       $(".chapters_block2").slick(
         "slickAdd",
         '<div class="conf_card conf1_card">' +
           `<a href="#conferenses"><div class="conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>` +
           '<div class="chapter_txt"><a href="#conferenses">' +
-          `<h3 class="heading_small">${item.video_type_name}</h3>` +
+          `<h3 class="heading_small">${item.video_type_name} ${year}</h3>` +
           '<div class="razdelit_small"></div></a>' +
           '<a href="#conferenses" class="link_look1 w-inline-block">' +
           '<div class="txt_link_look">смотреть</div>' +
@@ -346,6 +347,7 @@ function GetConferences(year) {
       });
 
       //Верстка для контента
+      $("#conferenses").slick("unslick");
       $("#conferenses").slick(
         "slickAdd",
         '<div class="container-upr">' +
@@ -408,7 +410,7 @@ $("#conferenses").on("click", ".video_preview", function () {
 $("#conferenses").on("click", ".pag_item", function () {
   var yearItem = $(this).attr("data-tooltip-year");
   console.log(yearItem);
-  GetConferences(yearItem);
+  getConferences(yearItem);
 
   // $.getJSON("https://video.gd.ru/event-type-1", function (data) {
   //   $.each(data, function (i, item) {
