@@ -422,28 +422,23 @@ $("#conferenses").on("click", ".video_preview", function () {
   });
 });
 
-$(document).ready(function () {
-//Контент слайда после клика на год pagination
-$("#conferenses").on("click", ".year_pagination", function (e) {
-  e.preventDefault();
-  var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
-  var currSlideIndex = $(".chapters_block2 .slick-current").attr(
-    "data-slick-index"
-  );
+$(window).on("load", function () {
+  //Контент слайда после клика на год pagination
+  $("#conferenses").on("click", ".year_pagination", function (e) {
+    e.preventDefault();
+    var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
+    var currSlideIndex = $(".chapters_block2 .slick-current").attr(
+      "data-slick-index"
+    );
 
-  //удаление текущего слайда
-  $(".chapters_block2 .conf_card").remove();
-  $("#conferenses .container-upr").remove();
-  getConferences(currYear); //вызов функции для сортировки по выбранному году
-  goToSlide(currSlideIndex);
-  // $(".chapters_block2").slick("slickGoTo", currSlideIndex);
-  // loadMoreVideos();
-});
-
-  function goToSlide(slide) {
-    console.log(slide);
+    //удаление текущего слайда
+    $(".chapters_block2 .conf_card").remove();
+    $("#conferenses .container-upr").remove();
+    getConferences(currYear); //вызов функции для сортировки по выбранному году
     $(".chapters_block2").slick("slickGoTo", slide);
-  }
+    k("slickGoTo", currSlideIndex);
+    // loadMoreVideos();
+  });
 });
 
 // $(window).on('load', function goToSlide(slide) {
