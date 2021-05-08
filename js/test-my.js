@@ -257,10 +257,10 @@ $("#vebirars").on("click", ".video_preview", function () {
 //Слайдер навигации (выступления)
 $(".chapters_block2").slick({
   slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToScroll: 0,
   infinite: false,
   focusOnSelect: true,
-  centerMode: false,
+  centerMode: true,
   dots: false,
   arrows: false,
   asNavFor: "#conferenses",
