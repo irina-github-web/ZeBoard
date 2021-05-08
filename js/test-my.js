@@ -172,7 +172,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
       }
 
       result.push(
-          `<div class="main-slide-content">
+        `<div class="main-slide-content">
           <a href=${aVideo.video_url} class="fancybox-media w-inline-block">
           <div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">
           <div class="pl_blue"></div></div></a>
@@ -187,8 +187,10 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     //Добавление в массив превью видео вебинаров
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
-        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url}); 
-        ${(iVideoId == iVideoIdFirst) ? "opacity: 0.5" : "opacity : 0.8"}" 
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
+          aVideo.video_pic_url
+        }); 
+        ${iVideoId == iVideoIdFirst ? "opacity: 0.5" : "opacity : 0.8"}" 
         data-tooltip-mouseover="${aVideo.video_name}"></div>`
       );
     });
@@ -206,7 +208,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         result.join("") +
         '<div class="block_video_preview">' +
         result_preview.join("") +
-        '</div>' +
+        "</div>" +
         `<div class="video_show_all liteTooltip">
         <div class="btn_arrow_right">
         <img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom">
@@ -337,8 +339,10 @@ function getConferences(year) {
         if (iVideoId == year) {
           $.each(aVideoList, (videoId, aVideo) => {
             result_previewVy.push(
-              `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});
-              ${(videoId == iVideoIdFirstVy) ? "opacity: 0.5" : "opacity : 0.8"}" 
+              `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
+                aVideo.video_pic_url
+              });
+              ${videoId == iVideoIdFirstVy ? "opacity: 0.5" : "opacity : 0.8"}" 
               data-tooltip-mouseover="${aVideo.video_name}"></div>`
             );
           });
@@ -349,9 +353,7 @@ function getConferences(year) {
       $.each(item.videos, (iVideoId, aVideo) => {
         resultYears.push(
           `<div class=${
-            iVideoId == year
-              ? "year_pagination_active"
-              : "year_pagination"
+            iVideoId == year ? "year_pagination_active" : "year_pagination"
           } data-tooltip-year="${iVideoId}">${iVideoId}</div>`
         );
       });
@@ -365,7 +367,7 @@ function getConferences(year) {
           <div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">
           <div class="line_razd blue"></div></div>
           <div class="content">
-          <div class="block_video">`+
+          <div class="block_video">` +
           resultVy.join("") +
           '<div class="block_video_preview">' +
           result_previewVy.join("") +
@@ -423,11 +425,13 @@ $("#conferenses").on("click", ".video_preview", function () {
 
 //Контент слайда после клика на год pagination
 $("#conferenses").on("click", ".year_pagination", function () {
+  var currSlideId = $(".chapters_block2 .slick-current").attr("data-slick-index");
   var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
   //удаление текущего слайда
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear); //вызов функции для сортировки по выбранному году
+  $(".chapters_block2").slickGoTo(parseInt(currSlideId));
   // loadMoreVideos();
 });
 
