@@ -436,6 +436,7 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
 
 $(window).on('load', function() {
   var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
+  console.log(currSlideIndex);
   $(".chapters_block2").slick('slickGoTo', currSlideIndex);
 });
 
