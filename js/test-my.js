@@ -423,21 +423,20 @@ $("#conferenses").on("click", ".video_preview", function () {
 //Контент слайда после клика на год pagination
 $("#conferenses").on("click", ".year_pagination", function () {
   var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
-
+  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
+  console.log(currSlideIndex);
   //удаление текущего слайда
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear); //вызов функции для сортировки по выбранному году
+
+  $(".chapters_block2")[0].slick.slickGoTo(parseInt(currSlideIndex)); 
   // loadMoreVideos();
 });
 
-$(window).on('load', function() {
-  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
-  console.log(currSlideIndex);
-  if (currSlideIndex == 1) {
-    $(".chapters_block2").slick("slickNext");
-  }
-});
+// $(window).on('load', function() {
+//   $(".chapters_block2").slick('slickGoTo', 1);
+// });
 
 //Show more button для видео-превью
 // function loadMoreVideos() {
