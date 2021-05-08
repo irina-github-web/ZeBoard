@@ -433,8 +433,9 @@ $("#conferenses").on("click", ".year_pagination", function () {
   $("#conferenses .container-upr").remove();
   getConferences(currYear); //вызов функции для сортировки по выбранному году
 
-
+if(currSlideIndex == 1) {
   $(".chapters_block2").slick('slickGoTo', currSlideIndex);
+}
   
   // loadMoreVideos();
 });
