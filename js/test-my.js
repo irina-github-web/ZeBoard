@@ -435,10 +435,15 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
   // loadMoreVideos();
 });
 
-$(window).on('load', function goToSlide(slide) {
+function goToSlide(slide) {
   console.log(slide);
   $(".chapters_block2").slick('slickGoTo', slide);
-});
+};
+
+// $(window).on('load', function goToSlide(slide) {
+//   console.log(slide);
+//   $(".chapters_block2").slick('slickGoTo', slide);
+// });
 
 //Show more button для видео-превью
 // function loadMoreVideos() {
