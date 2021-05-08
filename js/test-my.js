@@ -72,7 +72,7 @@ $("#conferenses").css("display", "block");
 //---------ЗАПИСИ ВЕБИНАРОВ---------
 
 //Слайдер навигации (вебинары)
-$(".slider-nav").slick({
+$(".slider-nav").not(".slick-initialized").slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   focusOnSelect: true,
@@ -131,7 +131,7 @@ $(".slider-nav").slick({
 });
 
 //Слайдер с контентом (вебинары)
-$(".slider-for").slick({
+$(".slider-for").not(".slick-initialized").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
