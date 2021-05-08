@@ -72,63 +72,65 @@ $("#conferenses").css("display", "block");
 //---------ЗАПИСИ ВЕБИНАРОВ---------
 
 //Слайдер навигации (вебинары)
-$(".slider-nav").not(".slick-initialized").slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  focusOnSelect: true,
-  centerMode: true,
-  asNavFor: ".slider-for",
-  dots: false,
-  focusOnSelect: true,
-  appendArrows: $(".slick-arrow-4"),
-  prevArrow:
-    '<button class="icn_arrow_left" aria-label="Previous" type="button"></button>',
-  nextArrow:
-    '<button class="icn_arrow_right" aria-label="Next" type="button"></button>',
-  responsive: [
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "40px",
-        arrows: false,
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
+$(".slider-nav")
+  .not(".slick-initialized")
+  .slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+    centerMode: true,
+    asNavFor: ".slider-for",
+    dots: false,
+    focusOnSelect: true,
+    appendArrows: $(".slick-arrow-4"),
+    prevArrow:
+      '<button class="icn_arrow_left" aria-label="Previous" type="button"></button>',
+    nextArrow:
+      '<button class="icn_arrow_right" aria-label="Next" type="button"></button>',
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "40px",
+          arrows: false,
+          infinite: true,
+          dots: true,
+          adaptiveHeight: true,
+          slidesToScroll: 1,
+        },
       },
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: false,
-        centerMode: true,
-        centerPadding: "40px",
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false,
+          centerMode: true,
+          centerPadding: "40px",
+          infinite: true,
+          dots: true,
+          adaptiveHeight: true,
+          slidesToScroll: 1,
+        },
       },
-    },
-    {
-      breakpoint: 479,
-      settings: {
-        slidesToShow: 1,
-        arrows: false,
-        centerMode: true,
-        centerPadding: "40px",
-        infinite: true,
-        dots: true,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
+      {
+        breakpoint: 479,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          centerMode: true,
+          centerPadding: "40px",
+          infinite: true,
+          dots: true,
+          adaptiveHeight: true,
+          slidesToScroll: 1,
+        },
       },
-    },
-  ],
-});
+    ],
+  });
 
 //Слайдер с контентом (вебинары)
 $(".slider-for").not(".slick-initialized").slick({
@@ -420,6 +422,7 @@ $("#conferenses").on("click", ".video_preview", function () {
   });
 });
 
+$(document).ready(function () {
 //Контент слайда после клика на год pagination
 $("#conferenses").on("click", ".year_pagination", function (e) {
   e.preventDefault();
@@ -437,10 +440,11 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
   // loadMoreVideos();
 });
 
-function goToSlide(slide) {
-  console.log(slide);
-  $(".chapters_block2").slick("slickGoTo", slide);
-}
+  function goToSlide(slide) {
+    console.log(slide);
+    $(".chapters_block2").slick("slickGoTo", slide);
+  }
+});
 
 // $(window).on('load', function goToSlide(slide) {
 //   console.log(slide);
