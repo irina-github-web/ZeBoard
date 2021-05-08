@@ -279,13 +279,11 @@ $("#conferenses").slick({
 var defYear = "2020";
 getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
 
-function getConferences(year, slide = 0) {
+function getConferences(year) {
   //Получение данных
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
-      $(".chapters_block2").slick("slickGoTo", 1);
-      console.log(slide);
       //Добавление слайда для навигации (верхний слайдер)
       $(".chapters_block2").slick(
         "slickAdd",
@@ -426,20 +424,20 @@ $("#conferenses").on("click", ".video_preview", function () {
 $("#conferenses").on("click", ".year_pagination", function (e) {
   e.preventDefault();
   var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
-  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
   
   //удаление текущего слайда
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
-  getConferences(currYear, currSlideIndex); //вызов функции для сортировки по выбранному году
+  getConferences(currYear); //вызов функции для сортировки по выбранному году
 
   // $(".chapters_block2").slick("slickGoTo", currSlideIndex); 
   // loadMoreVideos();
 });
 
-// $(window).on('load', function() {
-//   $(".chapters_block2").slick('slickGoTo', 1);
-// });
+$(window).on('load', function() {
+  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
+  $(".chapters_block2").slick('slickGoTo', currSlideIndex);
+});
 
 //Show more button для видео-превью
 // function loadMoreVideos() {
