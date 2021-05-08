@@ -421,7 +421,8 @@ $("#conferenses").on("click", ".video_preview", function () {
 });
 
 //Контент слайда после клика на год pagination
-$("#conferenses").on("click", ".year_pagination", function () {
+$("#conferenses").on("click", ".year_pagination", function (e) {
+  e.preventDefault();
   var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
   var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
   console.log(currSlideIndex);
@@ -430,7 +431,7 @@ $("#conferenses").on("click", ".year_pagination", function () {
   $("#conferenses .container-upr").remove();
   getConferences(currYear); //вызов функции для сортировки по выбранному году
 
-  $(".chapters_block2")[0].slick.slickGoTo(parseInt(currSlideIndex)); 
+  $(".chapters_block2").slick("slickGoTo", currSlideIndex); 
   // loadMoreVideos();
 });
 
