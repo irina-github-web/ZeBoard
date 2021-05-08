@@ -316,15 +316,15 @@ function getConferences(year) {
             }
 
             resultVy.push(
-              '<div class="main-slide-content">' +
-                `<a href=${aVideo.video_url} class="fancybox-media w-inline-block">` +
-                `<div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">` +
-                '<div class="pl_blue"></div></div></a>' +
-                '<div id="video_description" class="video_description">' +
-                `<h2 class="heading_middle heading_video" tooltip=${aVideo.video_year}>${aVideo.video_name}</h2>` +
-                '<div class="razdelit_mid"></div>' +
-                `<div class="txt_author">${aVideo.video_author}</div>` +
-                `<p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
+              `<div class="main-slide-content">
+                <a href=${aVideo.video_url} class="fancybox-media w-inline-block">
+                <div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">
+                <div class="pl_blue"></div></div></a>
+                <div id="video_description" class="video_description">
+                <h2 class="heading_middle heading_video" tooltip=${aVideo.video_year}>${aVideo.video_name}</h2>
+                <div class="razdelit_mid"></div>
+                <div class="txt_author">${aVideo.video_author}</div>
+                <p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
             );
           });
         }
@@ -355,23 +355,23 @@ function getConferences(year) {
       //Добавление слайда с контентом (нижний слайдер)
       $("#conferenses").slick(
         "slickAdd",
-        '<div class="container-upr">' +
-          `<h1 class="header_std">${item.video_type_name}  ${year}</h1>` +
-          '<div class="razdelit_upravl" id="vebirars_view">' +
-          `<div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">` +
-          '<div class="line_razd blue"></div></div>' +
-          '<div class="content">' +
-          '<div class="block_video">' +
+        `<div class="container-upr">' +
+          <h1 class="header_std">${item.video_type_name}  ${year}</h1>
+          <div class="razdelit_upravl" id="vebirars_view">
+          <div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">
+          <div class="line_razd blue"></div></div>
+          <div class="content">
+          <div class="block_video">`+
           resultVy.join("") +
           '<div class="block_video_preview">' +
           result_previewVy.join("") +
           '<div class="pagination">' +
           '<div class="year_pagination name">Год конференции:</div>' +
           resultYears.reverse().join("") +
-          "</div></div>" +
-          '<div class="video_show_all liteTooltip">' +
-          '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
-          '<div class="pl_show"></div></div></div></div>'
+          `</div></div>
+          <div class="video_show_all liteTooltip">
+          <div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>
+          <div class="pl_show"></div></div></div></div>`
       );
       // loadMoreVideos();
     });
