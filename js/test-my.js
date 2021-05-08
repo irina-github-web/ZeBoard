@@ -382,6 +382,9 @@ function getConferences(year) {
       // loadMoreVideos();
     });
   });
+
+  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
+  $(".chapters_block2").slick('slickGoTo', currSlideIndex);
 }
 
 //Контент слайдера (выступления) после клика на превью
@@ -425,13 +428,12 @@ $("#conferenses").on("click", ".video_preview", function () {
 
 //Контент слайда после клика на год pagination
 $("#conferenses").on("click", ".year_pagination", function () {
-  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
   var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
   //удаление текущего слайда
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear); //вызов функции для сортировки по выбранному году
-  $(".chapters_block2").slick('slickGoTo', currSlideIndex);
+  
   // loadMoreVideos();
 });
 
