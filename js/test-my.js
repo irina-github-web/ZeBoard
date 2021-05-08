@@ -355,7 +355,7 @@ function getConferences(year) {
       //Добавление слайда с контентом (нижний слайдер)
       $("#conferenses").slick(
         "slickAdd",
-        `<div class="container-upr">' +
+        `<div class="container-upr">
           <h1 class="header_std">${item.video_type_name}  ${year}</h1>
           <div class="razdelit_upravl" id="vebirars_view">
           <div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">
