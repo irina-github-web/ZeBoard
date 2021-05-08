@@ -335,7 +335,9 @@ function getConferences(year) {
         if (iVideoId == year) {
           $.each(aVideoList, (videoId, aVideo) => {
             result_previewVy.push(
-              `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});opacity: 0.8;" data-tooltip-mouseover="${aVideo.video_name}"></div>`
+              `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${aVideo.video_pic_url});
+              ${(iVideoId == iVideoIdFirstVy) ? "opacity: 0.5" : "opacity : 0.8"}" 
+              data-tooltip-mouseover="${aVideo.video_name}"></div>`
             );
           });
         }
