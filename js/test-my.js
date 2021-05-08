@@ -433,9 +433,9 @@ $("#conferenses").on("click", ".year_pagination", function () {
   // loadMoreVideos();
 });
 
-$(window).on('load', function() {
-  $(".chapters_block2").slick('slickGoTo', 1);
-});
+// $(window).on('load', function() {
+//   $(".chapters_block2").slick('slickGoTo', 1);
+// });
 
 //Show more button для видео-превью
 // function loadMoreVideos() {
