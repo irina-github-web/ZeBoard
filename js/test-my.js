@@ -255,7 +255,7 @@ $("#vebirars").on("click", ".video_preview", function () {
 //---------ЗАПИСИ ВЫСТУПЛЕНИЙ---------
 
 //Слайдер навигации (выступления)
-$(".chapters_block2").slick({
+$(".chapters_block2").not(".slick-initialized").slick({
   slidesToShow: 2,
   slidesToScroll: 2,
   infinite: false,
@@ -265,10 +265,9 @@ $(".chapters_block2").slick({
   arrows: false,
   asNavFor: "#conferenses",
 });
-$(".chapters_block2").not(".slick-initialized").slick();
 
 //Слайдер для контента (выступления)
-$("#conferenses").slick({
+$("#conferenses").not(".slick-initialized").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
@@ -276,7 +275,6 @@ $("#conferenses").slick({
   fade: true,
   asNavFor: ".chapters_block2",
 });
-$("#conferenses").not(".slick-initialized").slick();
 
 var defYear = "2020";
 getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
