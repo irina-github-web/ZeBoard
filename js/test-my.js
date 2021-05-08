@@ -426,13 +426,14 @@ $("#conferenses").on("click", ".video_preview", function () {
 //Контент слайда после клика на год pagination
 $("#conferenses").on("click", ".year_pagination", function () {
   var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
+  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
+  console.log(currSlideIndex);
   //удаление текущего слайда
   $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
   getConferences(currYear); //вызов функции для сортировки по выбранному году
 
-  var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
-  console.log(currSlideIndex);
+
   $(".chapters_block2").slick('slickGoTo', currSlideIndex);
   
   // loadMoreVideos();
