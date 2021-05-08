@@ -284,7 +284,7 @@ function getConferences(year, slide = 0) {
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
-      $(".chapters_block2").slick("slickGoTo", slide);
+      $(".chapters_block2").slick("slickGoTo", 1);
       console.log(slide);
       //Добавление слайда для навигации (верхний слайдер)
       $(".chapters_block2").slick(
