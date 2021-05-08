@@ -259,7 +259,7 @@ $(".chapters_block2").slick({
   slidesToShow: 2,
   slidesToScroll: 2,
   infinite: false,
-  focusOnSelect: false,
+  focusOnSelect: true,
   centerMode: false,
   dots: false,
   arrows: false,
