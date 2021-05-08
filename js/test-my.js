@@ -219,8 +219,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 //Контент слайда (вебинары) после клика на превью
 $("#vebirars").on("click", ".video_preview", function () {
   var previewVal = $(this).attr("data-tooltip-mouseover"); //выбранное название видео
-  $("#vebirars .video_preview").css("opacity", "0.8");
-  $(this).css("opacity", "0.5");
+  $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
+  $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
   //Получение данных
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
@@ -385,6 +385,8 @@ function getConferences(year) {
 //Контент слайдера (выступления) после клика на превью
 $("#conferenses").on("click", ".video_preview", function () {
   var previewValС = $(this).attr("data-tooltip-mouseover"); //выбранное название видео
+  $("#conferenses .video_preview").css("opacity", "0.8");
+  $(this).css("opacity", "0.5");
 
   //Получение данных
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
