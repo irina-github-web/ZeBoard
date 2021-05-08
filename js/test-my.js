@@ -214,12 +214,13 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
 //Контент слайда (вебинары) после клика на превью
 $("#vebirars").on("click", ".video_preview", function () {
-  var previewVal = $(this).attr("data-tooltip-mouseover");
+  var previewVal = $(this).attr("data-tooltip-mouseover"); //выбранное название видео
 
+  //Получение данных
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $.each(data, function (i, item) {
       $.each(item.videos, (iVideoId, aVideo) => {
-        var videonameVal = aVideo.video_name;
+        var videonameVal = aVideo.video_name; //название видео в переменную, и ниже проверка на соответствие
         if (videonameVal == previewVal) {
           $("#vebirars .slick-current .main-slide-content a .video").css(
             "background-image",
@@ -353,13 +354,14 @@ function getConferences(year) {
           resultVy.join("") +
           '<div class="block_video_preview">' +
           result_previewVy.join("") +
-          "</div>" +
-          '<div class="video_show_all liteTooltip">' +
-          '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
           '<div class="pagination">' +
           '<div class="year_pagination name">Год конференции:</div>' +
           resultYears.join("") +
           "</div>" +
+          "</div>" +
+          '<div class="video_show_all liteTooltip">' +
+          '<div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>' +
+
           '<div class="pl_show"></div></div></div></div>'
       );
       // loadMoreVideos();
@@ -369,13 +371,17 @@ function getConferences(year) {
 
 //Контент слайдера (выступления) после клика на превью
 $("#conferenses").on("click", ".video_preview", function () {
-  var previewValС = $(this).attr("data-tooltip-mouseover");
+  var previewValС = $(this).attr("data-tooltip-mouseover"); //выбранное название видео
 
+  //Получение данных
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
+    //Цикл
     $.each(data, function (i, item) {
+      //до объекта, где ключ год
       $.each(item.videos, (iVideoId, aVideoList) => {
+        //до объекта, где ключ id видео
         $.each(aVideoList, (videoId, aVideo) => {
-          var videonameValС = aVideo.video_name;
+          var videonameValС = aVideo.video_name; //название видео в переменную, и ниже проверка на соответствие
           if (videonameValС == previewValС) {
             $("#conferenses .slick-current .main-slide-content a .video").css(
               "background-image",
@@ -402,10 +408,11 @@ $("#conferenses").on("click", ".video_preview", function () {
 
 //Контент слайда после клика на год pagination
 $("#conferenses").on("click", ".pag_item", function () {
-  var currYear = $(this).attr("data-tooltip-year");
-  $(".chapters_block2 .conf_card").remove();
+  var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
+  //удаление текущего слайда
+  $(".chapters_block2 .conf_card").remove(); 
   $("#conferenses .container-upr").remove();
-  getConferences(currYear);
+  getConferences(currYear); //вызов функции для сортировки по выбранному году
   // loadMoreVideos();
 });
 
