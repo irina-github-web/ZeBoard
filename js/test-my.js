@@ -337,7 +337,7 @@ function getConferences(year) {
       //Пагинация по году
       $.each(item.videos, (iVideoId, aVideo) => {
         resultYears.push(
-          `<div class="year_pagination pag_item" data-tooltip-year="${iVideoId}">${iVideoId}</div>`
+          `<div class="${(iVideoId == year) ? year_pagination_active : year_pagination} pag_item" data-tooltip-year="${iVideoId}">${iVideoId}</div>`
         );
       });
 
@@ -431,3 +431,4 @@ $("#conferenses").on("click", ".pag_item", function () {
 //     }
 //   });
 // }
+
