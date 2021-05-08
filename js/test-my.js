@@ -384,6 +384,7 @@ function getConferences(year) {
   });
 
   var currSlideIndex = $(".chapters_block2 .slick-current").attr("data-slick-index");
+  console.log(currSlideIndex);
   $(".chapters_block2").slick('slickGoTo', currSlideIndex);
 }
 
