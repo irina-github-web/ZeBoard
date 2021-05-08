@@ -339,8 +339,8 @@ function getConferences(year) {
         resultYears.push(
           `<div class=${
             iVideoId == year
-              ? "year_pagination_active pag_item"
-              : "year_pagination pag_item"
+              ? "year_pagination_active"
+              : "year_pagination"
           } data-tooltip-year="${iVideoId}">${iVideoId}</div>`
           // `<div class="year_pagination pag_item" data-tooltip-year="${iVideoId}">${iVideoId}</div>`
         );
@@ -410,7 +410,7 @@ $("#conferenses").on("click", ".video_preview", function () {
 });
 
 //Контент слайда после клика на год pagination
-$("#conferenses").on("click", ".pag_item", function () {
+$("#conferenses").on("click", ".year_pagination", function () {
   var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
   //удаление текущего слайда
   $(".chapters_block2 .conf_card").remove();
