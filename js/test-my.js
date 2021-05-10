@@ -56,18 +56,12 @@ $(document).ready(function () {
   }
 });
 
-$("#vebirars").css({
-  "display": "none",
-  "height": "0px",
-});
+$("#vebirars").css("height", "0px");
 
 $("#conferenses").css("display", "block");
 
 $(".demo1").click(() => {
-$("#vebirars").css({
-  "display": "block",
-  "height": "auto"
-});
+  $("#vebirars").css("height", "0px");
 });
 // $(".chapters_block2").click(() => {
 //   $("#conferenses").css("visibility", "visible");
