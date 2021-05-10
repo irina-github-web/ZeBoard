@@ -212,7 +212,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
           aVideo.video_pic_url
         }); 
         ${iVideoId == iVideoIdFirst ? "opacity: 0.5" : "opacity : 0.8"}" 
-        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_url}'></div>`
+        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_pic_url}'></div>`
       );
     });
 
@@ -241,7 +241,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
 //Контент слайда (вебинары) после клика на превью
 $("#vebirars").on("click", ".video_preview", function () {
-  var previewVal = $(this).attr('data-tooltip-mouseover'); //выбранное название видео
+  var previewVal = $(this).attr('data-picname'); //выбранное название видео
   $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
   $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
@@ -249,7 +249,7 @@ $("#vebirars").on("click", ".video_preview", function () {
   $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     $.each(data, function (i, item) {
       $.each(item.videos, (iVideoId, aVideo) => {
-        var videonameVal = aVideo.video_name; //название видео в переменную, и ниже проверка на соответствие
+        var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
         if (videonameVal == previewVal) {
           $("#vebirars .slick-current .main-slide-content a .video").css(
             "background-image",
