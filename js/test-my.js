@@ -431,7 +431,6 @@ $("#conferenses").on("click", ".year_pagination", function () {
   var currSlideIndex = $(".chapters_block2 .slick-current").attr(
     "data-slick-index"
   );
-
   //удаление текущего слайда
   $("#conferenses .container-upr").remove();
 
@@ -442,14 +441,10 @@ $("#conferenses").on("click", ".year_pagination", function () {
     });
   });
 
-  // $("#conferenses").slick("slickGoTo", currSlideIndex);
-  console.log(currSlideIndex);
-
   if (currSlideIndex == 1) {
-    console.log("if done");
     setTimeout(function () {
       $(".chapters_block2 .slick-current").click();
-    }, 10);
+    }, 55);
   }
   // loadMoreVideos();
 });
