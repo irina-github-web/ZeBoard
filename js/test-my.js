@@ -359,8 +359,6 @@ function getConferences(year, item, currSlideIndex) {
           <div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>
           <div class="pl_show"></div></div></div></div>`
   );
-
-  $("#conferenses").slick("slickGoTo", currSlideIndex);
   // loadMoreVideos();
 }
 
@@ -440,19 +438,20 @@ $("#conferenses").on("click", ".year_pagination", function () {
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
-      getConferences(currYear, item, currSlideIndex); //вызов функции для сортировки по выбранному году
+      getConferences(currYear, item); //вызов функции для сортировки по выбранному году
     });
   });
 
   // $("#conferenses").slick("slickGoTo", currSlideIndex);
   console.log(currSlideIndex);
 
-  // if (currSlideIndex == 1) {
-  //   console.log("if done");
-  //   $(window).on("load", function () {
-  //     $(".chapters_block2 .slick-current").trigger("click");
-  //   });
-  // }
+  if (currSlideIndex == 1) {
+    console.log("if done");
+    $(window).on("load", function () {
+      $(".chapters_block2 .slick-current").trigger("click");
+      $("#conferenses").slick("slickGoTo", currSlideIndex);
+    });
+  }
   // loadMoreVideos();
 });
 
