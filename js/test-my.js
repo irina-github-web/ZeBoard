@@ -212,7 +212,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
           aVideo.video_pic_url
         }); 
         ${iVideoId == iVideoIdFirst ? "opacity: 0.5" : "opacity : 0.8"}" 
-        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_pic_url}'></div>`
+        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_pic_url}'></div>
+        <div class="tooltip-cont">${aVideo.video_name}</div>`
       );
     });
 
