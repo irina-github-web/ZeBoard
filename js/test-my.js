@@ -447,7 +447,7 @@ $("#conferenses").on("click", ".year_pagination", function () {
 
   if (currSlideIndex == 1) {
     console.log("if done");
-      // $(".chapters_block2 .slick-current").trigger("click");
+      $(".chapters_block2 .slick-current").trigger("click");
       $("#conferenses").slick("slickGoTo", currSlideIndex);
       // $("#conferenses").slick("refresh");
       
