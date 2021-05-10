@@ -56,37 +56,38 @@ $(document).ready(function () {
   }
 });
 
-// $(document).ready(function () {
-//   setTimeout(function () {
-//     $(".slick-slide").removeClass("slick-current");
-//   }, 55);
-// });
+$(document).ready(function () {
+  setTimeout(function () {
+    $(".demo1 .slick-slide").removeClass("slick-current");
+    $(".chapters_block2 .slick-slide").removeClass("slick-current");
+  }, 55);
+});
 
 $("#vebirars").css({
   display: "block",
-  // height: "0px",
-  // padding: "0px",
+  height: "0px",
+  padding: "0px",
 });
-// $(".demo1").click(() => {
-//   $("#vebirars").css({
-//     height: "auto",
-//     padding: "100px 0px 140px",
-//   });
-// });
+$(".demo1").click(() => {
+  $("#vebirars").css({
+    height: "auto",
+    padding: "100px 0px 140px",
+  });
+});
 
 $("#conferenses").css({
   display: "block",
-  // height: "0px",
-  // padding: "0px",
-  // overflow: "hidden",
+  height: "0px",
+  padding: "0px",
+  overflow: "hidden",
 });
-// $(".chapters_block2").click(() => {
-//   $("#conferenses").css({
-//     height: "auto",
-//     padding: "100px 0 50px 0",
-//     overflow: "inherit",
-//   });
-// });
+$(".chapters_block2").click(() => {
+  $("#conferenses").css({
+    height: "auto",
+    padding: "100px 0 50px 0",
+    overflow: "inherit",
+  });
+});
 
 //---------ЗАПИСИ ВЕБИНАРОВ---------
 
