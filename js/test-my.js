@@ -56,6 +56,10 @@ $(document).ready(function () {
   }
 });
 
+$(document).ready(()=> {
+  $(".slick-active").removeClass("slick-current");
+})
+
 $("#vebirars").css({
   "display": "block",
   "height": "0px",
