@@ -57,7 +57,7 @@ $(document).ready(function () {
 });
 
 setTimeout(function () {
-  $(".slick-slider").removeClass("slick-current");
+  $(".slick-slide").removeClass("slick-current");
 }, 55);
 
 $("#vebirars").css({
