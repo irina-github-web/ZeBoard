@@ -57,11 +57,17 @@ $(document).ready(function () {
 });
 
 $("#vebirars").css("display", "block");
-$("#vebirars").css("height", "0px");
+$("#vebirars").css({
+  "height": "0px",
+  "padding": "0px",
+});
 $("#conferenses").css("display", "block");
 
 $(".demo1").click(() => {
-  $("#vebirars").css("height", "auto");
+  $("#vebirars").css({
+    "height": "auto",
+    "padding": "100px 0px 140px",
+  });
 });
 // $(".chapters_block2").click(() => {
 //   $("#conferenses").css("visibility", "visible");
