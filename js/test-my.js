@@ -282,7 +282,7 @@ var defYear = "2020";
 // getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
 
 //функция сортировки по году
-function getConferences(year, item) {
+function getConferences(year, item, currSlideIndex) {
   var iVideoIdFirstVy = ""; //для вывода первого объекта в слайд
   var resultVy = []; //видео + описание
   var result_previewVy = []; //превью выступлений
@@ -359,6 +359,8 @@ function getConferences(year, item) {
           <div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>
           <div class="pl_show"></div></div></div></div>`
   );
+
+  $(".chapters_block2 .slick-current").trigger("click");
   // loadMoreVideos();
 }
 
@@ -433,7 +435,6 @@ $("#conferenses").on("click", ".year_pagination", function () {
   );
 
   //удаление текущего слайда
-  // $(".chapters_block2 .conf_card").remove();
   $("#conferenses .container-upr").remove();
 
   $.getJSON("https://video.gd.ru/event-type-1", function (data) {
