@@ -448,9 +448,12 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
   console.log(currSlideIndex);
 
   if (currSlideIndex == 1) {
+    console.log("if done");
     $("body").on("click", ".chapters_block2 .slick-current", function () {
       console.log("click working");
     });
+  } else {
+    return false;
   }
   // loadMoreVideos();
 });
