@@ -445,8 +445,8 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
   });
 
   if (currSlideIndex == 1) {
+    $(".chapters_block2").slick("slickGoTo", currSlideIndex);
     $("#conferenses").slick("slickNext");
-    // $(".chapters_block2").slick("slickGoTo", currSlideIndex);
     console.log(currSlideIndex);
   }
 
