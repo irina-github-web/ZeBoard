@@ -56,8 +56,8 @@ $(document).ready(function () {
   }
 });
 
+$("#vebirars").css("display", "block");
 $("#vebirars").css("height", "0px");
-
 $("#conferenses").css("display", "block");
 
 $(".demo1").click(() => {
