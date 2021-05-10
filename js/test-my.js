@@ -56,22 +56,15 @@ $(document).ready(function () {
   }
 });
 
-$(document).ready(()=> {
+$(document).load(function() {
   $(".slick-active").removeClass("slick-current");
-})
+});
 
 $("#vebirars").css({
   "display": "block",
   "height": "0px",
   "padding": "0px",
 });
-
-$("#conferenses").css({
-  "display": "none",
-  // "height": "0px",
-  // "padding": "0px",
-});
-
 $(".demo1").click(() => {
   $("#vebirars").css({
     "height": "auto",
@@ -79,12 +72,9 @@ $(".demo1").click(() => {
   });
 });
 
+$("#conferenses").css("display", "none");
 $(".chapters_block2").click(() => {
-  $("#conferenses").css({
-    "display": "block",
-    // "height": "auto",
-    // "padding": "100px 0 50px 0",
-  });
+  $("#conferenses").css("display", "block");
 });
 
 //---------ЗАПИСИ ВЕБИНАРОВ---------
