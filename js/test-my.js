@@ -56,9 +56,9 @@ $(document).ready(function () {
   }
 });
 
-$(window).on('load', function() {
+setTimeout(function () {
   $(".slick-slider").removeClass("slick-current");
-});
+}, 55);
 
 $("#vebirars").css({
   "display": "block",
@@ -456,11 +456,6 @@ $("#conferenses").on("click", ".year_pagination", function () {
   }
   // loadMoreVideos();
 });
-
-// $(window).on('load', function goToSlide(slide) {
-//   console.log(slide);
-//   $(".chapters_block2").slick('slickGoTo', slide);
-// });
 
 //Show more button для видео-превью
 // function loadMoreVideos() {
