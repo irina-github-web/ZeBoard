@@ -75,10 +75,17 @@ $(".demo1").click(() => {
 });
 
 $("#conferenses").css({
-  "display": "none",
+  display: "block",
+  height: "0px",
+  padding: "0px",
+  overflow: "hidden",
 });
 $(".chapters_block2").click(() => {
-  $("#conferenses").css("display", "block");
+  $("#conferenses").css({
+    height: "auto",
+    padding: "100px 0 50px 0",
+    overflow: "inherit",
+  });
 });
 
 //---------ЗАПИСИ ВЕБИНАРОВ---------
