@@ -56,15 +56,19 @@ $(document).ready(function () {
   }
 });
 
-$("#vebirars").css("display", "block");
+$("#vebirars").css({
+  "display": "none",
+  "height": "0px",
+});
+
 $("#conferenses").css("display", "block");
 
-// $(".demo1").click(() => {
-//   $("#vebirars").css("visibility", "visible");
-//   e.preventDefault();
-//   slideIndex = $(this).index();
-//   $("#vebirars").slickGoTo(parseInt(slideIndex));
-// });
+$(".demo1").click(() => {
+$("#vebirars").css({
+  "display": "block",
+  "height": "auto"
+});
+});
 // $(".chapters_block2").click(() => {
 //   $("#conferenses").css("visibility", "visible");
 // });
