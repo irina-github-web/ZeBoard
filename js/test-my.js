@@ -279,17 +279,16 @@ $("#conferenses").not(".slick-initialized").slick({
 });
 
 var defYear = "2020";
-getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
+// getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
 
-function getConferences(year) {
-  //Получение данных
-  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
-    //Перебираем в цикле
-    $.each(data, function (i, item) {
-      //Добавление слайда для навигации (верхний слайдер)
-      $(".chapters_block2").slick(
-        "slickAdd",
-        `<div class="conf_card conf1_card">
+//Получение данных
+$.getJSON("https://video.gd.ru/event-type-1", function (data) {
+  //Перебираем в цикле
+  $.each(data, function (i, item) {
+    //Добавление слайда для навигации (верхний слайдер)
+    $(".chapters_block2").slick(
+      "slickAdd",
+      `<div class="conf_card conf1_card">
           <a href="#conferenses"><div class="conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>
           <div class="chapter_txt"><a href="#conferenses">
           <h3 class="heading_small">${item.video_type_name}</h3>
@@ -300,26 +299,31 @@ function getConferences(year) {
           <a href="#conferenses" class="link_look1 active w-inline-block">
           <div class="txt_link_look">смотреть</div>
           </a></div></div>`
-      );
+    );
 
-      var iVideoIdFirstVy = ""; //для вывода первого объекта в слайд
-      var resultVy = []; //видео + описание
-      var result_previewVy = []; //превью выступлений
-      var resultYears = []; //массив для сортировки по году
+    getConferences(defYear, item); //вызов функции (описана ниже) для вывода данных за 2020 год
+  });
+});
 
-      //Добавление в массив видео выступление + описание (первый объект)
-      $.each(item.videos, (iVideoId, aVideoList) => {
-        //По умолчанию выводим 2020 год
-        if (iVideoId == year) {
-          $.each(aVideoList, (videoId, aVideo) => {
-            if (iVideoIdFirstVy === "") {
-              iVideoIdFirstVy = videoId;
-            } else {
-              return false;
-            }
+function getConferences(year, item) {
+  var iVideoIdFirstVy = ""; //для вывода первого объекта в слайд
+  var resultVy = []; //видео + описание
+  var result_previewVy = []; //превью выступлений
+  var resultYears = []; //массив для сортировки по году
 
-            resultVy.push(
-              `<div class="main-slide-content">
+  //Добавление в массив видео выступление + описание (первый объект)
+  $.each(item.videos, (iVideoId, aVideoList) => {
+    //По умолчанию выводим 2020 год
+    if (iVideoId == year) {
+      $.each(aVideoList, (videoId, aVideo) => {
+        if (iVideoIdFirstVy === "") {
+          iVideoIdFirstVy = videoId;
+        } else {
+          return false;
+        }
+
+        resultVy.push(
+          `<div class="main-slide-content">
                 <a href=${aVideo.video_url} class="fancybox-media w-inline-block">
                 <div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">
                 <div class="pl_blue"></div></div></a>
@@ -328,59 +332,57 @@ function getConferences(year) {
                 <div class="razdelit_mid"></div>
                 <div class="txt_author">${aVideo.video_author}</div>
                 <p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
-            );
-          });
-        }
-      });
-
-      //Добавление в массив превью видео выступлений
-      $.each(item.videos, (iVideoId, aVideoList) => {
-        if (iVideoId == year) {
-          $.each(aVideoList, (videoId, aVideo) => {
-            result_previewVy.push(
-              `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
-                aVideo.video_pic_url
-              });
-              ${videoId == iVideoIdFirstVy ? "opacity: 0.5" : "opacity : 0.8"}" 
-              data-tooltip-mouseover="${aVideo.video_name}"></div>`
-            );
-          });
-        }
-      });
-
-      //Пагинация по году
-      $.each(item.videos, (iVideoId, aVideo) => {
-        resultYears.push(
-          `<div class=${
-            iVideoId == year ? "year_pagination_active" : "year_pagination"
-          } data-tooltip-year="${iVideoId}">${iVideoId}</div>`
         );
       });
+    }
+  });
 
-      //Добавление слайда с контентом (нижний слайдер)
-      $("#conferenses").slick(
-        "slickAdd",
-        `<div class="container-upr">
+  //Добавление в массив превью видео выступлений
+  $.each(item.videos, (iVideoId, aVideoList) => {
+    if (iVideoId == year) {
+      $.each(aVideoList, (videoId, aVideo) => {
+        result_previewVy.push(
+          `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
+            aVideo.video_pic_url
+          });
+              ${videoId == iVideoIdFirstVy ? "opacity: 0.5" : "opacity : 0.8"}" 
+              data-tooltip-mouseover="${aVideo.video_name}"></div>`
+        );
+      });
+    }
+  });
+
+  //Пагинация по году
+  $.each(item.videos, (iVideoId, aVideo) => {
+    resultYears.push(
+      `<div class=${
+        iVideoId == year ? "year_pagination_active" : "year_pagination"
+      } data-tooltip-year="${iVideoId}">${iVideoId}</div>`
+    );
+  });
+
+  //Добавление слайда с контентом (нижний слайдер)
+  $("#conferenses").slick(
+    "slickAdd",
+    `<div class="container-upr">
           <h1 class="header_std">${item.video_type_name}  ${year}</h1>
           <div class="razdelit_upravl" id="vebirars_view">
           <div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">
           <div class="line_razd blue"></div></div>
           <div class="content">
           <div class="block_video">` +
-          resultVy.join("") +
-          '<div class="block_video_preview">' +
-          result_previewVy.join("") +
-          '<div class="pagination">' +
-          '<div class="year_pagination name">Год конференции:</div>' +
-          resultYears.reverse().join("") +
-          `</div></div>
+      resultVy.join("") +
+      '<div class="block_video_preview">' +
+      result_previewVy.join("") +
+      '<div class="pagination">' +
+      '<div class="year_pagination name">Год конференции:</div>' +
+      resultYears.reverse().join("") +
+      `</div></div>
           <div class="video_show_all liteTooltip">
           <div class="btn_arrow_right"><img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom"></div></div></div>
           <div class="pl_show"></div></div></div></div>`
-      );
-      // loadMoreVideos();
-    });
-  });
+  );
+  // loadMoreVideos();
 }
 
 //Контент слайдера (выступления) после клика на превью
@@ -422,23 +424,29 @@ $("#conferenses").on("click", ".video_preview", function () {
   });
 });
 
-$(window).on("load", function () {
-  //Контент слайда после клика на год pagination
-  $("#conferenses").on("click", ".year_pagination", function (e) {
-    e.preventDefault();
-    var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
-    var currSlideIndex = $(".chapters_block2 .slick-current").attr(
-      "data-slick-index"
-    );
+//Контент слайда после клика на год pagination
+$("#conferenses").on("click", ".year_pagination", function (e) {
+  e.preventDefault();
+  var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
+  var currSlideIndex = $(".chapters_block2 .slick-current").attr(
+    "data-slick-index"
+  );
 
-    //удаление текущего слайда
-    $(".chapters_block2 .conf_card").remove();
-    $("#conferenses .container-upr").remove();
-    getConferences(currYear); //вызов функции для сортировки по выбранному году
-    $(".chapters_block2").slick("slickGoTo", currSlideIndex);
-    console.log(currSlideIndex);
-    // loadMoreVideos();
+  //удаление текущего слайда
+  // $(".chapters_block2 .conf_card").remove();
+  $("#conferenses .container-upr").remove();
+
+  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
+    //Перебираем в цикле
+    $.each(data, function (i, item) {
+      getConferences(currYear, item); //вызов функции для сортировки по выбранному году
+    });
   });
+
+  $(".chapters_block2").slick("slickGoTo", currSlideIndex);
+  console.log(currSlideIndex);
+
+  // loadMoreVideos();
 });
 
 // $(window).on('load', function goToSlide(slide) {
