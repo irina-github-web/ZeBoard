@@ -445,13 +445,13 @@ $("#conferenses").on("click", ".year_pagination", function () {
   // $("#conferenses").slick("slickGoTo", currSlideIndex);
   console.log(currSlideIndex);
 
-  if (currSlideIndex == 1) {
-    console.log("if done");
-    $(window).on("load", function () {
-      $(".chapters_block2 .slick-current").trigger("click");
-      $("#conferenses").slick("slickGoTo", currSlideIndex);
-    });
-  }
+  // if (currSlideIndex == 1) {
+  //   console.log("if done");
+  //   $(window).on("load", function () {
+  //     $(".chapters_block2 .slick-current").trigger("click");
+  //     $("#conferenses").slick("slickGoTo", currSlideIndex);
+  //   });
+  // }
   // loadMoreVideos();
 });
 
