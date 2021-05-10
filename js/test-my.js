@@ -447,6 +447,8 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
   $("#conferenses").slick("slickGoTo", currSlideIndex);
   console.log(currSlideIndex);
 
+  $(".chapters_block2 .slick-current").click();
+
   // loadMoreVideos();
 });
 
