@@ -208,13 +208,11 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
     //Добавление в массив превью видео вебинаров
     $.each(item.videos, (iVideoId, aVideo) => {
       result_preview.push(
-        `<div class="video_preview preview_vebinar3_1 liteTooltip has-tooltip" style="background-image: url(../images/icn_play_small.png), url(${
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
           aVideo.video_pic_url
         }); 
         ${iVideoId == iVideoIdFirst ? "opacity: 0.5" : "opacity : 0.8"}" 
-        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_pic_url}'>
-        <span class="tooltip-wrapper"><span class="tooltip">${aVideo.video_name}</span></span>
-        </div>`
+        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_pic_url}'></div>`
       );
     });
 
