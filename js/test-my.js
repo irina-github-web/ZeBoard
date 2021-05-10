@@ -56,19 +56,21 @@ $(document).ready(function () {
   }
 });
 
-setTimeout(function () {
-  $(".slick-slide").removeClass("slick-current");
-}, 55);
+$(document).ready(function () {
+  setTimeout(function () {
+    $(".slick-slide").removeClass("slick-current");
+  }, 55);
+});
 
 $("#vebirars").css({
-  "display": "block",
-  "height": "0px",
-  "padding": "0px",
+  display: "block",
+  height: "0px",
+  padding: "0px",
 });
 $(".demo1").click(() => {
   $("#vebirars").css({
-    "height": "auto",
-    "padding": "100px 0px 140px",
+    height: "auto",
+    padding: "100px 0px 140px",
   });
 });
 
