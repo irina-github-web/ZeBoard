@@ -443,7 +443,7 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
     });
   });
 
-  $(".chapters_block2").slick("slickGoTo", currSlideIndex);
+  $("#conferenses").slick("slickGoTo", currSlideIndex);
   console.log(currSlideIndex);
 
   // loadMoreVideos();
