@@ -449,7 +449,9 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
 
   if (currSlideIndex == 1) {
     console.log("if done");
-    $(".chapters_block2 .slick-current").trigger( "click" );
+    $(".chapters_block2").trigger( "click", ".slick-current", ()=> {
+      console.log("click done");
+    });
   }
   // loadMoreVideos();
 });
