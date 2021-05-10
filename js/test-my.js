@@ -335,7 +335,7 @@ function getConferences(year, item, currSlideIndex) {
             aVideo.video_pic_url
           });
               ${videoId == iVideoIdFirstVy ? "opacity: 0.5" : "opacity : 0.8"}" 
-              data-tooltip-mouseover='${aVideo.video_name}'></div>`
+              data-tooltip-mouseover='${aVideo.video_name}' data-id='${aVideo[key]}'></div>`
         );
       });
     }
@@ -400,7 +400,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
 //Контент слайдера (выступления) после клика на превью
 $("#conferenses").on("click", ".video_preview", function () {
-  var previewValС = $(this).attr('data-tooltip-mouseover'); //выбранное название видео
+  var previewValС = $(this).attr('data-id'); //выбранное название видео
   $("#conferenses .video_preview").css("opacity", "0.8");
   $(this).css("opacity", "0.5");
 
@@ -412,7 +412,7 @@ $("#conferenses").on("click", ".video_preview", function () {
       $.each(item.videos, (iVideoId, aVideoList) => {
         //до объекта, где ключ id видео
         $.each(aVideoList, (videoId, aVideo) => {
-          var videonameValС = aVideo.video_name; //название видео в переменную, и ниже проверка на соответствие
+          var videonameValС = aVideo[key]; //название видео в переменную, и ниже проверка на соответствие
           if (videonameValС == previewValС) {
             $("#conferenses .slick-current .main-slide-content a .video").css(
               "background-image",
