@@ -263,7 +263,7 @@ $("#vebirars").on("click", ".video_preview", function () {
           ).attr("href", aVideo.video_url);
           $(
             "#vebirars .slick-current .main-slide-content .video_description h2"
-          ).text(aVideo.video_name);
+          ).html(aVideo.video_name);
           $(
             "#vebirars .slick-current .main-slide-content .video_description .txt_author"
           ).text(aVideo.video_author);
