@@ -281,30 +281,7 @@ $("#conferenses").not(".slick-initialized").slick({
 var defYear = "2020";
 // getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
 
-//Получение данных
-$.getJSON("https://video.gd.ru/event-type-1", function (data) {
-  //Перебираем в цикле
-  $.each(data, function (i, item) {
-    //Добавление слайда для навигации (верхний слайдер)
-    $(".chapters_block2").slick(
-      "slickAdd",
-      `<div class="conf_card conf1_card">
-          <a href="#conferenses"><div class="conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>
-          <div class="chapter_txt"><a href="#conferenses">
-          <h3 class="heading_small">${item.video_type_name}</h3>
-          <div class="razdelit_small"></div></a>
-          <a href="#conferenses" class="link_look1 w-inline-block">
-          <div class="txt_link_look">смотреть</div>
-          </a>
-          <a href="#conferenses" class="link_look1 active w-inline-block">
-          <div class="txt_link_look">смотреть</div>
-          </a></div></div>`
-    );
-
-    getConferences(defYear, item); //вызов функции (описана ниже) для вывода данных за 2020 год
-  });
-});
-
+//функция сортировки по году
 function getConferences(year, item) {
   var iVideoIdFirstVy = ""; //для вывода первого объекта в слайд
   var resultVy = []; //видео + описание
@@ -385,6 +362,30 @@ function getConferences(year, item) {
   // loadMoreVideos();
 }
 
+//Получение данных
+$.getJSON("https://video.gd.ru/event-type-1", function (data) {
+  //Перебираем в цикле
+  $.each(data, function (i, item) {
+    //Добавление слайда для навигации (верхний слайдер)
+    $(".chapters_block2").slick(
+      "slickAdd",
+      `<div class="conf_card conf1_card">
+          <a href="#conferenses"><div class="conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>
+          <div class="chapter_txt"><a href="#conferenses">
+          <h3 class="heading_small">${item.video_type_name}</h3>
+          <div class="razdelit_small"></div></a>
+          <a href="#conferenses" class="link_look1 w-inline-block">
+          <div class="txt_link_look">смотреть</div>
+          </a>
+          <a href="#conferenses" class="link_look1 active w-inline-block">
+          <div class="txt_link_look">смотреть</div>
+          </a></div></div>`
+    );
+
+    getConferences(defYear, item); //вызов функции для вывода данных за 2020 год
+  });
+});
+
 //Контент слайдера (выступления) после клика на превью
 $("#conferenses").on("click", ".video_preview", function () {
   var previewValС = $(this).attr("data-tooltip-mouseover"); //выбранное название видео
@@ -443,8 +444,11 @@ $("#conferenses").on("click", ".year_pagination", function (e) {
     });
   });
 
-  $("#conferenses").slick("slickGoTo", currSlideIndex);
-  console.log(currSlideIndex);
+  if (currSlideIndex == 1) {
+    $("#conferenses").slick("slickNext");
+    // $(".chapters_block2").slick("slickGoTo", currSlideIndex);
+    console.log(currSlideIndex);
+  }
 
   // loadMoreVideos();
 });
