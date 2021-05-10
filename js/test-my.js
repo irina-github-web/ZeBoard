@@ -56,7 +56,7 @@ $(document).ready(function () {
   }
 });
 
-$(document).load(function() {
+$(window).on('load', function() {
   $(".slick-slider").removeClass("slick-current");
 });
 
