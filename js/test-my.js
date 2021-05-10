@@ -61,7 +61,7 @@ $("#vebirars").css("height", "0px");
 $("#conferenses").css("display", "block");
 
 $(".demo1").click(() => {
-  $("#vebirars").css("height", "0px");
+  $("#vebirars").css("height", "auto");
 });
 // $(".chapters_block2").click(() => {
 //   $("#conferenses").css("visibility", "visible");
