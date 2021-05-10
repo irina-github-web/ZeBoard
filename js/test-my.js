@@ -64,29 +64,29 @@ $(document).ready(function () {
 
 $("#vebirars").css({
   display: "block",
-  height: "0px",
-  padding: "0px",
+  // height: "0px",
+  // padding: "0px",
 });
-$(".demo1").click(() => {
-  $("#vebirars").css({
-    height: "auto",
-    padding: "100px 0px 140px",
-  });
-});
+// $(".demo1").click(() => {
+//   $("#vebirars").css({
+//     height: "auto",
+//     padding: "100px 0px 140px",
+//   });
+// });
 
 $("#conferenses").css({
   display: "block",
-  height: "0px",
-  padding: "0px",
-  overflow: "hidden",
+  // height: "0px",
+  // padding: "0px",
+  // overflow: "hidden",
 });
-$(".chapters_block2").click(() => {
-  $("#conferenses").css({
-    height: "auto",
-    padding: "100px 0 50px 0",
-    overflow: "inherit",
-  });
-});
+// $(".chapters_block2").click(() => {
+//   $("#conferenses").css({
+//     height: "auto",
+//     padding: "100px 0 50px 0",
+//     overflow: "inherit",
+//   });
+// });
 
 //---------ЗАПИСИ ВЕБИНАРОВ---------
 
@@ -212,7 +212,9 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
           aVideo.video_pic_url
         }); 
         ${iVideoId == iVideoIdFirst ? "opacity: 0.5" : "opacity : 0.8"}" 
-        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_pic_url}'></div>`
+        data-tooltip-mouseover='${aVideo.video_name}' data-picname='${
+          aVideo.video_pic_url
+        }'></div>`
       );
     });
 
@@ -241,7 +243,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
 
 //Контент слайда (вебинары) после клика на превью
 $("#vebirars").on("click", ".video_preview", function () {
-  var previewVal = $(this).attr('data-picname'); //выбранное название видео
+  var previewVal = $(this).attr("data-picname"); //выбранное название видео
   $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
   $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
@@ -342,7 +344,9 @@ function getConferences(year, item, currSlideIndex) {
             aVideo.video_pic_url
           });
               ${videoId == iVideoIdFirstVy ? "opacity: 0.5" : "opacity : 0.8"}" 
-              data-tooltip-mouseover='${aVideo.video_name}' data-picname='${aVideo.video_pic_url}'></div>`
+              data-tooltip-mouseover='${aVideo.video_name}' data-picname='${
+            aVideo.video_pic_url
+          }'></div>`
         );
       });
     }
@@ -407,7 +411,7 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
 //Контент слайдера (выступления) после клика на превью
 $("#conferenses").on("click", ".video_preview", function () {
-  var previewValС = $(this).attr('data-picname'); //выбранное название видео
+  var previewValС = $(this).attr("data-picname"); //выбранное название видео
   $("#conferenses .video_preview").css("opacity", "0.8");
   $(this).css("opacity", "0.5");
 
