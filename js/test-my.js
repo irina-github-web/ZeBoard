@@ -262,7 +262,7 @@ $(".chapters_block2").not(".slick-initialized").slick({
   slidesToScroll: 2,
   infinite: false,
   focusOnSelect: true,
-  centerMode: true,
+  centerMode: false,
   dots: false,
   arrows: false,
   asNavFor: "#conferenses",
