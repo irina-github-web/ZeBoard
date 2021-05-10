@@ -451,7 +451,7 @@ $("#conferenses").on("click", ".year_pagination", function () {
     // $(".chapters_block2").trigger("click", ".slick-current");
     setTimeout(function () {
       $(".chapters_block2 .slick-current").click();
-    }, 500);
+    }, 100);
     // $(".chapters_block2 .slick-current").trigger("click");
     // $("#conferenses").slick("slickGoTo", currSlideIndex);
     // $("#conferenses").slick("refresh");
