@@ -56,11 +56,11 @@ $(document).ready(function () {
   }
 });
 
-$(document).ready(function () {
-  setTimeout(function () {
-    $(".slick-slide").removeClass("slick-current");
-  }, 55);
-});
+// $(document).ready(function () {
+//   setTimeout(function () {
+//     $(".slick-slide").removeClass("slick-current");
+//   }, 55);
+// });
 
 $("#vebirars").css({
   display: "block",
