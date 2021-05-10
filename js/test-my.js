@@ -63,9 +63,9 @@ $("#vebirars").css({
 });
 
 $("#conferenses").css({
-  "display": "block",
-  "height": "0px",
-  "padding": "0px",
+  "display": "none",
+  // "height": "0px",
+  // "padding": "0px",
 });
 
 $(".demo1").click(() => {
@@ -77,8 +77,9 @@ $(".demo1").click(() => {
 
 $(".chapters_block2").click(() => {
   $("#conferenses").css({
-    "height": "auto",
-    "padding": "100px 0 50px 0",
+    "display": "block",
+    // "height": "auto",
+    // "padding": "100px 0 50px 0",
   });
 });
 
