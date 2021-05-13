@@ -163,7 +163,7 @@ $(".slider-for").not(".slick-initialized").slick({
 });
 
 //Получение данных
-var rData = [];
+var rData;
 $.getJSON("https://video.gd.ru/event-type-2", function (json) {
   rData = json;
   console.log(rData);
