@@ -166,8 +166,8 @@ $(".slider-for").not(".slick-initialized").slick({
 var rData;
 $.getJSON("https://video.gd.ru/event-type-2", function (result) {
   rData = result;
-  console.log(rData);
   getVebinars(rData);
+  getVebinarsAfterClick(rData);
 })
   .done(function () {
     console.log("Request Done");
@@ -256,13 +256,12 @@ function getVebinars(data) {
   });
 }
 
-//Контент слайда (вебинары) после клика на превью
-$("#vebirars").on("click", ".video_preview", function () {
+function getVebinarsAfterClick(data) {
   var previewVal = $(this).attr("data-picname"); //выбранное название видео
   $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
   $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
-  $.each(rData, function (i, item) {
+  $.each(data, function (i, item) {
     $.each(item.videos, (iVideoId, aVideo) => {
       var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
       if (videonameVal == previewVal) {
@@ -286,6 +285,11 @@ $("#vebirars").on("click", ".video_preview", function () {
       }
     });
   });
+}
+
+//Контент слайда (вебинары) после клика на превью
+$("#vebirars").on("click", ".video_preview", function () {
+  getVebinarsAfterClick();
 });
 
 //---------ЗАПИСИ ВЫСТУПЛЕНИЙ---------
