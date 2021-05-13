@@ -163,10 +163,9 @@ $(".slider-for").not(".slick-initialized").slick({
 });
 
 //Получение данных
-var rData;
+var rData = null;
 $.getJSON("https://video.gd.ru/event-type-2", function (json) {
   rData = json;
-  console.log(rData);
 })
   .done(function () {
     console.log("Request Done");
@@ -178,6 +177,8 @@ $.getJSON("https://video.gd.ru/event-type-2", function (json) {
 
 //Перебираем данные в цикле
 $.each(rData, function (i, item) {
+  console.log(rData);
+  console.log(item);
   //Добавление слайда для навигации (верхний слайдер)
   $(".slider-nav").slick(
     "slickAdd",
