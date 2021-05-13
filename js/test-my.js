@@ -166,6 +166,7 @@ $(".slider-for").not(".slick-initialized").slick({
 const data = "";
 $.getJSON("https://video.gd.ru/event-type-2", function (json) {
   data = json;
+  console.log(data);
 })
   .done(function () {
     console.log("Request Done");
