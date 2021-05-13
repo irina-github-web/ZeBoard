@@ -167,7 +167,7 @@ $.ajaxSetup({
   async: false,
 });
 var rData;
-$.getJSON("https://video.gd.ru/event-type-2", async function (result) {
+$.getJSON("https://video.gd.ru/event-type-2", function (result) {
   rData = result;
 });
 
