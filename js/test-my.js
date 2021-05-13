@@ -163,7 +163,11 @@ $(".slider-for").not(".slick-initialized").slick({
 });
 
 //Получение данных
-$.getJSON("https://video.gd.ru/event-type-2", callbackFuncWithData)
+var rData = [];
+$.getJSON("https://video.gd.ru/event-type-2", function (json) {
+  rData = json;
+  console.log(rData);
+})
   .done(function () {
     console.log("Request Done");
   })
@@ -172,13 +176,8 @@ $.getJSON("https://video.gd.ru/event-type-2", callbackFuncWithData)
     console.log("Request Failed: " + err);
   });
 
-function callbackFuncWithData(json) {
-  var dataResp = json;
-  console.log(dataResp);
-}
-
 //Перебираем данные в цикле
-$.each(dataResp, function (i, item) {
+$.each(rData, function (i, item) {
   //Добавление слайда для навигации (верхний слайдер)
   $(".slider-nav").slick(
     "slickAdd",
@@ -260,7 +259,7 @@ $("#vebirars").on("click", ".video_preview", function () {
   $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
   $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
-  $.each(dataResp, function (i, item) {
+  $.each(rData, function (i, item) {
     $.each(item.videos, (iVideoId, aVideo) => {
       var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
       if (videonameVal == previewVal) {
