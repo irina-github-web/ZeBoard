@@ -304,15 +304,6 @@ $("#conferenses").not(".slick-initialized").slick({
   asNavFor: ".chapters_block2",
 });
 
-//Получение данных
-var rDataConf;
-await new Promise((doneConf) =>
-  $.getJSON("https://video.gd.ru/event-type-1", async function (result) {
-    rDataConf = result;
-    doneConf();
-  })
-);
-
 var defYear = "2020";
 // getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
 
@@ -399,12 +390,14 @@ function getConferences(year, item, currSlideIndex) {
   // loadMoreVideos();
 }
 
-//Перебираем в цикле
-$.each(rDataConf, function (i, item) {
-  //Добавление слайда для навигации (верхний слайдер)
-  $(".chapters_block2").slick(
-    "slickAdd",
-    `<div class="conf_card conf1_card">
+//Получение данных
+$.getJSON("https://video.gd.ru/event-type-1", function (data) {
+  //Перебираем в цикле
+  $.each(data, function (i, item) {
+    //Добавление слайда для навигации (верхний слайдер)
+    $(".chapters_block2").slick(
+      "slickAdd",
+      `<div class="conf_card conf1_card">
           <a href="#conferenses"><div class="conf1_img" style="background-image: url(${item.video_type_pic_url});"></div></a>
           <div class="chapter_txt"><a href="#conferenses">
           <h3 class="heading_small">${item.video_type_name}</h3>
@@ -415,8 +408,10 @@ $.each(rDataConf, function (i, item) {
           <a href="#conferenses" class="link_look1 active w-inline-block">
           <div class="txt_link_look">смотреть</div>
           </a></div></div>`
-  );
-  getConferences(defYear, item); //вызов функции для вывода данных за 2020 год
+    );
+
+    getConferences(defYear, item); //вызов функции для вывода данных за 2020 год
+  });
 });
 
 //Контент слайдера (выступления) после клика на превью
@@ -425,31 +420,34 @@ $("#conferenses").on("click", ".video_preview", function () {
   $("#conferenses .video_preview").css("opacity", "0.8");
   $(this).css("opacity", "0.5");
 
-  //Цикл
-  $.each(rDataConf, function (i, item) {
-    //до объекта, где ключ год
-    $.each(item.videos, (iVideoId, aVideoList) => {
-      //до объекта, где ключ id видео
-      $.each(aVideoList, (videoId, aVideo) => {
-        var videonameValС = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
-        if (videonameValС == previewValС) {
-          $("#conferenses .slick-current .main-slide-content a .video").css(
-            "background-image",
-            `url(${aVideo.video_pic_url})`
-          );
-          $(
-            "#conferenses .slick-current .main-slide-content .fancybox-media"
-          ).attr("href", aVideo.video_url);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description h2"
-          ).html(aVideo.video_name);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description .txt_author"
-          ).text(aVideo.video_author);
-          $(
-            "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
-          ).text(aVideo.video_text);
-        }
+  //Получение данных
+  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
+    //Цикл
+    $.each(data, function (i, item) {
+      //до объекта, где ключ год
+      $.each(item.videos, (iVideoId, aVideoList) => {
+        //до объекта, где ключ id видео
+        $.each(aVideoList, (videoId, aVideo) => {
+          var videonameValС = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
+          if (videonameValС == previewValС) {
+            $("#conferenses .slick-current .main-slide-content a .video").css(
+              "background-image",
+              `url(${aVideo.video_pic_url})`
+            );
+            $(
+              "#conferenses .slick-current .main-slide-content .fancybox-media"
+            ).attr("href", aVideo.video_url);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description h2"
+            ).html(aVideo.video_name);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description .txt_author"
+            ).text(aVideo.video_author);
+            $(
+              "#conferenses .slick-current .main-slide-content .video_description .txt_video_desc"
+            ).text(aVideo.video_text);
+          }
+        });
       });
     });
   });
@@ -464,9 +462,11 @@ $("#conferenses").on("click", ".year_pagination", function () {
   //удаление текущего слайда
   $("#conferenses .container-upr").remove();
 
-  //Перебираем в цикле
-  $.each(rDataConf, function (i, item) {
-    getConferences(currYear, item); //вызов функции для сортировки по выбранному году
+  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
+    //Перебираем в цикле
+    $.each(data, function (i, item) {
+      getConferences(currYear, item); //вызов функции для сортировки по выбранному году
+    });
   });
 
   if (currSlideIndex == 1) {
