@@ -163,9 +163,9 @@ $(".slider-for").not(".slick-initialized").slick({
 });
 
 //Получение данных
-var data = "";
+// var data = "";
 $.getJSON("https://video.gd.ru/event-type-2", function (json) {
-  data = json;
+  var data = json;
   console.log(data);
 })
   .done(function () {
