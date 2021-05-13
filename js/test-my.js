@@ -164,12 +164,18 @@ $(".slider-for").not(".slick-initialized").slick({
 
 //Получение данных
 var rData;
-await new Promise((done) =>
-  $.getJSON("https://video.gd.ru/event-type-2", async function (result) {
-    rData = result;
-    done();
-  })
-);
+// await new Promise((done) =>
+//   $.getJSON("https://video.gd.ru/event-type-2", async function (result) {
+//     rData = result;
+//     done();
+//   })
+// );
+
+async function getVebinarsData() {
+  // Your async code here
+  rData = await fetch("https://video.gd.ru/event-type-2");
+}
+getVebinarsData();
 
 //Перебираем данные в цикле
 $.each(rData, function (i, item) {
