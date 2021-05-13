@@ -259,9 +259,7 @@ $("#vebirars").on("click", ".video_preview", function () {
   $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
   $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
-  //Получение данных
-  $.getJSON("https://video.gd.ru/event-type-2", function (data) {
-    $.each(data, function (i, item) {
+    $.each(dataResp, function (i, item) {
       $.each(item.videos, (iVideoId, aVideo) => {
         var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
         if (videonameVal == previewVal) {
@@ -284,7 +282,6 @@ $("#vebirars").on("click", ".video_preview", function () {
         }
       });
     });
-  });
 });
 
 //---------ЗАПИСИ ВЫСТУПЛЕНИЙ---------
