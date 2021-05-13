@@ -163,10 +163,10 @@ $(".slider-for").not(".slick-initialized").slick({
 });
 
 //Получение данных
-var data;
+var dataResp;
 $.getJSON("https://video.gd.ru/event-type-2", function (json) {
-  data = json;
-  console.log(data);
+  dataResp = json;
+  console.log(dataResp);
 })
   .done(function () {
     console.log("Request Done");
@@ -177,7 +177,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (json) {
   });
 
 //Перебираем данные в цикле
-$.each(data, function (i, item) {
+$.each(dataResp, function (i, item) {
   //Добавление слайда для навигации (верхний слайдер)
   $(".slider-nav").slick(
     "slickAdd",
