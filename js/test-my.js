@@ -167,6 +167,7 @@ var rData;
 $.getJSON("https://video.gd.ru/event-type-2", function (result) {
   rData = result;
   console.log(rData);
+  getVebinars(rData);
 })
   .done(function () {
     console.log("Request Done");
@@ -254,7 +255,6 @@ function getVebinars(data) {
     );
   });
 }
-getVebinars(rData);
 
 //Контент слайда (вебинары) после клика на превью
 $("#vebirars").on("click", ".video_preview", function () {
