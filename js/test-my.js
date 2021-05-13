@@ -163,8 +163,22 @@ $(".slider-for").not(".slick-initialized").slick({
 });
 
 //Получение данных
-$.getJSON("https://video.gd.ru/event-type-2", function (data) {
-  //Перебираем в цикле
+var rData;
+$.getJSON("https://video.gd.ru/event-type-2", function (result) {
+  rData = result;
+  console.log(rData);
+  getVebinars(rData);
+})
+  .done(function () {
+    console.log("Request Done");
+  })
+  .fail(function (jqxhr, textStatus, error) {
+    var err = textStatus + ", " + error;
+    console.log("Request Failed: " + err);
+  });
+
+function getVebinars(data) {
+  //Перебираем данные в цикле
   $.each(data, function (i, item) {
     //Добавление слайда для навигации (верхний слайдер)
     $(".slider-nav").slick(
@@ -240,7 +254,7 @@ $.getJSON("https://video.gd.ru/event-type-2", function (data) {
         <div class="pl_show"></div></div></div></div>`
     );
   });
-});
+}
 
 //Контент слайда (вебинары) после клика на превью
 $("#vebirars").on("click", ".video_preview", function () {
@@ -248,30 +262,28 @@ $("#vebirars").on("click", ".video_preview", function () {
   $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
   $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
-  //Получение данных
-  $.getJSON("https://video.gd.ru/event-type-2", function (data) {
-    $.each(data, function (i, item) {
-      $.each(item.videos, (iVideoId, aVideo) => {
-        var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
-        if (videonameVal == previewVal) {
-          $("#vebirars .slick-current .main-slide-content a .video").css(
-            "background-image",
-            `url(${aVideo.video_pic_url})`
-          );
-          $(
-            "#vebirars .slick-current .main-slide-content .fancybox-media"
-          ).attr("href", aVideo.video_url);
-          $(
-            "#vebirars .slick-current .main-slide-content .video_description h2"
-          ).html(aVideo.video_name);
-          $(
-            "#vebirars .slick-current .main-slide-content .video_description .txt_author"
-          ).text(aVideo.video_author);
-          $(
-            "#vebirars .slick-current .main-slide-content .video_description .txt_video_desc"
-          ).text(aVideo.video_text);
-        }
-      });
+  $.each(rData, function (i, item) {
+    $.each(item.videos, (iVideoId, aVideo) => {
+      var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
+      if (videonameVal == previewVal) {
+        $("#vebirars .slick-current .main-slide-content a .video").css(
+          "background-image",
+          `url(${aVideo.video_pic_url})`
+        );
+        $("#vebirars .slick-current .main-slide-content .fancybox-media").attr(
+          "href",
+          aVideo.video_url
+        );
+        $(
+          "#vebirars .slick-current .main-slide-content .video_description h2"
+        ).html(aVideo.video_name);
+        $(
+          "#vebirars .slick-current .main-slide-content .video_description .txt_author"
+        ).text(aVideo.video_author);
+        $(
+          "#vebirars .slick-current .main-slide-content .video_description .txt_video_desc"
+        ).text(aVideo.video_text);
+      }
     });
   });
 });
