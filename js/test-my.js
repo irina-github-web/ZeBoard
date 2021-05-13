@@ -163,26 +163,13 @@ $(".slider-for").not(".slick-initialized").slick({
 });
 
 //Получение данных
-var rData;
-// await new Promise((done) =>
-//   $.getJSON("https://video.gd.ru/event-type-2", async function (result) {
-//     rData = result;
-//     done();
-//   })
-// );
-
-async function getVebinarsData() {
-  // Your async code here
-  rData = await fetch("https://video.gd.ru/event-type-2");
-}
-getVebinarsData();
-
-//Перебираем данные в цикле
-$.each(rData, function (i, item) {
-  //Добавление слайда для навигации (верхний слайдер)
-  $(".slider-nav").slick(
-    "slickAdd",
-    `<div class="chapter_card chapter1">
+$.getJSON("https://video.gd.ru/event-type-2", function (data) {
+  //Перебираем в цикле
+  $.each(data, function (i, item) {
+    //Добавление слайда для навигации (верхний слайдер)
+    $(".slider-nav").slick(
+      "slickAdd",
+      `<div class="chapter_card chapter1">
         <a href="#vebirars">
         <div class="chapter1_img" style="background-image: url(${item.video_type_pic_url});"></div>
         <div class="chapter_txt">
@@ -192,22 +179,22 @@ $.each(rData, function (i, item) {
         <div class="txt_link_look">смотреть</div></a>
         <a href="#" class="link_look1 active w-inline-block">
         <div class="txt_link_look">смотреть</div></a></div></a></div>`
-  );
+    );
 
-  var iVideoIdFirst = ""; //для вывода первого объекта в слайд
-  var result = []; //массив для контента видео + описание
-  var result_preview = []; //массив для превью видео вебинаров
+    var iVideoIdFirst = ""; //для вывода первого объекта в слайд
+    var result = []; //массив для контента видео + описание
+    var result_preview = []; //массив для превью видео вебинаров
 
-  //Добавлние в массив видео вебинара + описание (первый объект)
-  $.each(item.videos, (iVideoId, aVideo) => {
-    if (iVideoIdFirst === "") {
-      iVideoIdFirst = iVideoId;
-    } else {
-      return false;
-    }
+    //Добавлние в массив видео вебинара + описание (первый объект)
+    $.each(item.videos, (iVideoId, aVideo) => {
+      if (iVideoIdFirst === "") {
+        iVideoIdFirst = iVideoId;
+      } else {
+        return false;
+      }
 
-    result.push(
-      `<div class="main-slide-content">
+      result.push(
+        `<div class="main-slide-content">
           <a href=${aVideo.video_url} class="fancybox-media w-inline-block">
           <div class="video" style="background-color:rgba(63, 145, 229, 0.7);background-image: url(${aVideo.video_pic_url});background-size:cover;"><img src="images/icn_play_big.png" alt="" class="icn_big_play">
           <div class="pl_blue"></div></div></a>
@@ -216,42 +203,43 @@ $.each(rData, function (i, item) {
           <div class="razdelit_mid"></div>
           <div class="txt_author">${aVideo.video_author}</div>
           <p class="txt_std txt_video_desc">${aVideo.video_text}</p></div></div>`
-    );
-  });
+      );
+    });
 
-  //Добавление в массив превью видео вебинаров
-  $.each(item.videos, (iVideoId, aVideo) => {
-    result_preview.push(
-      `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
-        aVideo.video_pic_url
-      }); 
+    //Добавление в массив превью видео вебинаров
+    $.each(item.videos, (iVideoId, aVideo) => {
+      result_preview.push(
+        `<div class="video_preview preview_vebinar3_1 liteTooltip" style="background-image: url(../images/icn_play_small.png), url(${
+          aVideo.video_pic_url
+        }); 
         ${iVideoId == iVideoIdFirst ? "opacity: 0.5" : "opacity : 0.8"}" 
         data-tooltip-mouseover='${aVideo.video_name}' data-picname='${
-        aVideo.video_pic_url
-      }'></div>`
-    );
-  });
+          aVideo.video_pic_url
+        }'></div>`
+      );
+    });
 
-  //Добавление слайда с контентом (нижний слайдер)
-  $(".slider-for").slick(
-    "slickAdd",
-    `<div class="container-upr">
+    //Добавление слайда с контентом (нижний слайдер)
+    $(".slider-for").slick(
+      "slickAdd",
+      `<div class="container-upr">
         <h1 class="header_std">${item.video_type_name}</h1>
         <div class="razdelit_upravl" id="vebirars_view">
         <div class="line_razd blue"></div><img src=${item.video_type_icon_url} width="29" alt="" class="icn_upravl">
         <div class="line_razd blue"></div></div>
         <div class="content">
         <div class="block_video">` +
-      result.join("") +
-      '<div class="block_video_preview">' +
-      result_preview.join("") +
-      "</div>" +
-      `<div class="video_show_all liteTooltip">
+        result.join("") +
+        '<div class="block_video_preview">' +
+        result_preview.join("") +
+        "</div>" +
+        `<div class="video_show_all liteTooltip">
         <div class="btn_arrow_right">
         <img src="images/icn_arrow_right.svg" alt="" class="arrow_bottom">
         </div></div></div>
         <div class="pl_show"></div></div></div></div>`
-  );
+    );
+  });
 });
 
 //Контент слайда (вебинары) после клика на превью
@@ -260,28 +248,30 @@ $("#vebirars").on("click", ".video_preview", function () {
   $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
   $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
-  $.each(rData, function (i, item) {
-    $.each(item.videos, (iVideoId, aVideo) => {
-      var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
-      if (videonameVal == previewVal) {
-        $("#vebirars .slick-current .main-slide-content a .video").css(
-          "background-image",
-          `url(${aVideo.video_pic_url})`
-        );
-        $("#vebirars .slick-current .main-slide-content .fancybox-media").attr(
-          "href",
-          aVideo.video_url
-        );
-        $(
-          "#vebirars .slick-current .main-slide-content .video_description h2"
-        ).html(aVideo.video_name);
-        $(
-          "#vebirars .slick-current .main-slide-content .video_description .txt_author"
-        ).text(aVideo.video_author);
-        $(
-          "#vebirars .slick-current .main-slide-content .video_description .txt_video_desc"
-        ).text(aVideo.video_text);
-      }
+  //Получение данных
+  $.getJSON("https://video.gd.ru/event-type-2", function (data) {
+    $.each(data, function (i, item) {
+      $.each(item.videos, (iVideoId, aVideo) => {
+        var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
+        if (videonameVal == previewVal) {
+          $("#vebirars .slick-current .main-slide-content a .video").css(
+            "background-image",
+            `url(${aVideo.video_pic_url})`
+          );
+          $(
+            "#vebirars .slick-current .main-slide-content .fancybox-media"
+          ).attr("href", aVideo.video_url);
+          $(
+            "#vebirars .slick-current .main-slide-content .video_description h2"
+          ).html(aVideo.video_name);
+          $(
+            "#vebirars .slick-current .main-slide-content .video_description .txt_author"
+          ).text(aVideo.video_author);
+          $(
+            "#vebirars .slick-current .main-slide-content .video_description .txt_video_desc"
+          ).text(aVideo.video_text);
+        }
+      });
     });
   });
 });
