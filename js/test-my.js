@@ -306,10 +306,10 @@ $("#conferenses").not(".slick-initialized").slick({
 
 //Получение данных
 var rDataConf;
-await new Promise((done) =>
+await new Promise((doneConf) =>
   $.getJSON("https://video.gd.ru/event-type-1", async function (result) {
     rDataConf = result;
-    done();
+    doneConf();
   })
 );
 
