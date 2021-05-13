@@ -179,7 +179,7 @@ var rData;
 $.ajax({
   async: false,
   url: "https://video.gd.ru/event-type-2",
-  success: function () {
+  success: function (result) {
     rData = result;
     console.log(rData);
   },
