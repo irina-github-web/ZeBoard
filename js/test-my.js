@@ -177,10 +177,10 @@ function getdata(url) {
 // });
 
 getdata("https://video.gd.ru/event-type-2").done(function (data) {
-  var vData = data;
+
   //Перебираем в цикле
-  $.each(vData, function (i, item) {
-    console.log(vData);
+  $.each(data, function (i, item) {
+    console.log(data);
     //Добавление слайда для навигации (верхний слайдер)
     $(".slider-nav").slick(
       "slickAdd",
@@ -262,7 +262,7 @@ getdata("https://video.gd.ru/event-type-2").done(function (data) {
     $("#vebirars .video_preview").css("opacity", "0.8"); //ставим всем превью прозрачность 0.8
     $(this).css("opacity", "0.5"); //выбранный элемент прозрачнее других
 
-    $.each(vData, function (i, item) {
+    $.each(data, function (i, item) {
       $.each(item.videos, (iVideoId, aVideo) => {
         var videonameVal = aVideo.video_pic_url; //название видео в переменную, и ниже проверка на соответствие
         if (videonameVal == previewVal) {
