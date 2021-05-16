@@ -170,7 +170,7 @@ function getdata(url) {
   return data;
 }
 
-var vData;
+var vData = [];
 getdata("https://video.gd.ru/event-type-2").done(function (data) {
   // Use your JSON data here
   console.log(data);
