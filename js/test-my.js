@@ -167,9 +167,9 @@ function getData() {
 }
 
 $.when(getData()).then(function (data) {
+  console.log(data);
   //Перебираем в цикле
   $.each(data, function (i, item) {
-    console.log(data);
     //Добавление слайда для навигации (верхний слайдер)
     $(".slider-nav").slick(
       "slickAdd",
@@ -301,6 +301,10 @@ $("#conferenses").not(".slick-initialized").slick({
   asNavFor: ".chapters_block2",
 });
 
+function getDataConf() {
+  return $.getJSON("https://video.gd.ru/event-type-1");
+}
+
 var defYear = "2020";
 // getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
 
@@ -387,8 +391,7 @@ function getConferences(year, item, currSlideIndex) {
   // loadMoreVideos();
 }
 
-//Получение данных
-$.getJSON("https://video.gd.ru/event-type-1", function (data) {
+$.when(getDataConf()).then(function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
     //Добавление слайда для навигации (верхний слайдер)
@@ -409,16 +412,13 @@ $.getJSON("https://video.gd.ru/event-type-1", function (data) {
 
     getConferences(defYear, item); //вызов функции для вывода данных за 2020 год
   });
-});
 
-//Контент слайдера (выступления) после клика на превью
-$("#conferenses").on("click", ".video_preview", function () {
-  var previewValС = $(this).attr("data-picname"); //выбранное название видео
-  $("#conferenses .video_preview").css("opacity", "0.8");
-  $(this).css("opacity", "0.5");
+  //Контент слайдера (выступления) после клика на превью
+  $("#conferenses").on("click", ".video_preview", function () {
+    var previewValС = $(this).attr("data-picname"); //выбранное название видео
+    $("#conferenses .video_preview").css("opacity", "0.8");
+    $(this).css("opacity", "0.5");
 
-  //Получение данных
-  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Цикл
     $.each(data, function (i, item) {
       //до объекта, где ключ год
@@ -448,30 +448,28 @@ $("#conferenses").on("click", ".video_preview", function () {
       });
     });
   });
-});
 
-//Контент слайда после клика на год pagination
-$("#conferenses").on("click", ".year_pagination", function () {
-  var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
-  var currSlideIndex = $(".chapters_block2 .slick-current").attr(
-    "data-slick-index"
-  );
-  //удаление текущего слайда
-  $("#conferenses .container-upr").remove();
+  //Контент слайда после клика на год pagination
+  $("#conferenses").on("click", ".year_pagination", function () {
+    var currYear = $(this).attr("data-tooltip-year"); //получение выбранного года
+    var currSlideIndex = $(".chapters_block2 .slick-current").attr(
+      "data-slick-index"
+    );
+    //удаление текущего слайда
+    $("#conferenses .container-upr").remove();
 
-  $.getJSON("https://video.gd.ru/event-type-1", function (data) {
     //Перебираем в цикле
     $.each(data, function (i, item) {
       getConferences(currYear, item); //вызов функции для сортировки по выбранному году
     });
-  });
 
-  if (currSlideIndex == 1) {
-    setTimeout(function () {
-      $(".chapters_block2 .slick-current").click();
-    }, 55);
-  }
-  // loadMoreVideos();
+    if (currSlideIndex == 1) {
+      setTimeout(function () {
+        $(".chapters_block2 .slick-current").click();
+      }, 55);
+    }
+    // loadMoreVideos();
+  });
 });
 
 //Show more button для видео-превью
