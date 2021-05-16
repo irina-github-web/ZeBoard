@@ -162,22 +162,11 @@ $(".slider-for").not(".slick-initialized").slick({
   asNavFor: ".slider-nav",
 });
 
-function getdata(url) {
-  var data = $.ajax({
-    type: "GET",
-    url: url,
-  });
-  return data;
+function getData() {
+  return $.getJSON("https://video.gd.ru/event-type-2");
 }
 
-// var vData = [];
-// getdata("https://video.gd.ru/event-type-2").done(function (data) {
-//   // Use your JSON data here
-//   vData = data;
-// });
-
-getdata("https://video.gd.ru/event-type-2").done(function (data) {
-
+$.when(getData()).then(function (data) {
   //Перебираем в цикле
   $.each(data, function (i, item) {
     console.log(data);
