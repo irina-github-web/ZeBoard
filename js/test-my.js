@@ -170,15 +170,15 @@ function getdata(url) {
   return data;
 }
 
-var chapters;
+var vData;
 getdata("https://video.gd.ru/event-type-2").done(function (data) {
   // Use your JSON data here
   console.log(data);
-  chapters = data;
+  vData = data;
 });
 
 //Перебираем в цикле
-$.each(chapters, function (i, item) {
+$.each(vData, function (i, item) {
   //Добавление слайда для навигации (верхний слайдер)
   $(".slider-nav").slick(
     "slickAdd",
