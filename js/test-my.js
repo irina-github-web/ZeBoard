@@ -173,12 +173,12 @@ function getdata(url) {
 var vData = [];
 getdata("https://video.gd.ru/event-type-2").done(function (data) {
   // Use your JSON data here
-  console.log(data);
   vData = data;
 });
 
 //Перебираем в цикле
 $.each(vData, function (i, item) {
+  console.log(vData);
   //Добавление слайда для навигации (верхний слайдер)
   $(".slider-nav").slick(
     "slickAdd",
