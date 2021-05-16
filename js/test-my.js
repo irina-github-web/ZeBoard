@@ -162,12 +162,12 @@ $(".slider-for").not(".slick-initialized").slick({
   asNavFor: ".slider-nav",
 });
 
+//Получение данных
 function getData() {
   return $.getJSON("https://video.gd.ru/event-type-2");
 }
 
 $.when(getData()).then(function (data) {
-  console.log(data);
   //Перебираем в цикле
   $.each(data, function (i, item) {
     //Добавление слайда для навигации (верхний слайдер)
@@ -301,12 +301,12 @@ $("#conferenses").not(".slick-initialized").slick({
   asNavFor: ".chapters_block2",
 });
 
+//Получение данных
 function getDataConf() {
   return $.getJSON("https://video.gd.ru/event-type-1");
 }
 
-var defYear = "2020";
-// getConferences(defYear); //вызов функции (описана ниже) для вывода данных за 2020 год
+var defYear = "2020"; //год сортировки по умолчанию
 
 //функция сортировки по году
 function getConferences(year, item, currSlideIndex) {
