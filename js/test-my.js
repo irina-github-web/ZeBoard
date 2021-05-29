@@ -287,7 +287,12 @@ $(".chapters_block2").not(".slick-initialized").slick({
   focusOnSelect: true,
   centerMode: false,
   dots: false,
-  arrows: false,
+//   arrows: false,
+      appendArrows: $(".slick-arrow-5"),
+    prevArrow:
+      '<button class="icn_arrow_left" aria-label="Previous" type="button"></button>',
+    nextArrow:
+      '<button class="icn_arrow_right" aria-label="Next" type="button"></button>',
   asNavFor: "#conferenses",
 });
 
