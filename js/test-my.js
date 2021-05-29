@@ -282,8 +282,8 @@ $.when(getData()).then(function (data) {
 //Слайдер навигации (выступления)
 $(".chapters_block2").not(".slick-initialized").slick({
   slidesToShow: 2,
-  slidesToScroll: 2,
-  infinite: false,
+  slidesToScroll: 1,
+  infinite: true,
   focusOnSelect: true,
   centerMode: false,
   dots: false,
