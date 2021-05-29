@@ -463,11 +463,11 @@ $.when(getDataConf()).then(function (data) {
       getConferences(currYear, item); //вызов функции для сортировки по выбранному году
     });
 
-    if (currSlideIndex == 1) {
+//     if (currSlideIndex == 1) {
       setTimeout(function () {
         $(".chapters_block2 .slick-current").click();
       }, 55);
-    }
+//     }
     // loadMoreVideos();
   });
 });
